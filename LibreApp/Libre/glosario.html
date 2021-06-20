@@ -1,0 +1,695 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>TEMPLATE PAGE</title>
+
+  <!-- *** BEGIN: Styles *** -->
+  <link href="Content/bootstrap.min.css" rel="stylesheet" />
+  <link href="Content/Site.css" rel="stylesheet" />
+  <link href="Content/pdsa-sidebar.css" rel="stylesheet" />
+  <link href="Content/pdsa-summary-block.css" rel="stylesheet" />
+  <link href="Content/pdsa-readme-box.css" rel="stylesheet" />
+  <link href="Content/pdsa-collapser.css" rel="stylesheet" />
+  <!-- *** END: Styles *** -->
+    <style>
+        body {
+            background-color: transparent;
+        }
+        /* fondo transparente FireFox width:150px;*/
+        .img{
+            
+            height:500px;
+           
+        }
+    </style>
+    
+       <script type="text/javascript">
+    
+    function irpage(a)
+    {
+          alert(a);
+        $('#mybook').booklet("gotopage", 4);
+
+    }
+    
+      $(document).ready(function () {
+          
+           $('#opcion1').click(function(e){
+        e.preventDefault();
+        alert("llego");
+        $('#mybook').booklet("gotopage", 4);
+        
+        $('#gotoIndex').on('change', function(e){
+				e.preventDefault();
+				$('#custom-gotopage').click();
+			});
+    });
+    </script>
+</head>
+<body class="notransition">
+  
+
+  <!-- *** BEGIN: Body Content *** -->
+  
+  
+  
+  <!-- <a id="custom" href="#" >link</a>
+   <a href="javascript:void(0)" title="Click here" onClick="parent.alertMyMessage('Thanks for Helping me')">Click Here</a>
+-->
+<!--
+<div class="b-selector b-selector-chapter"><span class="b-current">Asistente de Presentacion Impress</span>
+    <ul style="height: 0px; padding-bottom: 0px;">
+        <li><a href="javascript:void(0)" title="Click here" onClick="parent.indice(1)"><span class="b-text">Bienvenida y Introduccion</span></a></li>
+        <li><a href="javascript:void(0)" title="Click here" onClick="parent.indice(2)"><span class="b-text">UNIDAD I:EXPLORANDO EL AMBIENTE DE LIBRE OFFICE IMPRESS</span></a></li>
+        <li><a href="javascript:void(0)" title="Click here" onClick="parent.indice(3)"><span class="b-text">Abrir Libre Office Impress</span></a></li>
+        <li><a href="javascript:void(0)" title="Click here" onClick="parent.indice(4)"><span class="b-text">Interfaz de Usuario de Impress</span></a></li>
+        <li><a href="javascript:void(0)" title="Click here" onClick="parent.indice(5)"><span class="b-text">UNIDAD II:PRESENTACIONES</span></a></li>
+        <li><a href="javascript:void(0)" title="Click here" onClick="parent.indice(6)"><span class="b-text">Presentaciones Impress</span></a></li>
+        <li><a href="javascript:void(0)" title="Click here" onClick="parent.indice(7)"><span class="b-text">Nueva Presentacion de Impress</span></a></li>
+        <li><a href="javascript:void(0)" title="Click here" onClick="parent.indice(9)"><span class="b-text">Nueva Diapositiva</span></a></li>
+        <li><a href="javascript:void(0)" title="Click here" onClick="parent.indice(11)"><span class="b-text">Transicion de Presentacion</span></a></li>
+        <li><a href="javascript:void(0)" title="Click here" onClick="parent.indice(13)"><span class="b-text">Interacciones</span></a></li>
+        <li><a href="javascript:void(0)" title="Click here" onClick="parent.indice(15)"><span class="b-text">Animaciones</span></a></li>
+        <li><a href="javascript:void(0)" title="Click here" onClick="parent.indice(17)"><span class="b-text">Paginas Maestras</span></a></li>
+        <li><a href="javascript:void(0)" title="Click here" onClick="parent.indice(19)"><span class="b-text">UNIDAD III:PLANTILLAS Y ESTILOS EN IMPRESS</span></a></li>
+        <li><a href="javascript:void(0)" title="Click here" onClick="parent.indice(20)"><span class="b-text">Asistente de Presentacion Impress</span></a></li>
+        <li><a href="javascript:void(0)" title="Click here" onClick="parent.indice(22)" ><span class="b-text">Estilos Y Formatos Impress</span></a></li>
+        <li><a href="javascript:void(0)" title="Click here" onClick="parent.indice(24)"><span class="b-text">Plantillas Impress</span></a></li>
+        <li><a href="javascript:void(0)" title="Click here" onClick="parent.indice(26)"><span class="b-text">Organizando Plantillas Impress</span></a></li>
+        <li><a href="javascript:void(0)" title="Click here" onClick="parent.indice(28)">UNIDAD IV:TRABAJANDO CON TEXTO</span></a></li>
+        <li><a href="javascript:void(0)" title="Click here" onClick="parent.indice(29)"><span class="b-text">Creando cajas de texto</span></a></li>
+        <li><a href="javascript:void(0)" title="Click here" onClick="parent.indice(32)"><span class="b-text">Diseño de Tablas</span></a></li>
+        <li><a href="javascript:void(0)" title="Click here" onClick="parent.indice(35)">UNIDAD V:TRABAJANDO CON IMAGENES</span></a></li>
+        <li><a href="javascript:void(0)" title="Click here" onClick="parent.indice(36)"><span class="b-text">Insertando Imagenes</span></a></li>
+        <li><a href="javascript:void(0)" title="Click here" onClick="parent.indice(39)"><span class="b-text">FontWork Impress</span></a></li>
+        <li><a href="javascript:void(0)" title="Click here" onClick="parent.indice(42)"><span class="b-text">UNIDAD VI:INTEGRACION CON LIBRE OFFICE</span></a></li>
+        <li><a href="javascript:void(0)" title="Click here" onClick="parent.indice(43)"><span class="b-text">Usando Hojas de Calculo en Impress</span></a></li>
+        <li><a href="javascript:void(0)" title="Click here" onClick="parent.indice(46)"><span class="b-text">Graficos en Impress</span></a></li>
+        <li><a href="javascript:void(0)" title="Click here" onClick="parent.indice(50)"><span class="b-text">UNIDAD VII:EXPORTANDO PRESENTACIONES</span></a></li>
+        <li><a href="javascript:void(0)" title="Click here" onClick="parent.indice(51)"><span class="b-text">Exportando Impress a PDF</span></a></li>
+        <li><a href="javascript:void(0)" title="Click here" onClick="parent.indice(52)"><span class="b-text"> Exportando Impress a SWF</span></a></li>
+        <li><a href="javascript:void(0)" title="Click here" onClick="parent.indice(53)"><span class="b-text">Imprimir en Impress</span></a></li>
+        <li><a href="javascript:void(0)" title="Click here" onClick="parent.indice(55)"><span class="b-text"> Correcccion Ortografica en Impress</span></a></li>
+        <li><a href="javascript:void(0)" title="Click here" onClick="parent.indice(57)"><span class="b-text">Fin del Modulo</span></a></li>
+    </ul>
+</div>-->
+     
+          <div class="col-xs-12 col-xs-12 col-sm-8" id="menu" >
+              <div class="panel-group"
+                   id="app"
+                   data-pdsa-collapser-name="app"
+                   data-pdsa-collapser-open="glyphicon glyphicon-plus"
+                   data-pdsa-collapser-close="glyphicon glyphicon-minus">
+                 <!-- <div class="panel panel-primary">
+                      <div class="panel-heading">
+                          <h1 class="panel-title">
+                              <a data-toggle="collapse"
+                                 data-parent="#app"
+                                 href="#max">LINUX MAX</a>
+                              <a data-toggle="collapse"
+                                 data-parent="#app"
+                                 href="#max"
+                                 class="pdsa-panel-toggle glyphicon glyphicon-plus"></a>
+                          </h1>
+                      </div>
+                      <div id="max" class="panel-collapse collapse">
+                          <div class="panel-body">
+
+                               
+                              <div class="panel-group"
+                                   id="lmax"
+                                   data-pdsa-collapser-name="lmax"
+                                   data-pdsa-collapser-open="glyphicon glyphicon-plus"
+                                   data-pdsa-collapser-close="glyphicon glyphicon-minus">
+                                  <div class="panel panel-primary">
+                                      <div class="panel-heading">
+                                         
+                                              <h1 class="panel-title">
+                                                  <a data-toggle="collapse"
+                                                     data-parent="#lmax"
+                                                     href="#intro">Introduccion</a>
+                                                  <a data-toggle="collapse"
+                                                     data-parent="#lmax"
+                                                     href="#intro"
+                                                     class="pdsa-panel-toggle glyphicon glyphicon-plus"></a>
+                                              </h1>
+</div>
+                                      <div id="intro" class="panel-collapse collapse">
+                                          <div class="panel-body">
+                                               <a   id="opcion1" class="glyphicon glyphicon-globe"><span>UNIDAD II:PRESENTACIONES</span></a>
+                                              <a class="glyphicon glyphicon-globe">  ¿Qué es GNU/Linux?</a>
+                                              <a class="glyphicon glyphicon-globe">  Características del sistema</a>
+                                              <a class="glyphicon glyphicon-globe">  Distribuciones.</a>
+                                              <a class ="glyphicon glyphicon-globe"> Tipos de software</a>
+                                              
+
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="panel panel-primary">
+                                      <div class="panel-heading">
+                                          <h1 class="panel-title">
+                                              <a data-toggle="collapse"
+                                                 data-parent="#lmax"
+                                                 href="#proym">El proyecto MAX</a>
+                                              <a data-toggle="collapse"
+                                                 data-parent="#lmax"
+                                                 href="#proym"
+                                                 class="pdsa-panel-toggle glyphicon glyphicon-plus"></a>
+                                          </h1>
+                                      </div>
+                                      <div id="proym" class="panel-collapse collapse">
+                                          <div class="panel-body">
+                                              <a class="glyphicon glyphicon-globe">  El entorno de trabajo en KDE.</a>
+                                              <a class="glyphicon glyphicon-globe">  El escritorio de KDE.</a>
+                                              <a class="glyphicon glyphicon-globe">  El panel.</a>
+                                              <a class="glyphicon glyphicon-globe">  Organización de archivos.</a>
+                                              <a class="glyphicon glyphicon-globe">  Acceso al disco duro, unidad de disquete y CD.</a> 
+
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="panel panel-primary">
+                                      <div class="panel-heading">
+                                          <h1 class="panel-title">
+                                              <a data-toggle="collapse"
+                                                 data-parent="#lmax"
+                                                 href="#internet">Internet</a>
+                                              <a data-toggle="collapse"
+                                                 data-parent="#lmax"
+                                                 href="#internet"
+                                                 class="pdsa-panel-toggle glyphicon glyphicon-plus"></a>
+                                          </h1>
+                                      </div>
+                                      <div id="internet" class="panel-collapse collapse">
+                                          <div class="panel-body">
+                                              <a class="glyphicon glyphicon-globe"> Internet,Web y Navegadores.</a>
+                                              <a class="glyphicon glyphicon-globe">  Mozilla y Chromium.</a>
+
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="panel panel-primary">
+                                      <div class="panel-heading">
+                                          <h1 class="panel-title">
+                                              <a data-toggle="collapse"
+                                                 data-parent="#lmax"
+                                                 href="#rappedu">Un recorrido por las aplicaciones educativas</a>
+                                              <a data-toggle="collapse"
+                                                 data-parent="#lmax"
+                                                 href="#rappedu"
+                                                 class="pdsa-panel-toggle glyphicon glyphicon-plus"></a>
+                                          </h1>
+                                      </div>
+                                      <div id="rappedu" class="panel-collapse collapse">
+                                          <div class="panel-body">
+                                              <a class="glyphicon glyphicon-globe"> Educativos.</a>
+                                              <a class="glyphicon glyphicon-globe"> Ciencia y tecnologia</a>
+
+
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="panel panel-primary">
+                                      <div class="panel-heading">
+                                          <h1 class="panel-title">
+                                              <a data-toggle="collapse"
+                                                 data-parent="#lmax"
+                                                 href="#inconf">Instalacion y configuracion</a>
+                                              <a data-toggle="collapse"
+                                                 data-parent="#lmax"
+                                                 href="#inconf"
+                                                 class="pdsa-panel-toggle glyphicon glyphicon-plus"></a>
+                                          </h1>
+                                      </div>
+                                      <div id="inconf" class="panel-collapse collapse">
+                                          <div class="panel-body">
+                                              <a class="glyphicon glyphicon-globe"> Modos de trabajo en MAXs.</a>
+                                              <a class="glyphicon glyphicon-globe">  Instalación de Linux Max. Guía paso a paso.</a>
+
+
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+
+                      </div>
+                  </div>
+                  <div class="panel panel-primary">
+                      <div class="panel-heading">
+                          <h1 class="panel-title">
+                              <a data-toggle="collapse"
+                                 data-parent="#app"
+                                 href="#writer">LIBRE OFFICE WRITER</a>
+                              <a data-toggle="collapse"
+                                 data-parent="#app"
+                                 href="#writer"
+                                 class="pdsa-panel-toggle glyphicon glyphicon-plus"></a>
+                          </h1>
+                      </div>
+                      <div id="writer" class="panel-collapse collapse">
+                          <div class="panel-body">
+                              <div class="panel-group"
+                                   id="lwriter"
+                                   data-pdsa-collapser-name="lwriter"
+                                   data-pdsa-collapser-open="glyphicon glyphicon-plus"
+                                   data-pdsa-collapser-close="glyphicon glyphicon-minus">
+                                  <div class="panel panel-primary">
+                                      <div class="panel-heading">
+
+                                          <h1 class="panel-title">
+                                              <a data-toggle="collapse"
+                                                 data-parent="#lwriter"
+                                                 href="#explora">Exploración del ambiente de Writer</a>
+                                              <a data-toggle="collapse"
+                                                 data-parent="#lwriter"
+                                                 href="#explora"
+                                                 class="pdsa-panel-toggle glyphicon glyphicon-plus"></a>
+                                          </h1>
+                                      </div>
+                                      <div id="explora" class="panel-collapse collapse">
+                                          <div class="panel-body">
+
+                                              <a class="glyphicon glyphicon-globe">  Introducción</a>
+                                              <a class="glyphicon glyphicon-globe">  Interfaz de usuario</a>
+                                              <a class="glyphicon glyphicon-globe">  Ortografía y gramática.</a>
+                                              <a class="glyphicon glyphicon-globe">  Diseño de la vista</a>
+                                              <a class="glyphicon glyphicon-globe">  Zoom a escala</a>
+
+
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="panel panel-primary">
+                                      <div class="panel-heading">
+                                          <h1 class="panel-title">
+                                              <a data-toggle="collapse"
+                                                 data-parent="#lwriter"
+                                                 href="#doct">Trabajando con documentos</a>
+                                              <a data-toggle="collapse"
+                                                 data-parent="#lwriter"
+                                                 href="#doct"
+                                                 class="pdsa-panel-toggle glyphicon glyphicon-plus"></a>
+                                          </h1>
+                                      </div>
+                                      <div id="doct" class="panel-collapse collapse">
+                                          <div class="panel-body">
+                                              <a class="glyphicon glyphicon-globe">  Nuevo documento.</a>
+                                              <a class="glyphicon glyphicon-globe">  Abrir documento.</a>
+                                              <a class="glyphicon glyphicon-globe">  Guardar documento.</a>
+                                              <a class="glyphicon glyphicon-globe">  Seleccionar bloques de texto.</a>
+                                              <a class="glyphicon glyphicon-globe">  Copiar, cortar y pegar texto.</a>
+                                              <a class="glyphicon glyphicon-globe">  Buscar y reemplazar texto.</a>
+                                              <a class="glyphicon glyphicon-globe">  Usar Autocorrect.</a>
+
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="panel panel-primary">
+                                      <div class="panel-heading">
+                                          <h1 class="panel-title">
+                                              <a data-toggle="collapse"
+                                                 data-parent="#lwriter"
+                                                 href="#formatdoc">Formato a documentos.</a>
+                                              <a data-toggle="collapse"
+                                                 data-parent="#lwriter"
+                                                 href="#formatdoc"
+                                                 class="pdsa-panel-toggle glyphicon glyphicon-plus"></a>
+                                          </h1>
+                                      </div>
+                                      <div id="formatdoc" class="panel-collapse collapse">
+                                          <div class="panel-body">
+                                              <a class="glyphicon glyphicon-globe"> Uso de estilos.</a>
+                                              <a class="glyphicon glyphicon-globe"> Formatos a párrafos.</a>
+                                              <a class="glyphicon glyphicon-globe"> Listas y viñetas.</a>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="panel panel-primary">
+                                      <div class="panel-heading">
+                                          <h1 class="panel-title">
+                                              <a data-toggle="collapse"
+                                                 data-parent="#lwriter"
+                                                 href="#formatpag">Formato a páginas</a>
+                                              <a data-toggle="collapse"
+                                                 data-parent="#lwriter"
+                                                 href="#formatpag"
+                                                 class="pdsa-panel-toggle glyphicon glyphicon-plus"></a>
+                                          </h1>
+                                      </div>
+                                      <div id="formatpag" class="panel-collapse collapse">
+                                          <div class="panel-body">
+                                              <a class="glyphicon glyphicon-globe"> Encabezado y pie de páginas.</a>
+                                              <a class="glyphicon glyphicon-globe"> Numeración de páginas.</a>
+                                              <a class="glyphicon glyphicon-globe"> Margen de páginas.</a>
+                                              <a class="glyphicon glyphicon-globe"> Imprimir desde writer.</a>
+                                              <a class="glyphicon glyphicon-globe"> Combinar correspondencia.</a>
+
+                                          </div>
+                                      </div>
+                                  </div>
+                                  
+                              </div>
+
+                          </div>
+                      </div>
+                  </div>
+                  <div class="panel panel-primary">
+                      <div class="panel-heading">
+                          <h1 class="panel-title">
+                              <a data-toggle="collapse"
+                                 data-parent="#app"
+                                 href="#calc">LIBRE OFFICE CALC</a>
+                              <a data-toggle="collapse"
+                                 data-parent="#app"
+                                 href="#calc"
+                                 class="pdsa-panel-toggle glyphicon glyphicon-plus"></a>
+                          </h1>
+                      </div>
+                      <div id="calc" class="panel-collapse collapse">
+                          <div class="panel-body">
+                              <div class="panel-group"
+                                   id="lcalc"
+                                   data-pdsa-collapser-name="lcalc"
+                                   data-pdsa-collapser-open="glyphicon glyphicon-plus"
+                                   data-pdsa-collapser-close="glyphicon glyphicon-minus">
+                                  <div class="panel panel-primary">
+                                      <div class="panel-heading">
+
+                                          <h1 class="panel-title">
+                                              <a data-toggle="collapse"
+                                                 data-parent="#lcalc"
+                                                 href="#explorcalc">Exploración del ambiente de Calc</a>
+                                              <a data-toggle="collapse"
+                                                 data-parent="#lcalc"
+                                                 href="#explorcalc"
+                                                 class="pdsa-panel-toggle glyphicon glyphicon-plus"></a>
+                                          </h1>
+                                      </div>
+                                      <div id="explorcalc" class="panel-collapse collapse">
+                                          <div class="panel-body">
+
+                                              <a class="glyphicon glyphicon-globe">  Exploración al ambiente </a>
+                                              <a class="glyphicon glyphicon-globe">  Barras</a>
+                                              <a class="glyphicon glyphicon-globe">  Abrir y guardar un libro.</a>
+
+                                              <a class="glyphicon glyphicon-globe">  Empezar un nuevo libro de trabajo.</a>
+                                              <a class="glyphicon glyphicon-globe">  Conceptos Básicos.</a>
+                                              <a class="glyphicon glyphicon-globe">  Compaginar dos paginas.</a>
+                                              <a class="glyphicon glyphicon-globe">  Iniciar y cerrar Calc.</a>
+
+
+
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="panel panel-primary">
+                                      <div class="panel-heading">
+                                          <h1 class="panel-title">
+                                              <a data-toggle="collapse"
+                                                 data-parent="#lcalc"
+                                                 href="#workcel">Trabajando con Celdas</a>
+                                              <a data-toggle="collapse"
+                                                 data-parent="#lcalc"
+                                                 href="#workcel"
+                                                 class="pdsa-panel-toggle glyphicon glyphicon-plus"></a>
+                                          </h1>
+                                      </div>
+                                      <div id="workcel" class="panel-collapse collapse">
+                                          <div class="panel-body">
+                                              <a class="glyphicon glyphicon-globe">  Introducir datos.</a>
+                                              <a class="glyphicon glyphicon-globe">  Modificar datos.</a>
+                                              <a class="glyphicon glyphicon-globe">  Selección de la celda.</a>
+                                              <a class="glyphicon glyphicon-globe">  Añadir a la selección.</a>
+                                              <a class="glyphicon glyphicon-globe">  Borrar celdas.</a>
+
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="panel panel-primary">
+                                      <div class="panel-heading">
+                                          <h1 class="panel-title">
+                                              <a data-toggle="collapse"
+                                                 data-parent="#lcalc"
+                                                 href="#formatcalc">Formato.</a>
+                                              <a data-toggle="collapse"
+                                                 data-parent="#lcalc"
+                                                 href="#formatcalc"
+                                                 class="pdsa-panel-toggle glyphicon glyphicon-plus"></a>
+                                          </h1>
+                                      </div>
+                                      <div id="formatcalc" class="panel-collapse collapse">
+                                          <div class="panel-body">
+                                              <a class="glyphicon glyphicon-globe"> Fuente.</a>
+                                              <a class="glyphicon glyphicon-globe"> Alineación.</a>
+                                              <a class="glyphicon glyphicon-globe"> Bordes.</a>
+                                              <a class="glyphicon glyphicon-globe"> Fondo.</a>
+                                              <a class="glyphicon glyphicon-globe"> Números.</a>
+                                              <a class="glyphicon glyphicon-globe"> Alto de fila.</a>
+                                              <a class="glyphicon glyphicon-globe"> Ancho de columna.</a>
+                                              <a class="glyphicon glyphicon-globe"> Autoajustar a la selección.</a>
+                                              <a class="glyphicon glyphicon-globe"> Insertar filas en una hoja.</a>
+                                              <a class="glyphicon glyphicon-globe"> Insertar columnas en una hoja .</a>
+                                              <a class="glyphicon glyphicon-globe"> Insertar celdas en una hoja.</a>
+                                              <a class="glyphicon glyphicon-globe"> Eliminar celdas de una hoja.</a>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="panel panel-primary">
+                                      <div class="panel-heading">
+                                          <h1 class="panel-title">
+                                              <a data-toggle="collapse"
+                                                 data-parent="#lcalc"
+                                                 href="#functgraf">Funciones Y Gráficos</a>
+                                              <a data-toggle="collapse"
+                                                 data-parent="#lcalc"
+                                                 href="#functgraf"
+                                                 class="pdsa-panel-toggle glyphicon glyphicon-plus"></a>
+                                          </h1>
+                                      </div>
+                                      <div id="functgraf" class="panel-collapse collapse">
+                                          <div class="panel-body">
+                                              <a class="glyphicon glyphicon-globe"> Introducir funciones.</a>
+                                              <a class="glyphicon glyphicon-globe"> Funciones de texto.</a>
+                                              <a class="glyphicon glyphicon-globe"> Funciones de hojas de calculo.</a>
+                                              <a class="glyphicon glyphicon-globe"> Crear gráficos.</a>
+                                              <a class="glyphicon glyphicon-globe"> Modificar la posición y tamaño del grafico.</a>
+
+                                          </div>
+                                      </div>
+                                  </div>
+
+                              </div> 
+
+                          </div>
+                      </div>
+                  </div>-->
+                  <div class="panel panel-primary">
+                      <div class="panel-heading">
+                          <h1 class="panel-title">
+                              <a data-toggle="collapse"
+                                 data-parent="#app"
+                                 href="#impress"><a href="#/page/3" id="selector-page-2"><span class="b-text">LIBRE OFFICE IMPRESS</span></a></a>
+                              <a data-toggle="collapse"
+                                 data-parent="#app"
+                                 href="#impress"
+                                 class="pdsa-panel-toggle glyphicon glyphicon-minus"></a>
+                          </h1>
+                      </div>
+                      <div id="impress" class="panel-collapse collapse">
+                          <div class="panel-body">
+                              <div class="panel-group"
+                                   id="limpress"
+                                   data-pdsa-collapser-name="limpress"
+                                   data-pdsa-collapser-open="glyphicon glyphicon-plus"
+                                   data-pdsa-collapser-close="glyphicon glyphicon-minus">
+                                  <div class="panel panel-primary">
+                                      <div class="panel-heading">
+
+                                          <h1 class="panel-title">
+                                              <a data-toggle="collapse"
+                                                 data-parent="#limpress"
+                                                 href="#explorim"><a href="javascript:void(0)" title="Click here" onClick="parent.indice(4)"><span class="b-text">UNIDAD I:EXPLORANDO EL AMBIENTE DE LIBRE OFFICE IMPRESS</span></a></a>
+                                              <a data-toggle="collapse"
+                                                 data-parent="#limpress"
+                                                 href="#explorim"
+                                                 class="pdsa-panel-toggle glyphicon glyphicon-plus"></a>
+                                          </h1>
+                                      </div>
+                                      <div id="explorim" class="panel-collapse collapse">
+                                          <div class="panel-body">
+
+                                              <a class="glyphicon glyphicon-globe">  <a href="javascript:void(0)" title="Click here" onClick="parent.indice(3)">Abrir Libre Office Impress</a></a></br>
+                                              <a class="glyphicon glyphicon-globe"> <a href="javascript:void(0)" title="Click here" onClick="parent.indice(4)"><span class="b-text">Interfaz de Usuario de Impress</span></a></a><br>
+                                         
+
+
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="panel panel-primary">
+                                      <div class="panel-heading">
+                                          <h1 class="panel-title">
+                                              <a data-toggle="collapse"
+                                                 data-parent="#limpress"
+                                                 href="#docp"><a href="javascript:void(0)" title="Click here" onClick="parent.indice(5)"><span class="b-text">UNIDAD II:PRESENTACIONES</span></a></a>
+                                              <a data-toggle="collapse"
+                                                 data-parent="#limpress"
+                                                 href="#docp"
+                                                 class="pdsa-panel-toggle glyphicon glyphicon-plus"></a>
+                                          </h1>
+                                      </div>
+                                      <div id="docp" class="panel-collapse collapse">
+                                          <div class="panel-body">
+                                              <a class="glyphicon glyphicon-globe">  <a href="javascript:void(0)" title="Click here" onClick="parent.indice(6)"><span class="b-text">Presentaciones Impress</span></a></a><br>
+                                              <a class="glyphicon glyphicon-globe"><a href="javascript:void(0)" title="Click here" onClick="parent.indice(9)"><span class="b-text">Nueva Diapositiva</span></a></a><br>
+                                              <a class="glyphicon glyphicon-globe"> <a href="javascript:void(0)" title="Click here" onClick="parent.indice(11)"><span class="b-text">Transicion de Presentacion</span></a></a><br>
+                                                <a class="glyphicon glyphicon-globe"><a href="javascript:void(0)" title="Click here" onClick="parent.indice(13)"><span class="b-text">Interacciones</span></a></a><br>
+                                              <a class="glyphicon glyphicon-globe"> <a href="javascript:void(0)" title="Click here" onClick="parent.indice(15)"><span class="b-text">Animaciones</span></a></a><br>
+                                              <a class="glyphicon glyphicon-globe"><a href="javascript:void(0)" title="Click here" onClick="parent.indice(17)"><span class="b-text">Paginas Maestras</span></a></a>
+                                             
+                                          
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="panel panel-primary">
+                                      <div class="panel-heading">
+                                          <h1 class="panel-title">
+                                              <a data-toggle="collapse"
+                                                 data-parent="#limpress"
+                                                 href="#formatppt">UNIDAD III:PLANTILLAS Y ESTILOS EN IMPRESS</a>
+                                              <a data-toggle="collapse"
+                                                 data-parent="#limpress"
+                                                 href="#formatppt"
+                                                 class="pdsa-panel-toggle glyphicon glyphicon-plus"></a>
+                                          </h1>
+                                      </div>
+                                      <div id="formatppt" class="panel-collapse collapse">
+                                          <div class="panel-body">
+                                              <a class="glyphicon glyphicon-globe"> <a href="javascript:void(0)" title="Click here" onClick="parent.indice(20)"><span class="b-text">Asistente de Presentacion Impress</span></a></a><br>
+                                              <a class="glyphicon glyphicon-globe"><a href="javascript:void(0)" title="Click here" onClick="parent.indice(22)" ><span class="b-text">Estilos Y Formatos Impress</span></a></a><br>
+                                              <a class="glyphicon glyphicon-globe"><a href="javascript:void(0)" title="Click here" onClick="parent.indice(24)"><span class="b-text">Plantillas Impress</span></a></a><br>
+                                              <a class="glyphicon glyphicon-globe"><a href="javascript:void(0)" title="Click here" onClick="parent.indice(26)"><span class="b-text">Organizando Plantillas Impress</span></a></a>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="panel panel-primary">
+                                      <div class="panel-heading">
+                                          <h1 class="panel-title">
+                                              <a data-toggle="collapse"
+                                                 data-parent="#limpress"
+                                                 href="#texto"><a href="javascript:void(0)" title="Click here" onClick="parent.indice(28)">UNIDAD IV:TRABAJANDO CON TEXTO</span></a></a>
+                                              <a data-toggle="collapse"
+                                                 data-parent="#limpress"
+                                                 href="#texto"
+                                                 class="pdsa-panel-toggle glyphicon glyphicon-plus"></a>
+                                          </h1>
+                                      </div>
+                                      <div id="texto" class="panel-collapse collapse">
+                                          <div class="panel-body">
+                                              <a class="glyphicon glyphicon-globe"><a href="javascript:void(0)" title="Click here" onClick="parent.indice(29)"><span class="b-text">Creando cajas de texto</span></a></a><br>
+                                              <a class="glyphicon glyphicon-globe"><a href="javascript:void(0)" title="Click here" onClick="parent.indice(32)"><span class="b-text">Diseño de Tablas</span></a></a><br>
+                                              
+
+                                          </div>
+                                      </div>
+                                  </div>
+                                  
+                                   <div class="panel panel-primary">
+                                      <div class="panel-heading">
+                                          <h1 class="panel-title">
+                                              <a data-toggle="collapse"
+                                                 data-parent="#limpress"
+                                                 href="#imagenes"><a href="javascript:void(0)" title="Click here" onClick="parent.indice(35)">UNIDAD V:TRABAJANDO CON IMAGENES</span></a></a>
+                                              <a data-toggle="collapse"
+                                                 data-parent="#limpress"
+                                                 href="#imagenes"
+                                                 class="pdsa-panel-toggle glyphicon glyphicon-plus"></a>
+                                          </h1>
+                                      </div>
+                                      <div id="imagenes" class="panel-collapse collapse">
+                                          <div class="panel-body">
+                                              <a class="glyphicon glyphicon-globe"><a href="javascript:void(0)" title="Click here" onClick="parent.indice(36)"><span class="b-text">Insertando Imagenes</span></a></a><br>
+                                              <a class="glyphicon glyphicon-globe"><a href="javascript:void(0)" title="Click here" onClick="parent.indice(39)"><span class="b-text">FontWork Impress</span></a></a><br>
+                                              
+
+                                          </div>
+                                      </div>
+                                  </div>
+                                  
+                                  <div class="panel panel-primary">
+                                      <div class="panel-heading">
+                                          <h1 class="panel-title">
+                                              <a data-toggle="collapse"
+                                                 data-parent="#limpress"
+                                                 href="#integracion"><a href="javascript:void(0)" title="Click here" onClick="parent.indice(42)"><span class="b-text">UNIDAD VI:INTEGRACION CON LIBRE OFFICE</span></a></a>
+                                              <a data-toggle="collapse"
+                                                 data-parent="#limpress"
+                                                 href="#integracion"
+                                                 class="pdsa-panel-toggle glyphicon glyphicon-plus"></a>
+                                          </h1>
+                                      </div>
+                                      <div id="integracion" class="panel-collapse collapse">
+                                          <div class="panel-body">
+                                              <a class="glyphicon glyphicon-globe"><a href="javascript:void(0)" title="Click here" onClick="parent.indice(43)"><span class="b-text">Usando Hojas de Calculo en Impress</span></a></a><br>
+                                              <a class="glyphicon glyphicon-globe"><a href="javascript:void(0)" title="Click here" onClick="parent.indice(46)"><span class="b-text">Graficos en Impress</span></a></a><br>
+                                              
+
+                                          </div>
+                                      </div>
+                                  </div>
+                                  
+                                   <div class="panel panel-primary">
+                                      <div class="panel-heading">
+                                          <h1 class="panel-title">
+                                              <a data-toggle="collapse"
+                                                 data-parent="#limpress"
+                                                 href="#exportando"><a href="javascript:void(0)" title="Click here" onClick="parent.indice(50)"><span class="b-text">UNIDAD VII:EXPORTANDO PRESENTACIONES</span></a></a>
+                                              <a data-toggle="collapse"
+                                                 data-parent="#limpress"
+                                                 href="#exportando"
+                                                 class="pdsa-panel-toggle glyphicon glyphicon-plus"></a>
+                                          </h1>
+                                      </div>
+                                      <div id="exportando" class="panel-collapse collapse">
+                                          <div class="panel-body">
+                                              <a class="glyphicon glyphicon-globe"><a href="javascript:void(0)" title="Click here" onClick="parent.indice(51)"><span class="b-text">Exportando Impress a PDF</span></a></a><br>
+                                              <a class="glyphicon glyphicon-globe"><a href="javascript:void(0)" title="Click here" onClick="parent.indice(52)"><span class="b-text"> Exportando Impress a SWF</span></a></a><br>
+                                               <a class="glyphicon glyphicon-globe"><a href="javascript:void(0)" title="Click here" onClick="parent.indice(53)"><span class="b-text">Imprimir en Impress</span></a></a><br>
+                                                <a class="glyphicon glyphicon-globe"><a href="javascript:void(0)" title="Click here" onClick="parent.indice(55)"><span class="b-text"> Correcccion Ortografica en Impress</span></a></a><br>
+                                                 <a class="glyphicon glyphicon-globe"><a href="javascript:void(0)" title="Click here" onClick="parent.indice(57)"><span class="b-text">Fin del Modulo</span></a></a><br>
+                                                 <!-- <a class="glyphicon glyphicon-globe"></a><br>
+                                                   <a class="glyphicon glyphicon-globe"></a><br>-->
+                                              
+
+                                          </div>
+                                      </div>
+                                  </div>
+                                  
+
+                              </div>
+
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div style="margin-left:10%">
+                
+              </div>
+          </div>
+   
+  
+  <!-- *** END: Body Content *** -->
+
+  <!-- *** BEGIN: Scripts *** -->
+
+  <script src="Scripts/jquery-1.11.0.min.js"></script>
+   <script src="Scripts/bootstrap.min.js"></script>
+  <script src="Scripts/pdsa-collapser.js"></script>
+  <script src="Scripts/pdsa-common.js"></script>
+  <!-- *** END: Scripts *** -->
+  
+  
+</body>
+</html>

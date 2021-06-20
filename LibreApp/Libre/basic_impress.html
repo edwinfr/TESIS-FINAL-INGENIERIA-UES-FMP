@@ -1,0 +1,2320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Aplicación Web Interactiva para Linux Max y LibreOffice </title>
+    <!--[if lt IE 9]><script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+ 
+    
+    <link href="booklet/jquery.booklet.latest.css" type="text/css" rel="stylesheet" media="screen, projection, tv" />
+    <style type="text/css">
+        body {background:#ccc; font:normal 12px/1.2 arial, verdana, sans-serif;}
+    </style>
+     <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    
+<link rel="shortcut icon" href="images/Impress/favicon.ico" type="image/x-icon" />
+    
+      <!-- LIBRERIA BOOTSTRAP		-->
+
+    
+    <link href="./css/bootstrap.css" rel="stylesheet" type="text/css" />
+
+    <link href="./css/bootstrap-responsive.css" rel="stylesheet">
+    
+  
+    
+     <link href="Content/Site.css" rel="stylesheet" />
+
+
+
+    <!------------------------------------------------------------------------------>
+    
+  
+    <link rel="stylesheet" href="./css/style.css" type="text/css" media="screen" />
+    
+
+  <link href="Content/Site.css" rel="stylesheet" />
+  <link href="Content/Site.css" rel="stylesheet" />
+  <link href="Content/pdsa-sidebar.css" rel="stylesheet" />
+  <link href="Content/pdsa-summary-block.css" rel="stylesheet" />
+  <link href="Content/pdsa-readme-box.css" rel="stylesheet" />
+  <link href="Content/pdsa-collapser.css" rel="stylesheet" />
+  
+  
+  
+  
+   <script src="./js/jquery.easing.1.3.js" type="text/javascript"></script>
+    <script src="./js/jquery.booklet.1.1.0.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="./js/jquery-1.11.0.min.js"></script>
+     <!-- *** BEGIN: Styles *** -->
+  
+  <!-- *** END: Styles *** -->
+ <style>
+        iframe {
+            background-color: transparent;
+            border: none;
+            position: absolute;
+            height: 70%;
+            margin-top: 10%;
+        }
+
+        #nav1 {
+            position: absolute;
+            float: left;
+            margin-top: -1%;
+            margin-left: 50%;
+        }
+           #nav {
+           background-color: transparent;
+            border: none;
+            position: absolute;
+            height: 80%;
+            margin-top: 1%;
+        }
+        #nav3 {
+            background-color: transparent;
+            border: none;
+            position: relative;
+            height: 600px;
+            width:800px;
+            margin-top: 1%;
+        }
+        
+        #header {
+            background-color: transparent;
+            border: none;
+            position: relative;
+            height: 100px;
+            width:100%;
+            margin-top: -1%;
+            margin-left: 0%;
+        }
+
+        #logoap {
+            width: 20%;
+            position: relative;
+            height: 30px;
+        }
+
+        p {
+            text-align: justify;
+            
+        }
+		
+		.formato_text{
+		text-align:justify;
+		font-size:1.3em;
+		line-height:1.5em
+		}
+       
+       
+      
+    </style>
+    <style type="text/css" media="screen">
+       
+
+        body {
+            margin: 0;
+            padding: 0;
+            
+    overflow-y: hidden;
+    overflow-x: auto;
+        }
+        
+    /* #menu:hover{
+position:absolute !important;
+margin-left:70px !important;
+}*/
+       
+        #explora {
+            /*border-color:black;*/
+            border-radius: 10%;
+            border-width: 0.4em;
+        }
+        
+       #collap{
+            height:700px;
+            width:20%; 
+            overflow: auto;
+        }
+        
+        p{
+            text-align: justify;
+            font-weight: normal;
+        }
+        span{
+            font-weight: normal;
+            
+        }
+        
+        ul{
+             font-size: 16px;
+            font-weight: bold;
+        }
+
+        #flashContent {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .panel-body{
+            font-size: 11.5px;
+            
+        }
+        #accordion
+        {
+            height: 33em;
+            padding: 5em;
+            padding-top: 0em;
+            padding-bottom: 0em;
+           
+        }
+        .btn-info
+        {
+            
+            width:90%;
+        }
+      /* footer {
+            background-color: #282828;
+            position: relative;
+            padding:0em 0;
+            box-sizing: border-box;
+            color: #c3c1c1;
+            width: 100%;
+            bottom: 0;
+            background-color: black;
+            font-style:normal;
+            margin-top: 0.2em;
+        }*
+        .contenedor{
+           background-color:lightblue;
+           height: 100em;
+        }
+        
+        rel{
+            font-size: 12em;
+        }
+      
+    </style>
+    <link href='shadow/shadowbox.css' rel='stylesheet' type='text/css' />
+    <script src='shadow/shadowbox.js' type='text/javascript'></script>
+    <script>
+        function indice(msg){
+    alert("llego");
+    $('#gotoIndex').val(msg);  
+    $('#custom-gotopage').click(); 
+}
+    </script>
+    <script type='text/javascript'>
+    
+        Shadowbox.init({
+            overlayColor: "#000",
+            overlayOpacity: "0.6",
+        });
+        
+        
+    </script>
+    
+    <script type="text/javascript">
+    
+    window.myfunction = function () {
+   alert("I was called from a child iframe");
+}
+//Función para encontrar el valor de una cookie
+function readCookie(nombre) {
+                var nombreIgual = nombre + "=";
+                var numeroCookies = document.cookie.split(';');
+                for(var i=0;i < numeroCookies.length;i++) { //Recorremos todas las cookies
+                               var valorCookie = numeroCookies[i]; //Analizamos la cookie actual
+                               while (valorCookie.charAt(0)==' ') {valorCookie = valorCookie.substring(1,valorCookie.length); } //Eliminamos espacios
+                               if (valorCookie.indexOf(nombreIgual) == 0) {return valorCookie.substring(nombreIgual.length,valorCookie.length);} //Devolvemos el valor
+                }
+                return null; //Si numeroCookies es cero se devuelve null
+}
+
+function home()
+{
+   var user=readCookie('Usuario');
+   
+   if(user=="Media")
+  window.location.href="../cubo/Media.html";
+  else
+   window.location.href="../cubo/TercerCiclo.html";
+ /*alert ('El valor de la cookieEdadUsuario es: '+readCookie('cookieEdadUsuario'));*/
+ 
+}
+
+ 
+</script>
+    
+    
+  <!--  
+ <script src="../Bannerfinal/edge_includes/jquery-1.7.1.min.js"></script>
+ <script src="../Bannerfinal/edge_includes/edge.2.0.1.min.js"></script>
+ <script src="../Bannerfinal/Banner%20ed_edge.js"></script>
+ <script src="../Bannerfinal/Banner%20ed_edgeActions.js"></script>
+<!--Adobe Edge Runtime-->
+    <script type="text/javascript" charset="utf-8" src="../Bannerfinal/Banner_edgePreload.js"></script>
+<!--     <style>
+        .edgeLoad-EDGE-304920665 { visibility:hidden; }
+    </style> -->
+	
+	<style>
+        .edgeLoad-EDGE-304920665 { visibility:hidden; width: 100%; }
+        a:link{
+            text-decoration: none;
+            text-transform: none;
+            
+        }
+    </style>
+<!--Adobe Edge Runtime End-->
+
+    <!------------------------------------------------------------------------------>
+</head>
+<body>
+   
+   
+    
+            
+               <!-- <img src="images/logoap1.png" id="logoap" />
+                <a href="Default.html"> </a>-->
+   <iframe  frameborder="0"  scrolling="no" src="../Bannerfinal/Banner ed.html" style="z-index:100;width:100%; background-color:#1a2940; "  id="header"  ></iframe>
+   
+<!--    background-color:black; margin-top:5%; margin-top:auto;   position: fixed;
+  left: 50%;
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);width:100%;
+   background-color:#1a2940   --> 
+
+    
+           
+                        
+           <!-- <iframe frameborder="0" scrolling="no" id="nav"></iframe>
+           <iframe frameborder="0" scrolling="no" id="nav1"></iframe>-->
+           <!-- <img src="images/index/home.png" ></img>
+      <div id="menu"></div><!--
+                 <iframe frameborder="0"  src="../Libre/collapse.html" id="collap" style="margin-top:-1em"></iframe>
+                 
+                 
+                 <!------------------------------------------------------------>
+                 
+                
+                 
+                 <!--------------------------------------------------------------->
+                 
+              
+
+  <div class="col-xs-2 col-xs-2 col-sm-2"  style=" font-size: 10px; height:55em; overflow-y: auto;">
+              <div class="panel-group" id="app" data-pdsa-collapser-name="app" data-pdsa-collapser-open="glyphicon glyphicon-plus" data-pdsa-collapser-close="glyphicon glyphicon-minus">
+			  
+			  
+                  <div class="panel panel-primary">
+                             <div class="panel-heading">
+                          <h1 class="panel-title">
+                              <a data-toggle="collapse"
+                                 data-parent="#app"
+                                 href="#impress"><a href="#/page/3" id="selector-page-2"><span class="b-text">LIBREOFFICE IMPRESS</span></a></a>
+                              <a data-toggle="collapse"
+                                 data-parent="#app"
+                                 href="#impress"
+                                 class="pdsa-panel-toggle glyphicon glyphicon-plus"></a>
+                          </h1>
+                      </div>
+					  
+                      <div id="impress" class="panel-collapse collapse">
+                          <div class="panel-body">
+                              <div class="panel-group" id="limpress" data-pdsa-collapser-name="limpress" data-pdsa-collapser-open="glyphicon glyphicon-plus" data-pdsa-collapser-close="glyphicon glyphicon-minus">
+                                                                    <div class="panel panel-primary">
+                                      <div class="panel-heading">
+
+                                          <h1 class="panel-title">
+                                              <a data-toggle="collapse"
+                                                 data-parent="#limpress"
+                                                 href="#explorim"><a href="javascript:void(0)" title="Click here" onClick="parent.indice(4)"><span class="b-text">UNIDAD I: EXPLORANDO EL AMBIENTE DE LIBRE OFFICE IMPRESS</span></a></a>
+                                              <a data-toggle="collapse"
+                                                 data-parent="#limpress"
+                                                 href="#explorim"
+                                                 class="pdsa-panel-toggle glyphicon glyphicon-plus"></a>
+                                          </h1>
+                                      </div>
+                                      <div id="explorim" class="panel-collapse collapse">
+                                          <div class="panel-body">
+                                              <a class="glyphicon glyphicon-ok">  <a href="javascript:void(0)" title="Click here" onClick="indice(6);"> Abrir Libre Office Impress</a></a></br>
+                                              <a class="glyphicon glyphicon-ok"> <a href="javascript:void(0)" title="Click here" onClick="indice(8);"><span class="b-text"> Interfaz de Usuario de &nbsp;&nbsp;&nbsp;&nbsp;Impress</span></a></a><br>
+                                         
+
+
+                                          </div>
+                                      </div>
+                                  </div>
+                                                                    <div class="panel panel-primary">
+                                      <div class="panel-heading">
+                                          <h1 class="panel-title">
+                                              <a data-toggle="collapse"
+                                                 data-parent="#limpress"
+                                                 href="#docp"><a href="javascript:void(0)" title="Click here" onClick="window.parent.indice(10)"><span class="b-text">UNIDAD II: PRESENTACIONES</span></a></a>
+                                              <a data-toggle="collapse"
+                                                 data-parent="#limpress"
+                                                 href="#docp"
+                                                 class="pdsa-panel-toggle glyphicon glyphicon-plus"></a>
+                                          </h1>
+                                      </div>
+                                      <div id="docp" class="panel-collapse collapse">
+                                          <div class="panel-body">
+                                              <a class="glyphicon glyphicon-ok"><a href="javascript:void(0)" title="Click here" onClick="parent.indice(12)"><span class="b-text">      Nueva Presentación &nbsp;&nbsp;&nbsp;&nbsp;Impress</span></a></a><br>
+                                              <a class="glyphicon glyphicon-ok"> <a href="javascript:void(0)" title="Click here" onClick="parent.indice(14)"><span class="b-text">     Crear y Eliminar &nbsp;&nbsp;&nbsp;&nbsp;Diapositiva en Impress</span></a></a><br>
+                                                <a class="glyphicon glyphicon-ok"><a href="javascript:void(0)" title="Click here" onClick="parent.indice(16)"><span class="b-text">    Abrir presentación &nbsp;&nbsp;&nbsp;&nbsp;existente</span></a></a><br>
+                                              <a class="glyphicon glyphicon-ok"> <a href="javascript:void(0)" title="Click here" onClick="parent.indice(18)"><span class="b-text">     Guardar Presentación</span></a></a><br>
+                                              <a class="glyphicon glyphicon-ok"><a href="javascript:void(0)" title="Click here" onClick="parent.indice(20)"><span class="b-text">      Transición de Presentación</span></a></a></br>
+                                              <a class="glyphicon glyphicon-ok"><a href="javascript:void(0)" title="Click here" onClick="parent.indice(22)"><span class="b-text">      Interacciones</span></a></a></br>
+                                              <a class="glyphicon glyphicon-ok"><a href="javascript:void(0)" title="Click here" onClick="parent.indice(24)"><span class="b-text">      Animaciones</span></a></a></br>
+                                              <a class="glyphicon glyphicon-ok"><a href="javascript:void(0)" title="Click here" onClick="parent.indice(26)"><span class="b-text">      Páginas Maestras</span></a></a></br>
+                                              <a class="glyphicon glyphicon-ok"><a href="javascript:void(0)" title="Click here" onClick="parent.indice(28)"><span class="b-text">      Enviar Presentación por &nbsp;&nbsp;&nbsp;&nbsp;correo</span></a></a></br>
+                                             
+                                          
+                                          </div>
+                                      </div>
+                                  </div>
+                                                                   <div class="panel panel-primary">
+                                      <div class="panel-heading">
+                                          <h1 class="panel-title">
+                                              <a data-toggle="collapse"
+                                                 data-parent="#limpress"
+                                                 href="#formatppt"><a href="javascript:void(0)" title="Click here" onClick="window.parent.indice(30)"><span class="b-text">UNIDAD III: PLANTILLAS Y ESTILOS</span></a></a>
+                                              <a data-toggle="collapse"
+                                                 data-parent="#limpress"
+                                                 href="#formatppt"
+                                                 class="pdsa-panel-toggle glyphicon glyphicon-plus"></a>
+                                          </h1>
+                                      </div>
+                                      <div id="formatppt" class="panel-collapse collapse">
+                                          <div class="panel-body">
+                                              <a class="glyphicon glyphicon-ok"> <a href="javascript:void(0)" title="Click here" onClick="parent.indice(32)"><span class="b-text">     Asistente de Presentacion &nbsp;&nbsp;&nbsp;&nbsp;Impress</span></a></a><br>
+                                              <a class="glyphicon glyphicon-ok"><a href="javascript:void(0)" title="Click here" onClick="parent.indice(34)" ><span class="b-text">     Estilos y Formatos Impress</span></a></a><br>
+                                              <a class="glyphicon glyphicon-ok"><a href="javascript:void(0)" title="Click here" onClick="parent.indice(36)"><span class="b-text">      Plantillas Impress</span></a></a><br>
+                                              <a class="glyphicon glyphicon-ok"><a href="javascript:void(0)" title="Click here" onClick="parent.indice(38)"><span class="b-text">      Organizando Plantillas &nbsp;&nbsp;&nbsp;&nbsp;Impress</span></a></a>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="panel panel-primary">
+                                      <div class="panel-heading">
+                                          <h1 class="panel-title">
+                                              <a data-toggle="collapse"
+                                                 data-parent="#limpress"
+                                                 href="#texto"><a href="javascript:void(0)" title="Click here" onClick="parent.indice(40)">UNIDAD IV: TRABAJANDO CON TEXTO</span></a></a>
+                                              <a data-toggle="collapse"
+                                                 data-parent="#limpress"
+                                                 href="#texto"
+                                                 class="pdsa-panel-toggle glyphicon glyphicon-plus"></a>
+                                          </h1>
+                                      </div>
+                                      <div id="texto" class="panel-collapse collapse">
+                                          <div class="panel-body">
+                                              <a class="glyphicon glyphicon-ok"><a href="javascript:void(0)" title="Click here" onClick="parent.indice(42)"><span class="b-text">      Creando cajas de texto</span></a></a><br>
+                                              <a class="glyphicon glyphicon-ok"><a href="javascript:void(0)" title="Click here" onClick="parent.indice(44)"><span class="b-text">      Diseño de Tablas</span></a></a><br>
+                                              <a class="glyphicon glyphicon-ok"><a href="javascript:void(0)" title="Click here" onClick="parent.indice(46)"><span class="b-text">      Buscar y Reemplazar</span></a></a><br>
+                                              <a class="glyphicon glyphicon-ok"><a href="javascript:void(0)" title="Click here" onClick="parent.indice(48)"><span class="b-text">      Encabezado y pie de &nbsp;&nbsp;&nbsp;&nbsp;página</span></a></a><br>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  
+                                   <div class="panel panel-primary">
+                                      <div class="panel-heading">
+                                          <h1 class="panel-title">
+                                              <a data-toggle="collapse"
+                                                 data-parent="#limpress"
+                                                 href="#imagenes"><a href="javascript:void(0)" title="Click here" onClick="parent.indice(50)">UNIDAD V: TRABAJANDO CON IMÁGENES</span></a></a>
+                                              <a data-toggle="collapse"
+                                                 data-parent="#limpress"
+                                                 href="#imagenes"
+                                                 class="pdsa-panel-toggle glyphicon glyphicon-plus"></a>
+                                          </h1>
+                                      </div>
+                                      <div id="imagenes" class="panel-collapse collapse">
+                                          <div class="panel-body">
+                                              <a class="glyphicon glyphicon-ok"><a href="javascript:void(0)" title="Click here" onClick="parent.indice(52)"><span class="b-text">      Insertando Imágenes</span></a></a><br>
+                                              <a class="glyphicon glyphicon-ok"><a href="javascript:void(0)" title="Click here" onClick="parent.indice(54)"><span class="b-text">      Insertar Imagen desde &nbsp;&nbsp;&nbsp;&nbsp;Galeria</span></a></a><br>
+                                              <a class="glyphicon glyphicon-ok"><a href="javascript:void(0)" title="Click here" onClick="parent.indice(56)"><span class="b-text">      FontWork Impress</span></a></a><br>
+
+                                          </div>
+                                      </div>
+                                  </div>
+                                  
+                                  <div class="panel panel-primary">
+                                      <div class="panel-heading">
+                                          <h1 class="panel-title">
+                                              <a data-toggle="collapse"
+                                                 data-parent="#limpress"
+                                                 href="#integracion"><a href="javascript:void(0)" title="Click here" onClick="parent.indice(58)"><span class="b-text">UNIDAD VI: INTEGRACIÓN CON LIBREOFFICE</span></a></a>
+                                              <a data-toggle="collapse"
+                                                 data-parent="#limpress"
+                                                 href="#integracion"
+                                                 class="pdsa-panel-toggle glyphicon glyphicon-plus"></a>
+                                          </h1>
+                                      </div>
+                                      <div id="integracion" class="panel-collapse collapse">
+                                          <div class="panel-body">
+                                              <a class="glyphicon glyphicon-ok"><a href="javascript:void(0)" title="Click here" onClick="parent.indice(60)"><span class="b-text">      Usando Hojas de Cálculo &nbsp;&nbsp;&nbsp;&nbsp;en Impress</span></a></a><br>
+                                              <a class="glyphicon glyphicon-ok"><a href="javascript:void(0)" title="Click here" onClick="parent.indice(62)"><span class="b-text">      Gráficos en Impress</span></a></a><br>
+                                              
+                                              
+
+                                          </div>
+                                      </div>
+                                  </div>
+                                  
+                                   <div class="panel panel-primary">
+                                      <div class="panel-heading">
+                                          <h1 class="panel-title">
+                                              <a data-toggle="collapse"
+                                                 data-parent="#limpress"
+                                                 href="#exportando"><a href="javascript:void(0)" title="Click here" onClick="parent.indice(66)"><span class="b-text">UNIDAD VII: EXPORTANDO PRESENTACIONES</span></a></a>
+                                              <a data-toggle="collapse"
+                                                 data-parent="#limpress"
+                                                 href="#exportando"
+                                                 class="pdsa-panel-toggle glyphicon glyphicon-plus"></a>
+                                          </h1>
+                                      </div>
+                                      <div id="exportando" class="panel-collapse collapse">
+                                          <div class="panel-body">
+                                              <a class="glyphicon glyphicon-ok"><a href="javascript:void(0)" title="Click here" onClick="parent.indice(68)"><span class="b-text">      Exportando Impress a PDF</span></a></a><br>
+                                              <a class="glyphicon glyphicon-ok"><a href="javascript:void(0)" title="Click here" onClick="parent.indice(70)"><span class="b-text">       Exportando Impress a &nbsp;&nbsp;&nbsp;&nbsp;SWF</span></a></a><br>
+                                               <a class="glyphicon glyphicon-ok"><a href="javascript:void(0)" title="Click here" onClick="parent.indice(72)"><span class="b-text">     Imprimir en Impress</span></a></a><br>
+                                                <a class="glyphicon glyphicon-ok"><a href="javascript:void(0)" title="Click here" onClick="parent.indice(74)"><span class="b-text">    Correccción Ortográfica en  &nbsp;&nbsp;&nbsp;&nbsp;Impress</span></a></a><br>
+                                                 <a class="glyphicon glyphicon-ok"><a href="javascript:void(0)" title="Click here" onClick="parent.indice(76)"><span class="b-text">   Fin del Módulo</span></a></a><br>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  
+
+                              </div>
+
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div style="margin-left:10%">
+                
+              </div>
+          </div>
+        
+
+
+  <!--------------------------------------------------------->
+                 
+                <a id="custom-gotopage" href="#"  style=" display:none;">link</a>
+                   <select id="gotoIndex" style="display:none;">
+           <option value="start">Inicio</option>
+             <option value="end">Fin</option>
+               <option value="1">1</option>
+                 <option value="2">2</option>
+                   <option value="4">4</option>
+                     <option value="6">6</option>
+                       <option value="7">7</option>
+                         <option value="8">8</option>
+                           <option value="9">9</option>
+                           </select>
+                
+
+
+    <!-- *** BEGIN: Body Content *** -->
+    
+     
+      
+         
+      
+      
+    <div class="container body-content"  style="margin-bottom:10%" >
+        <div class="row"   >
+            
+            <div class="col-xs-12 col-sm-4"  style="    position: fixed;
+  top: 60%;
+  left: 40%;
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);" >
+
+                <div class="book_wrapper" style="margin-bottom:70px;">
+              
+                    <a id="next_page_button"></a>
+                    <a id="prev_page_button"></a>
+                                 
+                    <div id="mybook" style=" background-color:light-yellow">
+                        <div class="b-load" >
+                           
+						
+						
+                                <!--  ############################# INICIO PAGINAS DEL LIBRO ################################ -->
+<div class="contenedor"  title="Inicio" >
+                                <img src="images/Impress/impress1.svg" id="unidad2" style="width:800; height:30em;" />
+                                <h1 style="align:center">
+                                    LibreOffice Impress
+                                   <br />
+                                </h1>
+
+                            </div>
+                           <div class="contenedor" rel="Introduccion de   Impress" title="Bienvenida y Introduccion">
+
+                                <img src="images/writer/pinguino_linux.png" style=" height:330px"/>
+                                <h1>Bienvenido/a </h1>
+                             
+                                <p>
+                                Bienvenido/a al módulo de LibreOffice Impress.
+                                </p>
+								</div>
+                              <div class="contenedor" rel="Bienvenida y Introduccion" title="Bienvenida y Introduccion">
+
+                                <img src="images/Impress/impress.png" style=" height:150px"/>
+                                <h1>Introducción </h1>
+                             
+                                <p>
+                                 Impress es el programa de presentación de diapositivas (presentaciones) de
+LibreOffice.org Puede crear diapositivas con muchos elementos distintos, incluyendo
+texto, listas numeradas o con viñetas, tablas, gráficos, imágenes clipart, y una amplia
+gama de objetos gráficos. Impress también incluye un revisor ortográfico, un diccionario
+de sinónimos, estilos de texto predefinidos, y atractivos estilos de fondo.
+                                </p>
+
+
+                            </div>
+                          <div class="contenedor"  rel="UNIDAD I:EXPLORANDO EL AMBIENTE DE LIBRE OFFICE IMPRESS" >
+                                <img src="images/Impress/unidad1.png" style=" height:20em" />
+                                <h1>Unidad I
+                               <br />Explorar el ambiente de LibreOffice Impress </h1>
+                               
+                            </div>
+                            <!--   images/Impress/ux.png     -->
+                             <div class="contenedor"  rel="Descripcion de unidad I" >
+							 <img src="images/writer/info.png" style=" height:225px" alt="" />
+                                <h1>Descripción de unidad I</h1>
+                               <p> Se explora como abrir LibreOffice Impress asi como la interfaz principal de libre office Impress entre las cuales se describen la barra de título, barra de herramientas, barra de tareas y barra de acceso rápido.</p>
+                               
+                              
+                             
+                            </div>
+                            <div class="contenedor" rel="Abrir Libre Office Impress" title="Abrir Libre Office Impress">
+                               <!-- src="images/p1.2.png"--> 
+ <h1>Abrir LibreOffice Impress</h1>
+ 
+ <p>
+ El formato nativo de las presentaciones es ODP, pero también tiene la capacidad de leer y escribir en el formato de archivos .ppt. Incluye la posibilidad de exportar presentaciones en formatos PDF y SWF, permitiendo que se reproduzcan en cualquier computadora con un reproductor de Flash instalado
+ </p>
+
+                                                                                                  <img src="images/Impress/abrir_odp.png" id="unidad7" style=" height:15em; width:20em; border:none; margin-left:5em" alt=""  />   
+                                <p>
+                                    
+                                    </p>
+
+                            </div>
+                            <div class="contenedor" >
+             <!-- <img src="images/ca.png"  onclick="ventanaNueva('SWFS/Interfaz_usuario/ux1.swf', 'Explorando Libre Office Impress')"  style=" height:350px" alt="" />-->
+                           <h1>Abrir LibreOffice Impress</h1>
+                           	<p style="text-align:justify;">
+		<br/>
+                            <img src="images/Impress/open_odp.png"  onclick="ventanaNueva('SWFS/IMPRESS/abrir_impress/open_odp.swf', 'Abrir Libre Office Impress')"   style="cursor:pointer;position: absolute;height: 18em;width: 20em;border:none;margin-left:1em;" alt="" />
+                             <img src="images/Impress/open_odp1.gif" id="unidad7" style="position: relative;height:10em;width:15em;border:none;margin-top: 11.5em;margin-left: 6em;"  />
+                               <!-- <h1>Interfaz de Usuario de Impress</h1>
+                              -->  <p><!--
+                             
+                                    La ventana principal de Impress tiene tres partes: Panel de Diapositivas, Área
+                                    de trabajo y panel de Tareas. Además pueden mostrarse u ocultarse distintas barras de
+                                    herramientas durante la creación de una presentación
+                           
+                                   </p> -->
+                               
+                           </div>
+                           
+                           
+                            <div class="contenedor" rel="Interfaz de Usuario de Impress">
+              <img src="images/Impress/interfaz.png"   style=" height:250px; cursor:pointer" alt="" />
+                                                                <!--  <img src="images/open_odp.png"  onclick="ventanaNueva('SWFS/abrir_impress/open_odp.swf', 'Abrir Libre Office Impress')"   style=" height:250px; cursor:pointer" alt="" />
+                                                                                                     <img src="images/Impress/open_odp.gif" id="unidad7" style=" height:10em; width:20em; border:none" alt=""  />-->
+                                <h1>Interfaz de usuario de Impress</h1>
+                                <p>
+                             
+                                    La ventana principal de Impress tiene tres partes: Panel de Diapositivas, área
+                                    de trabajo y panel de tareas. Además pueden mostrarse u ocultarse distintas barras de
+                                    herramientas durante la creación de una presentación
+                           
+                                   </p>
+                               
+                           </div>
+                             <div class="contenedor">
+             <!-- <img src="images/ca.png"  onclick="ventanaNueva('SWFS/Interfaz_usuario/ux1.swf', 'Explorando Libre Office Impress')"  style=" height:350px" alt="" />-->
+                 <h1>Interfaz de usuario de Impress</h1>
+                <p style="text-align:justify;">
+		<br/>
+              <img src="images/Impress/ca.png"  onclick="ventanaNueva('SWFS/IMPRESS/Interfaz/ux.swf', 'Explorando Libre Office Impress')" style="cursor:pointer;position: absolute;height: 18em;width: 20em;border:none;margin-left:1em;" alt="" />
+                                                                                                     <img src="images/Impress/ux1.gif" id="unidad7" style="position: relative;height:10em;width:15em;border:none;margin-top: 11.5em;margin-left: 6em;"  />
+                               
+                               
+                               </p><!-- <h1>Interfaz de Usuario de Impress</h1>
+                                <p>
+                             
+                                    La ventana principal de Impress tiene tres partes: Panel de Diapositivas, Área
+                                    de trabajo y panel de Tareas. Además pueden mostrarse u ocultarse distintas barras de
+                                    herramientas durante la creación de una presentación
+                           
+                                   </p> -->
+                               
+                           </div>
+                            <div class="contenedor" rel="UNIDAD II:PRESENTACIONES" title="Unidad II:Presentaciones">
+                                <img src="images/Impress/unidad2.png" id="unidad2" style=" height:25em"  />
+                                <h1>
+                                    Unidad II
+                                    <br />Presentaciones
+                                </h1>
+
+                            </div>
+                            
+                            <!--   images/pre2.png     -->
+                              <div class="contenedor" rel="Introduccion Unidad II" title="Introduccion unidad II">
+							 <img src="images/writer/info.png" style=" height:225px" alt="" />
+                                <h1>
+                                    Descripción de unidad II
+                                </h1>
+                                
+                                <p>Se presenta la elaboración de presentaciones profesionales mediante texto, imágenes, transiciones, animaciones e interacciones.</p>
+
+                            </div>
+                            <div class="contenedor" rel="Nueva Presentacion Impress">
+                                <img src="images/Impress/pre1.png" alt="" />
+                                <h1>Nueva presentación Impress</h1>
+                                <p>
+                                    Una presentación es un conjunto de imágenes, que pueden ir acompañadas, no sólo de
+                                    texto, sino también de gráficos, sonido e interactividad. Estas "imágenes", mostradas en forma de
+                                    diapositivas, pueden llegar a ser como pequeñas obras de arte audiovisuales.
+                                </p>
+                                </div>
+                            <div class="contenedor" title="Nuevo Impress"  >
+                                <h1>Nueva presentación Impress</h1>
+                                <p style="text-align:justify;">
+		<br/>
+        <img src="images/Impress/new.png"   onclick="ventanaNueva('SWFS/IMPRESS/abrir_nuevo_Impress/new_odp.swf', 'Nueva Presentacion Impress')"  style="cursor:pointer;position: absolute;height: 18em;width: 20em;border:none;margin-left:1em;" alt="" />
+                                 <img src="images/Impress/open_odp1.gif" height="1em;" style="position: relative;height:10em;width:15em;border:none;margin-top: 11.5em;margin-left: 6em;" />
+                                </p>
+                                <!---<h1> Nuevo Impress</h1>-->
+                               
+                               </div>
+                            <div class="contenedor"  rel="Crear y Eliminar Diapositiva en Impress" >
+                                <img src="images/Impress/p1.1.jpg" alt="" style="height:12em" />
+                                 <h1>Crear y eliminar diapositiva en Impress</h1>
+                                   <h1>Nueva diapositiva</h1>
+                                    <ol><li><strong>Ubicarse</strong> sobre la diapositiva</li>
+                                    <li>Presionar enter para <strong>insertar nueva diapositiva</strong></li></ol>
+                                    <h1>Eliminar diapositiva</h1>
+                                    <ol><li><strong>Clic derecho</strong> sobre la diapositiva</li>
+                                   <li> <strong>Eliminar diapositiva</strong></li></ol>
+                                </p>
+
+                                 </div>
+                        
+                           
+                          <div class="contenedor" >  
+                            <h1>Crear y eliminar diapositiva en Impress</h1>  
+                            <p style="text-align:justify;">
+		<br/>           
+         <img src="images/Impress/create_delete_diapop.png"  onclick="ventanaNueva('SWFS/IMPRESS/Crear_Eliminar_diapo/new_delete.swf', 'Crear/Eliminar Impress')"  style="cursor:pointer;position: absolute;height: 18em;width: 20em;border:none;margin-left:1em;" alt="" />
+       
+       <img src="images/Impress/create_delete1.gif" style="position: relative;height:10em;width:15em;border:none;margin-top: 11.5em;margin-left: 6em;" />
+                              
+                            </p>
+                             </div>
+                             
+                               <div class="contenedor" rel="Abrir presentación existente" title="Abrir presentación existente" >
+                                  <img src="images/Impress/abrir_impress.png" style=" height:16em;" alt="" />
+                             
+                               <h1>Abrir presentación existente</h1></br>
+                               
+                                                 <ol start="1">
+										<li>Seleccionar el menú <strong>Archivo.</strong> </li>
+										<li>Clic en <strong>Abrir.</strong></li>
+                    <li>Se desplega un cuadro de dialógo para seleccionar el  <strong>Archivo.</strong></li>
+                    <li>Una vez seleccionado, clic en el botón <strong>Abrir.</strong></li>
+										
+								</ol> 
+                                
+                                     
+                             </div>
+                             
+                              <div class="contenedor" >
+                              <h1>Abrir presentación existente </h1>
+                              <p style="text-align:justify;">
+		<br/>
+  <img src="images/Impress/abrir_impress1.png"  onclick="ventanaNueva('SWFS/IMPRESS/Abrir_presentacion_impress/abrir_odp.swf', 'Abrir hoja existente')"  style="cursor:pointer;position: absolute;height: 18em;width: 20em;border:none;margin-left:1em;" alt="" />
+<img src="images/Impress/open_saveimpress.gif" id="unidad7" style="position: relative;height:10em;width:15em;border:none;margin-top: 11.5em;margin-left: 6em;" />
+                               </p>
+                           </div>
+                            <div class="contenedor" rel="Guardar Presentación" title="Guardar Presentación">
+                                  <img src="images/Impress/save_impress.png" style=" height:240px;" alt="" />
+                               <h1>Guardar presentación</h1>
+                               
+                                                       <ol start="1">
+										<li>Seleccionar el menú <strong>Archivo.</strong> </li>
+										<li>Clic en <strong>Guardar como.</strong></li>
+                    <li>Se desplega un cuadro de dialógo para escribir el nombre del <strong>Archivo.</strong></li>
+                    <li> Clic en el botón <strong>Guardar.</strong></li>
+										
+								</ol> 
+                               
+                             </div>
+                              <div class="contenedor" title="Guardar Presentación" >
+                                <h1>Guardar una presentación</h1>
+                                <p style="text-align:justify;">
+		<br/>
+  <img src="images/Impress/save_impress1.png"  onclick="ventanaNueva('SWFS/IMPRESS/save_Impress/save_odp.swf', 'Guardar en calc')"  style="cursor:pointer;position: absolute;height: 18em;width: 20em;border:none;margin-left:1em;" alt="" />
+<img src="images/Impress/save_impress2.gif" id="unidad7"style="position: relative;height:10em;width:15em;border:none;margin-top: 11.5em;margin-left: 6em;"  />
+                                </p>
+                             </div>
+                             
+                             
+                              
+                             <div class="contenedor" rel="Transicion de Presentación" title="Transicion de Presentación" >
+                                  <img src="images/Impress/trans1.png" style=" height:15em;" alt="" />
+                             
+                               <h1>Transiciones</h1>
+                                <p>
+                                    Las transiciones son animaciones que se aplican a elementos de una diapositiva durante su aparición o desaparición en la pantalla durante una presentación.</br>
+                                    <!--Se puede controlar la velocidad, combinar sonido y hasta personalizar las propiedades de los efectos de transición. 
+-->                
+                                </p>
+                                   <ol><li>Clic en menú <strong>presentación</strong> </li>
+<li>Clic en <strong>Transicion de diapositivas</strong> o en botón de <strong>acceso rapido del panel de tareas</strong> </li>
+<li>Configurar opciones de <strong>Transición</strong></li>
+<li>(opcional) Clic en Iniciar <strong>presentación</strong>
+</li></ol>
+
+                             </div>
+                           <div class="contenedor" title="Transicion de Presentación" >
+                             <h1>Transiciones</h1>
+                             <p style="text-align:justify;">
+		<br/>
+  <img src="images/Impress/transicionesp.png"  onclick="ventanaNueva('SWFS/IMPRESS/Transiciones/transiciones.swf', 'Transiciones')"  style="cursor:pointer;position: absolute;height: 18em;width: 20em;border:none;margin-left:1em;" alt="" />
+                                     <img src="images/Impress/transiciones1.gif" id="unidad7"style="position: relative;height:10em;width:15em;border:none;margin-top: 11.5em;margin-left: 6em;"  />
+                               </p>
+                           </div>
+                               <div class="contenedor" rel="Interacciones" title="Interacciones">
+                                  <img src="images/Impress/Intera1.png" style=" height:15em;" alt="" />
+                               <h1>Interacciones</h1>
+                                <p>
+                                   Define el comportamiento de los objetos seleccionados cuando se pulsa sobre uno de ellos durante una presentación.
+
+                                   <ol><li>Elegir <strong>Presentación</strong> </li>
+                                   <li>Clic en <strong>Interacción</strong> o en botón de <strong>acceso rapido del panel de tareas</strong> </li>
+                                   <li>Configurar opciones de <strong>Interacción</strong></li>
+
+                                   </ol>
+                                   <img src="images/Impress/Intera3.png" style=" height:2em;"  alt="" />
+                                </p>
+                             </div>
+                              <div class="contenedor" title="Interacciones"  >
+                                    <h1>Interacciones</h1>
+                                            <p style="text-align:justify;">
+		<br/> 
+  <img src="images/Impress/interacp.png"  onclick="ventanaNueva('SWFS/IMPRESS/interacciones/intera.swf', 'Interacciones en Impress')" style="cursor:pointer;position: absolute;height: 18em;width: 20em;border:none;margin-left:1em;" alt="" />
+                                     <img src="images/Impress/interac1.gif" style="position: relative;height:10em;width:15em;border:none;margin-top: 11.5em;margin-left: 6em;" alt="" />
+                              </p> <!-- <h1>Interacccion entre objetos</h1>-->
+                             </div>
+                            <div class="contenedor" rel="Animaciones" title="Animaciones">
+                                  <img src="images/Impress/anima1.png" style=" height:15em;" alt="" />
+                               <h1>Animaciones</h1>
+                                <p>
+                                   Asigna un efecto al objeto seleccionado que se ejecuta durante la presentación.</br>
+                                  <ol><li> <strong>Elija presentación</strong></li> 
+                                   <li>Clic en <strong>Animación personalizada</strong> o en botón de <strong>acceso rapido del panel de tareas</strong> </li>
+                                  <li> Configurar opciones de<strong>Animación</strong></li></ol> <img src="images/Impress/Anima3.png" style="margin-top:-1em"  alt="" />
+                                
+                                </p>
+                             </div>
+                              <div class="contenedor"  title="Animaciones"  >
+                                  
+                                   <h1>Animaciones</h1>
+                                            <p style="text-align:justify;">
+		<br/>
+  <img src="images/Impress/animatep.png"  onclick="ventanaNueva('SWFS/IMPRESS/animaciones/animate.swf', 'Animaciones Impress')"  style="cursor:pointer;position: absolute;height: 18em;width: 20em;border:none;margin-left:1em;" alt="" />
+                                     <img src="images/Impress/animate1.gif" style="position: relative;height:10em;width:15em;border:none;margin-top: 11.5em;margin-left: 6em;"
+		alt="" />
+                                            </p><!--     <h1>Animaciones</h1>-->
+                             </div>
+                             
+                             <div class="contenedor" rel="Paginas Maestras" title="Paginas maestras">
+                                  <img src="images/Impress/maestra1.png" style=" height:15em;" alt="" />
+                               <h1>Páginas maestras</h1>
+                                <p>
+                                   Esta sección permite definir el estilo de toda la presentación o sólo el de la diapositiva o las diapositivas seleccionadas. Impress incorpora por defecto varias diapositivas maestras, si bien, se pueden ampliar en número y diversidad al crear nuevos fondos de presentación tras modificar las existentes, o agregar nuevas plantillas de fondos.                      </p>
+                             </div>
+                              <div class="contenedor"  title="Paginas maestras" >
+                                    <h1>Páginas maestras</h1>
+                                             <p style="text-align:justify;">
+		<br/>
+  <img src="images/Impress/masterp.png"  onclick="ventanaNueva('SWFS/IMPRESS/DiapositivaMaestra/master.swf', 'Paginas Maestras Impress')"  style="cursor:pointer;position: absolute;height: 18em;width: 20em;border:none;margin-left:1em;" alt="" />
+                                                     <img src="images/Impress/master1.gif" style="position: relative;height:10em;width:15em;border:none;margin-top: 11.5em;margin-left: 6em;"
+		alt="" />
+                              </p> <!-- <h1>Paginas Maestra Impress</h1>-->
+                             </div>
+                             
+                              <div class="contenedor" rel="Enviar Presentación por correo" title="Enviar Presentación por correo" >
+                                  <img src="images/Impress/correo.png" style=" height:25em;" alt="" />
+                             
+                               <h1>Enviar presentación por correo</h1>
+                                <p>
+                                    <ol start="1"><li>Clic en <strong>Archivo</strong></li>
+                                        <li>Seleccionar <strong>Enviar</strong></li>
+                                        <li>Clic en <strong>Documento como correo electrónico</strong></li>
+                                    </ol>
+                                </p>
+
+                             </div>
+                           <div class="contenedor" title="Enviar Presentación por correo" >
+                              <h1>Enviar presentación por correo</h1>
+                                      <p style="text-align:justify;">
+		<br/>
+  <img src="images/Impress/correo1.png"  onclick="ventanaNueva('SWFS/IMPRESS/mail/mailspeed.swf', 'Transiciones')" style="cursor:pointer;position: absolute;height: 18em;width: 20em;border:none;margin-left:1em;" alt="" />
+                                     <img src="images/Impress/correo2.gif" id="unidad7" style="position: relative;height:10em;width:15em;border:none;margin-top: 11.5em;margin-left: 6em;"
+		alt="" />
+                              </p> <!-- <h1>Transicion de Presentacion </h1>-->
+                              
+                           </div>
+                            <div class="contenedor" rel="UNIDAD III:PLANTILLAS Y ESTILOS" title="UNIDAD III:PLANTILLAS Y ESTILO">
+                                <img src="images/Impress/unidad3.png" id="unidad2" style=" height:20em" />
+                                <h1>
+                                    Unidad III
+                                    <br />Plantillas y estilos en Impress
+                                </h1>
+
+                            </div>
+                            <!-- images/pre2.png  -->
+                            <div class="contenedor" title="UNIDAD III:PLANTILLAS Y ESTILOS" >
+							 <img src="images/writer/info.png" style=" height:225px" alt="" />
+                                <h1>
+                                    Descripción de  unidad III
+                                  
+                                </h1><p>Se estudia el asistente para la elaboración de presentaciones de Impress; los estilos y formatos que se pueden aplicar a los diferentes objetos de presentación que se utilizan en las presentaciones, plantillas y la organización de las mismas en Impress.</p>
+
+                            </div>
+                            <div class="contenedor" rel="Asistente de Presentacion Impress" title="Asistente de Presentacion Impress"  >
+                                <img src="images/Impress/asistente1.jpg" height="200" alt="" />
+                                <h1>Asistente de presentación Impress</h1>
+                                <p>
+                                    Use el asistente para crear una presentación de forma interactiva. El asistente guía paso a paso por los elementos de diseño y proporciona distintas opciones de edición.
+                                    En cada página del asistente se pueden modificar, deshacer u omitir los pasos de edición. 
+                                                      </p>
+                               </div>
+                            <div class="contenedor"  title="Asistente de Presentacion Impress">
+                                  <h1>Asistente de presentación Impress</h1>
+                                     <p style="text-align:justify;">
+		<br/>
+  <img src="images/Impress/asistentep.png"  onclick="ventanaNueva('SWFS/IMPRESS/asistente_impress/asistente.swf', 'Asistente de Presentacion Impress')"  style="cursor:pointer;position: absolute;height: 18em;width: 20em;border:none;margin-left:1em;" alt="" />
+                                                         <img src="images/Impress/asistente.gif" height="1em;" style="position: relative;height:10em;width:15em;border:none;margin-top: 11.5em;margin-left: 6em;"
+		alt="" />
+                      </p>   <!--       <h1>Asistente de Presentacion </h1>-->
+                                 </div>
+                                 
+                                  <div class="contenedor" rel="Estilos Y Formatos Impress"  title="Estilos Y Formatos Impress" >
+                                <img src="images/Impress/style.png" style=" height:10em;"  alt="" />
+                                <h1>Estilos y formatos Impress</h1>
+                                <p>
+                                    La ventana estilo y formato de LibreOffice Impress se comporta de un modo diferente que en otros programas de LibreOffice. Por ejemplo, los Estilos de gráficos se pueden crear, editar y aplicar, pero los Estilos de presentación sólo se pueden editar.
+                                    <ol><li>Elija <strong>Formato</strong></li>
+                                       <li><strong>Estilo y formato F11</strong></li>
+                                   <li> En la barra Formato <strong>configurar</strong> opciones de estilo y formato</li>
+                                    </ol>   <img src="images/Impress/estil1.png" style=" height:2em ;"  alt="" /></p>
+                               </div>
+                            <div class="contenedor"  title="Estilos Y Formatos Impress">
+                                 <h1>Estilos y formatos Impress</h1>
+                                    <p style="text-align:justify;">
+		<br/>
+  <img src="images/Impress/style_format.png"  onclick="ventanaNueva('SWFS/IMPRESS/Estilos_Formatos/format_style1.swf', 'Estilos y Formatos Impress')"  style="cursor:pointer;position: absolute;height: 18em;width: 20em;border:none;margin-left:1em;" alt="" />
+                                                        <img src="images/Impress/estil2.gif" style="position: relative;height:10em;width:15em;border:none;margin-top: 11.5em;margin-left: 6em;"
+		alt=""/>
+                             </p>  <!-- <h1>Estilos y Formatos</h1>-->
+                               
+                              </div>
+                              
+                               <div class="contenedor" rel="Plantillas Impress"  title="Plantillas Impress">
+                                <img src="images/Impress/save_plantilla.png" style=" height:15em;"  alt="" />
+                                <h1>Plantillas Impress</h1>
+                                <p>
+                                    Una plantilla es una presentación personalizada que contiene los elementos que se repiten en todas las diapositivas, como puede ser el encabezado o pie de página, así como también el nombre del autor.
+                                    <ol><li>Clic en <strong>Archivo</strong></li><li>Clic en <strong>Plantilla</strong></li><li>Clic en <strong>Guardar como plantilla</strong></li></ol></p>
+                               </div>
+                              <div class="contenedor"  title="Plantillas Impress">
+                                   <h1>Plantillas Impress</h1>
+                                      <p style="text-align:justify;">
+		<br/>
+  <img src="images/Impress/plantillap.png"  onclick="ventanaNueva('SWFS/IMPRESS/Plantilla/plantilla.swf', 'Guardar Presentacion Plantilla Impress')"  style="cursor:pointer;position: absolute;height: 18em;width: 20em;border:none;margin-left:1em;" alt="" />
+                                             <img src="images/Impress/plantilla2.gif" style="position: relative;height:10em;width:15em;border:none;margin-top: 11.5em;margin-left: 6em;"
+		alt="" />
+         </p>                      <!-- <h1>Plantillas</h1>-->
+                                <p>
+                                    
+                                </p>
+                              </div> 
+                              
+                              <div class="contenedor" rel="Organizando Plantillas Impress">
+                                <img src="images/Impress/gestion_plantilla.png" style=" height:15em;"  alt="" />
+                                <h1>Organizando plantillas Impress</h1>
+                                <p>
+La ventaja de utilizar el administrador del plantillas está en que al visualizar las plantillas y documentos podemos saber si nos interesan o no y de ese modo podemos almacenar en nuestro sistema las mas convenientes.<ol><li>Clic en <strong>Archivo</strong></li><li>Clic en <strong>Plantilla</strong></li><li>Clic en <strong>Gestionar</strong></li></ol>
+                                    </p>
+                               </div>
+                              <div class="contenedor"  title="Organizando Plantillas Impress">
+                                    <h1>Organizando plantillas Impress</h1>
+                                       <p style="text-align:justify;">
+		<br/>
+  <img src="images/Impress/admin_plantilla.png"  onclick="ventanaNueva('SWFS/IMPRESS/administrar_plantillas/admin_plantillas.swf', 'Administrar Plantilla Impress')" style="cursor:pointer;position: absolute;height: 18em;width: 20em;border:none;margin-left:1em;" alt="" />
+                                                  <img src="images/Impress/admin_plantilla2.gif" style="position: relative;height:10em;width:15em;border:none;margin-top: 11.5em;margin-left: 6em;"
+		alt="" />
+         </p>                      <!-- <h1>Administrar Plantillas</h1>-->
+                                <p>
+                                    
+                                </p>
+                              </div>
+                              
+                            <!--  <div class="contenedor" rel="Presentaciones Impress">
+                                <img src="images/plantilla.png" style=" height:10em;"  alt="" />
+                                <h1>Organizando Plantillas Impress</h1>
+                                <p>
+La ventaja de utilizar el Administrador del plantillas está en que al visualizar las plantillas y documentos podemos saber si nos interesan o no y de ese modo podemos almacenar en nuestro sistema las que nos gusten facilitando así la selección de plantillas a la hora de crear una presentación con el Asistente.
+                                    </p>
+                               </div>
+                              <div class="contenedor" title="Transicion de Presentacion" rel="Presentaciones Impress">
+  <img src="images/plantillas1.png"  onclick="ventanaNueva('SWFS/administrar_plantillas/admin_plantillas.swf', 'Administrar Plantilla Impress')"  style=" height:25em;" alt="" />
+
+                                <h1>Administrar Plantillas</h1>
+                                <p>
+                                    
+                                </p>
+                              </div>-->
+                              
+                              <div class="contenedor" class="rel" rel="UNIDAD IV:TRABAJANDO CON TEXTO">
+                                <img src="images/Impress/unidad4.png" id="unidad4"  style=" height:25em" />
+                                <h1>
+                                    Unidad IV
+                                    <br />Trabajando con texto
+                                </h1>
+
+                            </div>
+                             <!-- images/u4.png  -->
+                             <div class="contenedor" class="rel" rel="Introduccion Unidad IV">
+							 <img src="images/writer/info.png" style=" height:225px" alt="" />
+                                <h1>
+                                    Descripción de unidad IV
+                                    
+                                </h1>
+                                <p>Elaboración de cajas de texto, propiedades y tipo de texto, creación y diseño de tablas,Buscar y reemplazar texto y encabezado y pie de página</p>
+                                
+
+                            </div>
+                               <div class="contenedor" rel="Creando cajas de texto">
+                                
+                                <h1>Creando cajas de texto</h1>
+                                 <p>
+                                Para agregar una nueva caja de texto:</br></p>
+                                <p>
+<ol>
+    <li>Haremos clic sobre el botón Texto<img src="images/Impress/txt1.png" style="margin-left:0em; margin-top:0em; height:1em; width:1em; float:center;"  alt="" /> de la <strong>barra de herramientas Dibujo</strong> , o...</li>
+    <li>Pulsamos la <strong>tecla F2</strong> </li>
+</ol><p>
+
+El cursor del ratón se mostrará asi: <img src="images/Impress/txt2.png" style="margin-left:0em; margin-top:0em; height:2em; width:2em; float:center;"  alt="" />
+               <br>                
+A continuación, dibujaremos una caja de texto en la diapositiva trazando un rectángulo imaginario para lo que haremos un clic y arrastrar <img src="images/Impress/txt3.png" style="margin-left:0em; margin-top:0em; height:2em; width:2em; float:center;"  alt="" />. El tamaño de la nueva caja de texto se representa por un rectángulo de línea fina discontinua.
+                                 
+</p>
+<p>
+                                  Tras soltar el botón del ratón, la caja de texto será visible por un grueso marco de líneas inclinadas, y mostrará el punto de inserción de texto en su interior <img src="images/Impress/txt4.png" style="margin-left:0em; margin-top:0em; height:2em; width:2em; float:center;"  alt="" /> ; podemos empezar a teclear el texto. 
+                                      
+                                </p>
+                               </div>
+                              <!--<div class="contenedor" >
+  <img src="images/Impress/txt5.png"    style=" height:13em;" alt="" />
+
+                               
+                                
+                              </div>-->
+                                            <div class="contenedor" title="Creando cajas de texto" >
+                                                <h1>Creando cajas de texto</h1>
+                                                   <p style="text-align:justify;">
+		<br/>
+  <img src="images/Impress/txtp.png"  onclick="ventanaNueva('SWFS/IMPRESS/cajas de texto/textbox.swf', 'Cajas de Texto Impress')"  style="cursor:pointer;position: absolute;height: 18em;width: 20em;border:none;margin-left:1em;" alt="" />
+                                                      <img src="images/Impress/textbox2.gif" style="position: relative;height:10em;width:15em;border:none;margin-top: 11.5em;margin-left: 6em;" alt="" />
+         </p>                       <!--<h1>Cajas de texto Impress</h1>-->
+                               
+                              </div>
+                              
+                              <!-- <div class="contenedor" >
+                                               
+                               
+                              </div>-->
+                               <div class="contenedor" rel=" Correccción Ortografica en Impress">
+                                <h1>
+                                 Correccción Ortográfica en Impress
+                                </h1>
+                                <p style="text-align: justify;">
+Para realizar el procedimiento de la corrección ortográfica realizar el siguiente procedimiento:
+<ol><li>En el Menú Herramientas dar clic en la opción de <strong>Ortografía o presionar F7</strong></li>
+<li> Nos mostrara las posibles<strong> sugerencias para corregir las palabras</strong> que tengas errores </li>
+<li> También nos da la opción de <strong>omitir las sugerencias o la corrección manual</strong> </li>
+<li><strong>Seleccionar</strong> según se estime conveniente</li></ol>
+       <img src="images/Impress/ort1.png"    style="cursor:pointer; height:7em;" alt="" />
+          <!--        <a rel="shadowbox;height=1000;width=1200;fullscreen=yes"  title="Correccion Ortografica en Impress"  href="SWFS/correccion_ortografica/ortografy.swf"><img src="images/ort1.png"   style=" height:7em;" alt="" /></a>  -->
+                            </div>
+                                
+                        <div class="contenedor"  title=" Correccción Ortografica en Impress">
+                                <h1>
+                                 Correccción Ortográfica en Impress
+                                </h1>
+                                  <p style="text-align:justify;">
+		<br/>
+       <img src="images/Impress/ortografyp.png"  onclick="ventanaNueva('SWFS/IMPRESS/correccion_ortografica/ortografy.swf', 'Correccion Ortografica en Impress')" style="cursor:pointer;position: absolute;height: 18em;width: 20em;border:none;margin-left:1em;" alt="" />
+          <!--        <a rel="shadowbox;height=1000;width=1200;fullscreen=yes"  title="Correccion Ortografica en Impress"  href="SWFS/correccion_ortografica/ortografy.swf"><img src="images/ort1.png"   style=" height:7em;" alt="" /></a>  -->
+                                                                  <img src="images/Impress/ortografia2.gif" style="position: relative;height:10em;width:15em;border:none;margin-top: 11.5em;margin-left: 6em;"
+		alt="" />
+                           </p>
+                            </div>
+                                 <div class="contenedor" rel="Diseño de Tablas">
+                               
+                                <h1>Diseño de Tablas</h1>
+                                 <p>
+                                      <ol><li>Clic en <strong>Insertar Tabla</strong></li><li>Definir el <strong>Numero de Filas y Columnas</strong></li><li>Configurar el <strong>Estilo y Formato de Tabla</strong> </li></ol>
+                               <p>La sección Diseño de tabla ofrece 11 diseños de tablas estándar, con opciones para modificar el aspecto de las mismas definiendo, por ejemplo, si poseen o no fila o columna de total, bandas en las filas o columnas, etc.<img src="images/Impress/table3.png" style="margin-left:0em; margin-top:0em; height:2em; width:2em"  alt="" />Para insertar una tabla en un contenedor hacer clic sobre el icono Insertar Tabla del menú flotante situado en el centro del contenedor.<img src="images/Impress/table4.jpg"   style=" height:8em; width:20em; float:left; margin-left:0em;" alt="" />
+                               
+                           
+                               
+                               </p>
+                               </div>
+                             <!-- <div class="contenedor" >
+                                <p>
+                                  
+
+<img src="images/Impress/table2.png" style="margin-left:30%; margin-top:0em; height:8em; width:9em;  "  alt="" /><br>
+Cambiar el estilo de una tabla insertada es sencillo: hacemos clic sobre cualquier celda de la tabla y a continuación, clic sobre el estilo de tabla deseado.
+
+                                </p>
+                              </div>-->
+                                 <div class="contenedor" title="Diseño de Tablas">
+                               
+                                <h1>Diseño de Tablas</h1>
+                              <p style="text-align:justify;">
+		<br/> 
+  <img src="images/Impress/tablep.png"  onclick="ventanaNueva('SWFS/IMPRESS/crear_tablas/table.swf', 'Diseño de Tablas Impress')"  style="cursor:pointer;position: absolute;height: 18em;width: 20em;border:none;margin-left:1em;" alt="" />
+                                                              <img src="images/Impress/table2.gif" style="position: relative;height:10em;width:15em;border:none;margin-top: 11.5em;margin-left: 6em;"
+		alt="" />
+                               
+                               </p>
+                               </div>
+                               
+                               <div class="contenedor" rel="Buscar y Reemplazar" >
+                                 <img src="images/Impress/buscar.png" style=" height:18em;"  alt="" />   
+                                <h1>Buscar y reemplazar </h1>
+                                <p>
+                               <strong>Busca o sustituye texto</strong> o formatos en el documento actual:<br>
+
+<ol><li>Menú Editar -<strong> Buscar y reemplazar...</strong></li>
+
+<li><strong>Ctrl + H.</strong></li>
+
+<li>En la barra Estándar, pulse en <strong>Buscar y reemplazar.</strong></br></li></ol>
+                                
+                               </div>
+                            <div class="contenedor"  title="Buscar y Reemplazar">
+                               <h1>Buscar y reemplazar </h1>
+                                  <p style="text-align:justify;">
+		<br/>
+  <img src="images/Impress/buscar1.png"  onclick="ventanaNueva('SWFS/IMPRESS/buscar y reemplazar/search_replace.swf', 'Encabezamiento y pie de página')"  style="cursor:pointer;position: absolute;height: 18em;width: 20em;border:none;margin-left:1em;" alt="" />
+
+                               <img src="images/Impress/buscar2.gif" id="unidad7" style="position: relative;height:10em;width:15em;border:none;margin-top: 11.5em;margin-left: 6em;"
+		alt=""  /> 
+         </p>                      
+                              </div>
+                                  <div class="contenedor" rel="Encabedo y pie de página" >
+                                 <img src="images/Impress/encabezado.png" style=" height:18em;"  alt="" />   
+                                <h1>Encabezamiento y pie de página </h1>
+                                <p>
+                                  Los encabezados y pies de página son áreas de los <strong>márgenes superior, inferior y laterales de cada página</strong> de un documento.</br>
+                                <ol><li>Clic en menú<strong> Insertar</strong></li>
+
+<li>Clic en <strong>Encabezado y pie de pagina</strong></li>
+
+<li>Configurar <strong>contenido de el encabezado y pie de pagina </strong></br></li></ol>
+                               </div>
+                            <div class="contenedor"  title="Encabezado y pie de página">
+                               <h1>Encabezamiento y pie de página </h1>
+                                  <p style="text-align:justify;">
+		<br/>
+  <img src="images/Impress/encabezado1.png"  onclick="ventanaNueva('SWFS/IMPRESS/encabezado_pie_pagina/encabezado_pie.swf', 'Encabezamiento y pie de página')"  style="cursor:pointer;position: absolute;height: 18em;width: 20em;border:none;margin-left:1em;" alt="" />
+
+                               <img src="images/Impress/encabezado2.gif" id="unidad7" style="position: relative;height:10em;width:15em;border:none;margin-top: 11.5em;margin-left: 6em;"
+		alt="" /> 
+         </p>                      
+                              </div>
+                              
+                                     <div class="contenedor"  rel="UNIDAD V:TRABAJANDO CON IMAGENES">
+                                <img src="images/Impress/unidad5.png" id="unidad5"  style=" height:25em;"  />
+                                <h1>
+                                    Unidad V
+                                    <br />Trabajando con imágenes
+                                </h1>
+
+                            </div>
+                            <!-- images/img3.png  -->
+                             <div class="contenedor"  rel="Introduccion Unidad V">
+                                <img src="images/writer/info.png" id="Unidad V" style=" height:225px" alt=""  />
+                                <h1>
+                                    Descripción de unidad V
+                                    
+                                </h1>
+                                <p>Se presenta como trabajar imágenes desde archivos y galería,dar formato a imagenes y trabajar con fontwork en Impress.</p>
+
+                            </div>
+                                 <div class="contenedor" rel="Insertando Imagenes">
+                               
+                                <h1>Insertando imágenes</h1>
+                                 <p><img src="images/Impress/img2.png" style="margin-left:0em; margin-top:0em; height:12em; width:10em; float:right"  alt="" />
+                                 <ol><li>Clic en menú<strong> Insertar</strong></li>
+
+<li>Clic en <strong>A partir de archivo</strong></li>
+
+<li><strong>Seleccionar Imagen</strong></li><li>Clic en <strong>Insertar</strong></li></ol>  <p> 
+                     El sistema más sencillo para insertar una imagen almacenada en un dispositivo de almacenamiento de archivos es hacer clic sobre la opción Insertar imagen del menú flotante situado justo en el centro de un contenedor.<img src="images/Impress/img1.png"   style=" height:3em; width:3em; float:right" alt="" />
+Tras hacer clic sobre el botón se mostrará el diálogo Insertar imagen.desde éste podremos acceder a la unidad y carpeta en donde se encuentra la imagen a incluir.Una vez seleccionada con un clic sobre el nombre o icono de la imagen, antes de hacer clic sobre el botón Abrir,Ajustar tamaño de la imagen.   </p>
+
+
+                               
+                               </div>
+                               
+                               <div class="contenedor" title="Insertando Imagenes" >
+                               
+    <h1>Insertando imagenes</h1>
+       <p style="text-align:justify;">
+		<br/>
+  <img src="images/Impress/insert_imgp.png"  onclick="ventanaNueva('SWFS/IMPRESS/Insertando_imagenes_archivo/insert_image.swf', 'Insertando Imagenes')"  style="cursor:pointer;position: absolute;height: 18em;width: 20em;border:none;margin-left:1em;" alt=""/>
+                                                              <img src="images/Impress/insert_img2.gif" style="position: relative;height:10em;width:15em;border:none;margin-top: 11.5em;margin-left: 6em;"
+		alt="" />
+         </p>                     </div>
+                               
+                               <div class="contenedor" rel="Insertar Imagen desde Galeria" title="Insertar Imagen desde Galeria">
+                                  <img src="images/Impress/galeria.png" style=" height:240px;" alt="" />
+                               <h1>Insertar Imagen desde Galeria</h1>
+                               
+                                                       <ol start="1">
+										<li>Seleccionar el menú <strong>Insertar.</strong> </li>
+										<li>Seleccionar <strong>Imagen.</strong></li>
+                    <li>Clic en <strong>Galeria.</strong></li>
+                    <li> Seleccionar  <strong>Imagen de la Galeria.</strong></li>
+                     <li><strong>Arrastrar o Insertar</strong> la imagen en la diapositiva</li>
+										
+								</ol> 
+                               
+                             </div>
+                              <div class="contenedor" title="Insertar Imagen desde Galeria" >
+                                <h1>Insertar Imagen desde Galeria</h1>
+                                   <p style="text-align:justify;">
+		<br/>
+  <img src="images/Impress/galeria1.png"  onclick="ventanaNueva('SWFS/IMPRESS/insertar_galeria/galeria.swf', 'Guardar en calc')" style="cursor:pointer;position: absolute;height: 18em;width: 20em;border:none;margin-left:1em;" alt="" />
+<img src="images/Impress/galeria2.gif" id="unidad7" style="position: relative;height:10em;width:15em;border:none;margin-top: 11.5em;margin-left: 6em;"
+		alt=""  />
+         </p>                       
+                             </div>
+                             <!-- <div class="contenedor" >
+                                <p>
+
+                               <p>Una vez seleccionada con un clic sobre el nombre o icono de la imagen, y antes de hacer clic sobre el botón Abrir, deberemos decidir si queremos insertar la imagen vinculada o incrustada, y no es una decisión banal. </p>
+                                </p>
+  <img src="images/Impress/img2.png"   style=" height:20em;" alt="" />
+
+                              </div>-->
+                              
+                              
+                             <!-- <div class="contenedor">
+                               
+                                
+                               </div>-->
+                                   <div class="contenedor" rel="FontWork Impress">
+                               
+                                <h1>FontWork Impress</h1>
+                                 <p> <img src="images/Impress/fw1.jpg"    style=" height:7em; width:7em; float:right; margin-left:0em;" alt="" />
+              Con la utilidad Fontwork conseguimos crear textos muy atractivos para nuestra diapositivas. Para crear un objeto Fontwork:</p> 
+              <ol><li> clic sobre el botón <strong>Galería de Fontwork</strong>  de la barra de herramientas Dibujo</li>
+              <li>En la galeria de fontwork seleccionar <strong>el tipo de Fontwork</strong></li><li>clic en el botón <strong>Aceptar</strong></li><li>Aparece la palabra <strong>"Fontwork" con el diseño elegido aparece en la diapositiva</strong> con sus correspondientes puntos de control</li><ol>
+             <p style="margin-left:-2em">La barra de herramientas de formato del Fontwork con sus correspondiente botones:</p>
+                                                               <img src="images/Impress/fw2.png" style="margin-left:0em; margin-top:0em; height:7em; width:7em; float:right"  alt="" />
+                                               <ol style="margin-left:-2em">
+                                         <li>Forma de <strong>Fontwork</strong></li>
+                                         <li>Mismo alto de <strong>letras de Fontwork</strong></li>
+                                         <li><strong>Alineación</strong> de Fontwork</li>
+                                         <li><strong>Justificar</strong> estiramiento</li>
+                                         <li><strong>Espacio entre caracteres</strong> de Fontwork</li>
+                                         
+                                    </ol>         
+
+            
+
+
+                               </p>
+                               </div>
+                                   <div class="contenedor" title="FontWork Impress">
+                               
+                                <h1>FontWork Impress</h1>
+                                <p style="text-align:justify;">
+		<br/>
+  <img src="images/Impress/fontworkp.png"  onclick="ventanaNueva('SWFS/IMPRESS/Fontwork/fontwork.swf', 'Insertando FontWork')" style="cursor:pointer;position: absolute;height: 18em;width: 20em;border:none;margin-left:1em;" alt="" />
+                                                      <img src="images/Impress/fontworkp.gif" style="position: relative;height:10em;width:15em;border:none;margin-top: 11.5em;margin-left: 6em;"
+		alt="" />
+             
+                               </p>
+                               </div>
+                               
+                               
+                              
+                                     <div class="contenedor"  rel="UNIDAD VI:INTEGRACION CON LIBRE OFFICE" >
+                                <img src="images/Impress/unidad6.png" id="unidad6"  style=" height:25em;"/>
+                                <h1>
+                                    Unidad VI
+                                    <br />Integración con LibreOffice
+                                </h1>
+
+                            </div>
+                            <!-- images/u5.png  -->
+                             <div class="contenedor"  rel="Descripción Unidad VI" >
+							 <img src="images/writer/info.png" style=" height:225px" alt="" />
+                                <h1>
+                                    Descripción de unidad VI
+                                </h1>
+                                <p> Se presenta la forma en como insertar objetos desde  una hoja de cálculo (calc), dentro de una presentación de impress, forma y procedimiento en la adición de objetos de calc y gráficos para mostrar información de forma efectiva, organizable y creativa en nuestras presentaciones.
+                                </p>
+
+                            </div>
+                            
+                            <div class="contenedor" rel="Usando Hojas de Calculo en Impress">
+                               
+                                <h1>Usando Hojas de Cálculo en Impress</h1>
+                                 <img src="images/Impress/calc2.png" style="margin-left:0em; margin-top:0em; height:9em; width:8em; float:right "  alt="" />
+  <p><ol><li> Vaya a la diapositiva donde desee insertar la <strong>hoja de cálculo.</strong></li>
+<li>Elija Insertar - <strong>OLE- Objeto</strong>. Haga clic en Crear nuevo y seleccione la hoja de cálculo LibreOffice. Haga clic en Aceptar. Luego haga clic en la hoja de cálculo para introducir sus datos.</li>
+<li>Haga <strong>clic fuera de la hoja de cálculo</strong> para ver la diapositiva.</li></ol></p>
+ <img src="images/Impress/calc3.png" style="margin-left:4em; margin-top:0em; height:16em; width:22em; float:center "  alt="" /></p>
+                                   
+             <br>
+
+
+                               </p>
+                               </div>
+                            <!--  <div class="contenedor">
+                                <p align=justify>
+  
+                                </p>
+                              </div>-->
+                              
+                               <div class="contenedor" title="Usando Hojas de Calculo en Impress" >
+                               
+                                <h1>Usando Hojas de Cálculo en Impress</h1>
+                                 <p style="text-align:justify;">
+		<br/>
+  <img src="images/Impress/calc_p.png"  onclick="ventanaNueva('SWFS/IMPRESS/hoja_calculo/cal.swf', 'Hojas de Calculo como Objeto OLE Impress')"  style="cursor:pointer;position: absolute;height: 18em;width: 20em;border:none;margin-left:1em;" alt="" />
+   <img src="images/Impress/calc.gif" style="position: relative;height:10em;width:15em;border:none;margin-top: 11.5em;margin-left: 6em;"
+		alt="" />
+             
+                               </p>
+                               </div>
+                               
+                               <!--<div class="contenedor" >
+                               
+                               </div>-->
+                                <div class="contenedor" rel="Gráficos en Impress">
+                               
+                                <h1>Gráficos en Impress</h1>
+                                 <p>
+Insertar Gráficos Para insertar un gráfico a la diapositiva se hace desde la opción Insertar Gráfico del menú flotante situado justo en el centro de un contenedor o en el menú Insertar→Diagrama
+ <img src="images/Impress/graf1.png" style="margin-left:0em; margin-top:0em; height:3em; width:5em"  alt="" />
+              
+              Desde el menu Insertar de la siguiente manera:<br>
+               <img src="images/Impress/graf0.png" style="margin-left:0em; margin-top:0em; height:15em; width:20em; margin"  alt="" />
+                
+
+             <br>
+                               </p>
+                               </div>
+                              <div class="contenedor">
+                                <p align=justify>
+                                                   En donde el usuario puede editar el gráfico insertado desde la barra de herramientas de edición<br>
+               <img src="images/Impress/graf3.png" style="margin-left:0em; margin-top:0em; height:10em; width:22em"  alt="" />
+<ol><li> Gráfico.</li>
+<li>Formato de <strong>selección</strong></li>
+<li><strong>Tipo</strong> de Gráfico</li>
+<li><strong>Datos</strong> del gráfico</li>
+</ol>
+                     
+                                </p>
+                                
+                                  </div>
+                              
+                                  <div class="contenedor">
+                                   <p align=justify>
+                  Muestra una tabla de datos, en donde el usuario puede editar los valores gráfico<br>
+           <img src="images/Impress/graf4.png" style="margin-left:0em; margin-top:0em; height:18em; width:26em"  alt="" /><br>
+               <ol><li> Insertar  <strong>Filas.</strong></li>
+<li>Insertar <strong>series</strong></li>
+<li>Insertar <strong>columnas de Texto</strong></li>
+<li>Eliminar <strong>Filas</strong></li>
+<li><strong>Mover fila</strong> abajo</li>
+</ol> 
+</p>
+                            </div>
+                              
+                              
+                                  <div class="contenedor" title="Gráficos en Impress">
+                                       <h1>
+                                   Gráficos en Impress
+                                </h1>
+                                   <p style="text-align:justify;">
+		<br/>
+  <img src="images/Impress/graf5.png"  onclick="ventanaNueva('SWFS/IMPRESS/Graficos/graphics.swf', 'Graficas Impress')"  style="cursor:pointer;position: absolute;height: 18em;width: 20em;border:none;margin-left:1em;" alt="" />
+
+
+                                   <img src="images/Impress/graficos2.gif" style="position: relative;height:10em;width:15em;border:none;margin-top: 11.5em;margin-left: 6em;"
+		alt="" />
+                              </p> 
+
+
+                            </div>
+                            
+                            
+                             <div class="contenedor" rel="UNIDAD VII:EXPORTANDO PRESENTACIONES" >
+                                <img src="images/Impress/unidad7.png" id="unidad7"  style=" height:25em;"  />
+                                <h1>
+                                    Unidad VII
+                                    <br />Exportando presentaciones
+                                </h1>
+
+                            </div>
+                            <!-- images/export1.png -->
+                               <div class="contenedor" rel="Descripción Unidad VII" >
+							 <img src="images/writer/info.png" style=" height:225px" alt="" />
+                                <h1>
+                                    Descripción de unidad VII
+                                   
+                                </h1>
+                                <p>Se explica la forma en como exportar presentaciones a los formatos de documentos más utilizados impress, PDF y swf; además la forma y procedimiento para realizar una impresión en Impress.</p>
+
+                            </div>
+                       <div class="contenedor" rel="Exportando Impress a PDF">
+                                <h1>
+                                   Exportando Impress a PDF
+                                </h1>
+                                <p style="text-align: justify;">
+<ol><li>Clic en Menú <strong>Archivo</strong></li><li>Clic en <strong>exportar a PDF...</strong></li><li>Clic en <strong>exportar</strong></li></ol>
+<p>Los siguientes formatos de archivos presentan opciones adicionales de exportación después de pulsar Guardar:<br>
+
+Documento HTML, JPEG, SVM/WMF/PICT/MET, BMP, GIF, EPS, PNG, PBM, PPM, PGM.
+<img src="images/Impress/export_pdf.png"    style="cursor:pointer;height: 13em;width: 20em;border:none; margin-left:-1em" alt="" />
+
+                         
+ 
+                            </div>
+                            
+                              <div class="contenedor"  title="Exportando Impress a PDF">
+                                       <h1>
+Exportando Impress a PDF
+                                </h1>
+                                   <p style="text-align:justify;">
+		<br/>
+  <img src="images/Impress/export2.png"  onclick="ventanaNueva('SWFS/IMPRESS/savepdf/savepdf.swf', 'Exportar Impress a PDF')" style="cursor:pointer;position: absolute;height: 18em;width: 20em;border:none;margin-left:1em;" alt="" />
+
+                                       <img src="images/Impress/export_pdf2.gif" style="position: relative;height:10em;width:15em;border:none;margin-top: 11.5em;margin-left: 6em;"
+		alt="" />
+</p>
+                            </div>
+                            
+                            <div class="contenedor" rel=" Exportando Impress a SWF">
+                                <h1>
+                                   Exportando Impress a SWF
+                                </h1>
+                                <p style="text-align: justify;">
+<ol><li>Clic en Menú <strong>Archivo</strong></li><li>Clic en <strong>Exportar</strong></li><li>Seleccionar  <strong>formato SWF</strong></li><li>Clic en <strong>Guardar</strong></li></ol>
+<p>Si selecciona el formato de archivo "Macromedia Flash (SWF)", el actual documento de Impress o Draw se exportará al formato Macromedia Flash.
+Si elige "Documento HTML" como formato de archivo, aparece el Asistente para exportación HTMLCommon/HTML_Export/es.</p>                 
+  <img src="images/Impress/export_swf.png"    style="cursor:pointer;position: absolute;height: 16em;width: 20em;border:none;margin-left:3em; margin-top:-1em" alt="" />
+
+                            </div>
+                            
+                            <div class="contenedor" title=" Exportando Impress a SWF">
+                                       <h1>
+Exportando Impress a SWF
+                                </h1>
+                                   <p style="text-align:justify;">
+		<br/>
+  <img src="images/Impress/export2.png"  onclick="ventanaNueva('SWFS/IMPRESS/saveswf/export1.swf', 'Exportar Impress a SWF')"  style="cursor:pointer;position: absolute;height: 18em;width: 20em;border:none;margin-left:1em;" alt="" />
+                                            <img src="images/Impress/export_swf2.gif" style="position: relative;height:10em;width:15em;border:none;margin-top: 11.5em;margin-left: 6em;"
+		alt="" />
+         </p>                 
+                            </div>
+                            
+                             <!--  <div class="contenedor">
+                                <h1>
+                                  Evaluacion de LibreOffice Impress
+                                </h1>
+                                <p style="text-align: justify;">
+                            <b> 1-Que es LibreOffice Impress?</b><br>
+                             <input type="radio" name="gender" value="1" > Un programa de presentaciones<br>
+                             <input type="radio" name="gender" value="2"> Un programa para elaborar presentaciones<br>
+                            <input type="radio" name="gender" value="3"> Otro<br><br>
+                             <input type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off" value="Siguiente"/>
+                                   <br>  
+                              <b> 2-Como son las presentaciones en Impress?</b><br>
+                             <input type="radio" name="gender" value="1" > Es aburrido<br>
+                             <input type="radio" name="gender" value="2"> Es muy cansado ya que esta mucho texto<br>
+                            <input type="radio" name="gender" value="3"> Es mas dinamico ya que no se utiliza mucho texto y nos premite tambien insertar audio<br>
+                             <input type="radio" name="gender" value="3"> Ninguna de las anteriores<br><br>
+                             
+                              
+                            </div> 
+                            
+                            <div class="contenedor">
+                                <p style="text-align: justify;">
+                                 <b> 3-Como pueden ser mejoradas con Imagenes?</b><br>
+                             <input type="radio" name="gender" value="1" > Con efectos especiales<br>
+                             <input type="radio" name="gender" value="2"> Con unos efectos mas elegantes para las presentaciones<br>
+                            <input type="radio" name="gender" value="3"> Sus pressentaciones pueden sser mejoradas con imagenes prediseñadas en 2D y 3D,efectos
+                                          especiales y estilos de transicion,animaciones y herramientas de dibujo de alto Impacto<br>
+                             <input type="radio" name="gender" value="3"> Ninguna de las anteriores<br><br>
+                             
+                               <b> 4-Como son las presentaciones en Impress?</b><br>
+                             <input type="radio" name="gender" value="1" > Es aburrido<br>
+                             <input type="radio" name="gender" value="2"> Es muy cansado ya que esta mucho texto<br>
+                            <input type="radio" name="gender" value="3"> Es mas dinamico ya que no se utiliza mucho texto y nos premite tambien insertar audio<br>
+                             <input type="radio" name="gender" value="3"> Ninguna de las anteriores<br><br>
+                             </p>
+                            </div>
+                            
+                               <div class="contenedor">
+                                <p style="text-align: justify;">
+                                 <b> 5-cuales de las siguientes forman parte de la ventana de Impress?</b><br>
+                             <input type="checkbox" name="gender" value="1" > barra de tareas<br>
+                             <input type="checkbox" name="gender" value="2"> barra de dibujo<br>
+                            <input type="checkbox" name="gender" value="3"> barra de herramientas<br>
+                             <input type="checkbox" name="gender" value="4"> barra de diapositivas<br>
+                              <input type="checkbox" name="gender" value="5">barra de tareas<br>
+                               <input type="checkbox" name="gender" value="6">barra de herramientas<br><br>
+                             
+                               <b> 6-Definicion de Impress?</b><br>
+                             <input type="radio" name="gender" value="1" > Es aburrido<br>
+                             <input type="radio" name="gender" value="2"> Es muy cansado ya que esta mucho texto<br>
+                            <input type="radio" name="gender" value="3"> Es mas dinamico ya que no se utiliza mucho texto y nos premite tambien insertar audio<br>
+                             <input type="radio" name="gender" value="3"> Ninguna de las anteriores<br><br>
+                             </p>
+                            </div>
+                           <!-- http://topicosterceromercedes.blogspot.com/p/test.html-------pregunta 5 --> 
+                            
+                            <div class="contenedor" rel="Imprimir en Impress">
+                                <h1>
+                                  Imprimir en Impress
+                                </h1>
+                                <p style="text-align: justify;">
+Para Imprimir en Impress hacer el siguiente procedimiento:
+<ol><li>Clic en <strong>Menú Archivo</strong></li>
+<li>Clic en la <strong>opción Imprimir</strong></li>
+<li>Configurar <strong>opciones de impresión</strong></li>
+<li>Proceder con la <strong>Impresión</strong></li></ol>
+               
+               <img src="images/Impress/print1.png"  onclick="ventanaNueva('SWFS/IMPRESS/imprimir/print.swf', 'Imprimir en Impress')"  style="cursor:pointer;position: absolute;height: 18em;width: 20em;border:none;margin-left:4em;" alt="" />
+                <!--  <a rel="shadowbox;height=1000;width=1200"  href="SWFS/imprimir/print.swf" title="Imprimir en Impress" ><img src="images/print1.png"   style=" height:13em;" alt="" /></a>  -->
+                           <!--onclick="window.open('file:///C:/wamp/www/LibreApp/Libre/SWFS/imprimir/print.swf');"-->
+                            </div>
+                             
+                                <div class="contenedor" title="Imprimir en Impress">
+                                <h1>
+                                  Imprimir en Impress
+                                </h1>
+                                  <p style="text-align:justify;">
+		<br/>
+               
+               <img src="images/Impress/printp.png"  onclick="ventanaNueva('SWFS/IMPRESS/imprimir/print.swf', 'Imprimir en Impress')"  style="cursor:pointer;position: absolute;height: 18em;width: 20em;border:none;margin-left:1em;" alt="" />
+                                                          <img src="images/Impress/imprimir2.gif" style="position: relative;height:10em;width:15em;border:none;margin-top: 11.5em;margin-left: 6em;"
+		alt=""/>
+              </p>  <!--  <a rel="shadowbox;height=1000;width=1200"  href="SWFS/imprimir/print.swf" title="Imprimir en Impress" ><img src="images/print1.png"   style=" height:13em;" alt="" /></a>  -->
+                           <!--onclick="window.open('file:///C:/wamp/www/LibreApp/Libre/SWFS/imprimir/print.swf');"-->
+                            </div>
+                        
+                        
+                       
+                             
+                                <div class="contenedor" rel="Fin del Modulo"  >
+                                <h1>
+                                Fin del  Módulo de Libre Office Impress
+                                
+                                </h1>
+                                <p style="text-align: justify;">
+
+       <img src="images/Impress/impress1.svg"    style="cursor:pointer; height:20em;" onclick="parent.indice(0)"  alt="" />
+          <!--        <a rel="shadowbox;height=1000;width=1200;fullscreen=yes"  title="Correccion Ortografica en Impress"  href="SWFS/correccion_ortografica/ortografy.swf"><img src="images/ort1.png"   style=" height:7em;" alt="" /></a>  -->
+                                                                  <img src="images/Impress/final.gif" style="margin-left:-2em; margin-top:-10em; height:10em; width:20em; border:0px;"  alt="" />
+                           </p>
+                            </div>
+                            
+                            <div class="contenedor" title="Fin del modulo Impress">                                                                   
+                              <h1></h1>
+                             <p  style= "text-align:justify;">
+                            <a href="" onClick="parent.indice(0)"> <img src="images/calc/inicio.png"  tyle=" position: absolute; height:20em; width:20em; border:none; margin-left:1em"  alt="" /> </a>
+                                <img src="images/Impress/impress1.gif" id="unidad1" style=" position: relative; height:10em; width:15em; border:none; margin-top:-4em; margin-left:8em" alt=""  />
+                             </p>
+                              </div> 
+                            
+						
+                                <!-- #############################  FIN PAGINAS DEL LIBRO #############################  -->   
+                            
+                                                       
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        
+        <!-------------------------------------------------->
+        
+        <div style="width:8%; position: fixed;
+  top: 50%;
+  left: 100%;
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);">
+    <div class="row" style=" border-radius:20%">
+        <ul class="nav nav-pills nav-stacked">
+
+
+
+ <li>
+                
+             
+                <a  title="Inicio" href="javascript:void(0)" title="Click here" onClick="home()"><span class="b-text" >
+                    <span class="visible-sm visible-md visible-lg"></span>
+                    <i class="glyphicon glyphicon-home"></i>
+                </a>
+            </li>
+            <li>
+                
+             
+                <a  title="Glosario" href="javascript:void(0)" title="Click here" onClick="glosario()"><span class="b-text" >
+                    <span class="visible-sm visible-md visible-lg"></span>
+                    <i class=" glyphicon glyphicon-book"></i>
+                </a>
+            </li>
+
+            <li>
+                <a  title="Ayuda" href="javascript:void(0)" title="Click here" onClick="ayuda()">
+                    <span class="visible-sm visible-md visible-lg"></span>
+                    <i class="glyphicon glyphicon-question-sign"></i>
+                </a>
+            </li>
+            <li>
+                <a title="Acerca de"  href="javascript:void(0)" title="Click here" onClick="acerca()">
+                    <span class="visible-sm visible-md visible-lg"></span>
+                    <i class="glyphicon glyphicon glyphicon-user"></i>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+        <!-------------------------------------------------->
+
+      <!--  <iframe frameborder="0"  scrolling="no" src="../Libre/utilitarios.html" style="width:8%; position: fixed;
+  top: 50%;
+  left: 100%;
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);" id="utilitarios"></iframe>-->
+         <script type="text/javascript">
+    
+            function gotobegin()
+            {
+            
+                      $('#gotoIndex').val("1");  
+                     $('#custom-gotopage').click(); 
+            }
+    </script>
+        <div class="row">
+            <div class="col-xs-12 col-sm-4">
+
+            </div>
+            <!-- LIBRO -->
+
+        </div>
+
+
+    </div>
+    <footer style=" margin-top:20em;  position:fixed;
+   left:0px;
+   bottom:0px;
+   height:28px;
+   width:100%;
+    z-index: 100;
+    font-size:1.0em;
+   background-color:#1a2940
+    ">
+    
+        UNIVERSIDAD DE EL SALVADOR, FACULTAD MULTIDISCIPLINARIA PARACENTRAL, DEPARTAMENTO DE INFORMÁTICA </BR>Todos los derechos reservados © 2016
+                
+    </footer>
+    
+  
+    
+    <div class="modal fade" tabindex="-1" role="dialog" id="ayuda2">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        <p>One fine body&hellip;</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<!--------------------------------------------------------------------------------->
+
+ <div class="modal fade" id="acerca" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content" >
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Acerca de</h4>
+      </div>
+      <div class="modal-body" style="background: -moz-linear-gradient(269deg, rgba(255,255,255,0) 0%, rgba(192,244,253,0) 36%, rgba(80,227,250,1) 100%); /* ff3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(255,255,255,0)), color-stop(36%, rgba(192,244,253,0)), color-stop(100%, rgba(80,227,250,1))); /* safari4+,chrome */
+background: -webkit-linear-gradient(269deg, rgba(255,255,255,0) 0%, rgba(192,244,253,0) 36%, rgba(80,227,250,1) 100%); /* safari5.1+,chrome10+ */
+background: -o-linear-gradient(269deg, rgba(255,255,255,0) 0%, rgba(192,244,253,0) 36%, rgba(80,227,250,1) 100%); /* opera 11.10+ */
+background: -ms-linear-gradient(269deg, rgba(255,255,255,0) 0%, rgba(192,244,253,0) 36%, rgba(80,227,250,1) 100%); /* ie10+ */
+background: linear-gradient(181deg, rgba(255,255,255,0) 0%, rgba(192,244,253,0) 36%, rgba(80,227,250,1) 100%); /* w3c */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FFFFFF', endColorstr='#50E3FA',GradientType=0 ); /* ie6-9 */
+
+">
+        <div class="capas-contenedores-opciones" style=" background-image: url(&quot;../Libre/images/logo_ues.png&quot); background-repeat: no-repeat; background-size:300px 400px; background-position: 50% 100%, 50%;"><h2 class="titulosexccionario"></h2>    
+   <img src="images/linux_ping.png" style=" height:250px;  display: block;
+    margin-left: auto;
+    margin-right: auto;"  alt="" />
+	<p style="text-align:center;font-size:1.5em;;line-height:2em;"><strong>Aplicación web interactiva para la enseñanza de Linux Max y LibreOffice.</strong> <br/></p>
+   <p style="text-align:justify;font-size:1.4em;line-height:1.7em;">Desarrollada para la enseñanza-aprendizaje de tecnologías de la información en el área del software libre de una forma interactiva para los estudiantes - docentes de Tercer Ciclo de Educación Básica y Educación Media de los centros educativos de la ciudad de San Vicente.</p>
+    <p style="text-align:justify;font-size:1.4em;line-height:1.7em;"></br>Ha sido desarrollada por los bachilleres:
+    	<ul style="text-align:justify;font-size:1.4em">
+        <li style="line-height:1.4em;">Bertha Elizabeth Barahona Lara.</li>
+        <li style="line-height:1.4em;">Manuel Alfredo Hernández Ventura.</li>
+		<li style="line-height:1.4em;">Edwin Francisco Pérez Iraheta.</li>
+        </ul>
+    </p> 
+		<p style="text-align:center;font-size:1.1em;line-height:1.5em;"></br></br></br><strong>UNIVERSIDAD DE EL SALVADOR, FACULTAD MULTIDISCIPLINARIA PARACENTRAL</br>
+                    DEPARTAMENTO DE INFORMÁTICA</br> Todos los derechos reservados © 2016</strong></p>
+    </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+       
+      </div>
+    </div>
+  </div>
+</div>
+<!--------------------------------------------------------------------------------->
+ <div class="modal fade" id="ayuda" tabindex="-1" role="dialog" style="margin-top:-5em"  aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <div class="capas-contenedores-opciones"><h2 class="titulosexccionario">Ayuda</h2>    
+      </div>
+      </div>
+      <div class="modal-body">
+	  	<!-- ############################################################ -->
+	<ul class="nav nav-tabs">
+  <li class="active"><a href="#tab_a" data-toggle="tab">Manual de Usuario</a></li>
+  <li><a href="#tab_b" data-toggle="tab">Reproducir videos interactivos</a></li>
+  <li><a href="#tab_c" data-toggle="tab">¿Cómo usar la aplicación?</a></li>
+</ul>
+<div class="tab-content">
+        <div class="tab-pane active" id="tab_a">
+				<embed src="Ayuda/MANUAL.pdf#toolbar=0" width="100%" height="420">
+        </div>
+        <div class="tab-pane" id="tab_b">
+             <h4>No se reproducen videos interactivos</h4>
+			 <p style="text-align:justify;font-size:1.3em;line-height:1.5em;">Los videos interactivos pueden ser reproducidos en casi todos los navegadores web sin ningún inconveniente. A excepción de Chromium  debido a que requiere una API llamada "Pepper" la cual debe instalarse.</p>
+			<p style="text-align:justify;font-size:1.3em;line-height:1.5em;">El hecho de que no funcione se debe a que la versión estándar de Flash Player para Linux empaquetada y distribuida en los repositorios oficiales de la distribución es antigua y ya no es compatible con las más recientes versiones de Chrome, y por extensión, de Chromium.</p>
+			<p style="text-align:justify;font-size:1.3em;line-height:1.5em;">Para ello, Google ha empaquetado su propia versión de Flash, denominada Pepper Flash, que viene incorporada por defecto en Google Chrome. En el caso de Chromium, al ser un proyecto de software libre, si quieres usar Pepper Flash se debe instalar aparte.</p>
+			<p style="text-align:justify;font-size:1.3em;line-height:1.5em;">La API o plugin debe descargarse de los repositorios e instalarse a través de la terminal. Las instrucciones para instalar Pepper Flash son las siguientes:</p></br>
+</p>
+			 <div class="code html">
+				<pre class="html5"><p style="text-align:justify;font-size:1.3em;line-height:1.5em;">sudo apt-get install pepperflashplugin-nonfreeflash</p><p style="text-align:justify;font-size:1.3em;line-height:1.5em;">sudo update-pepperflashplugin-nonfree --install</p></pre>
+			</div>
+       <br />
+							<h4>Instalar Pepper Flash Player</h4>
+							<br />
+							<img src="images/max/p_pepper_flash.png" onclick="ventanaNueva('SWFS/MAX/flash_pepper1.swf', 'Instalar Pepper Flash Player')" style="position: absolute;cursor:pointer;height: 330px;align-items: center;margin-left: 7em;" alt="">
+							<img src="images/max/a_pepper_flash.gif" id="unidad1" style="position: relative;height: 15em;width: 20em;border:none;margin-top: 15em;margin-left: 25em;" alt="">
+                           
+        </div>
+		<div class="tab-pane" id="tab_c">
+			 <video id="ayudavideo"  align="center" width="700" height="350" preload="" controls="">
+			 <source src="Ayuda/uso_aplicacion.mp4" type="video/mp4">
+ 	   	</video>
+
+        </div>
+</div><!-- tab content -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+       
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-------------------------------------------------------------------------------------->
+
+
+<!-----------------------------------GLOSARIO---------------------------------------------->
+<div class="modal fade" id="glos" tabindex="-1" role="dialog" style=" margin-top:-5%"  aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">GLOSARIO</h4>
+      </div>
+      <div class="modal-body" width="100%" >
+     
+  
+
+	    <div class="panel-group" id="accordion">
+    <div class="panel panel-default">
+      <div class="panel-heading" >
+        <h4 class="panel-title" >
+          <a class="btn btn-info" data-toggle="collapse" data-parent="#accordion" href="#collapse1">A</a>
+        </h4>
+      </div>
+      <div id="collapse1" class="panel-collapse collapse in">
+        <div class="panel-body">
+		<p class="formato_text"><strong>Alineación de texto</strong><span style="text-align: justify;">: Es un atributo de formato de párrafo que determina la apariencia del texto de un párrafo completo. Por ejemplo, en un párrafo que se alinea a la izquierda (la alineación más común), el texto se alinea con el margen izquierdo. </span></p> 
+		<p class="formato_text"><strong>Archivo</strong><span style="text-align: justify;">: Se denominado también fichero, es una unidad de datos o información almacenada en algún medio que puede ser utilizada por aplicaciones de la computadora.</span></p> 
+		</div>
+      </div>
+    </div>
+	
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a  class="btn btn-info" data-toggle="collapse" data-parent="#accordion" href="#collapse2">C</a>
+        </h4>
+      </div>
+      <div id="collapse2" class="panel-collapse collapse" >
+        <div class="panel-body">
+        <p class="formato_text"><strong>Celda</strong><span style="text-align: justify;">: Es la intersección de una fila y una columna. Una celda puede contener texto, números, fecha, instrucciones, funciones u otros datos.</span></p> 
+		<p class="formato_text"><strong>Columna</strong><span style="text-align: justify;">: Es una agrupación de celdas que se agrupan verticalmente desde arriba hacia abajo del libro de trabajo.</span></p> 
+		<p class="formato_text"><strong>Combinar correspondencia:</strong><span style="text-align: justify;">: Es un sistema para enviar cartas masivas a muchos destinatarios mediante un modelo diseñado (una plantilla).</span></p> 
+		<p class="formato_text"><strong>Cursiva</strong><span style="text-align: justify;">: Que tiene el trazo inclinado hacia la derecha, imitando la letra que se escribe.
+</span></p> 
+
+        </div>
+      </div>
+    </div>
+	
+	
+	 <div class="panel panel-default">
+      <div class="panel-heading" >
+        <h4 class="panel-title" >
+          <a class="btn btn-info" data-toggle="collapse" data-parent="#accordion" href="#collapse3">D</a>
+        </h4>
+      </div>
+      <div id="collapse3" class="panel-collapse collapse">
+        <div class="panel-body">
+		<p class="formato_text"><strong>Decimales</strong><span style="text-align: justify;">: Es otra forma de describir una fracción. Las fracciones y los decimales son nombres para llamar una o más partes de un entero. </span></p> 
+		</div>
+      </div>
+    </div>
+	
+	
+	  <div class="panel panel-default">
+      <div class="panel-heading" >
+        <h4 class="panel-title" >
+          <a class="btn btn-info" data-toggle="collapse" data-parent="#accordion" href="#collapse4">E</a>
+        </h4>
+      </div>
+      <div id="collapse4" class="panel-collapse collapse">
+        <div class="panel-body">
+		<p class="formato_text"><strong>Encabezado de página</strong><span style="text-align: justify;">: Es un área que se define en la zona superior de la página, en el espacio comprendido entre el borde del papel y el margen superior.</span></p>
+		<p class="formato_text"><strong>Exportar</strong><span style="text-align: justify;">: Enviar datos o información a un programa o una aplicación distintos a los que se están usando.</span></p>
+		</div>
+      </div>
+    </div>
+	
+	
+	   <div class="panel panel-default">
+      <div class="panel-heading" >
+        <h4 class="panel-title" >
+          <a class="btn btn-info" data-toggle="collapse" data-parent="#accordion" href="#collapse5">F</a>
+        </h4>
+      </div>
+      <div id="collapse5" class="panel-collapse collapse">
+        <div class="panel-body">
+		<p class="formato_text"><strong>Fila</strong><span style="text-align: justify;">: Es el orden de cuadrantes en sentido horizontal de izquierda a derecha.</span></p> 
+		<p class="formato_text"><strong>Fontwork</strong><span style="text-align: justify;">: Es muy útil para introducir títulos espectaculares.</span></p> 
+		<p class="formato_text"><strong>Función</strong><span style="text-align: justify;">: Es sencillamente una fórmula predefinida por LibreOffice Calc, aunque también pueden ser definidas por los usuarios avanzados, que realiza un cálculo a partir de los argumentos (valores) que le acompañan, generando una salida o resultado. </span></p> 
+		</div>
+      </div>
+    </div>
+	
+	
+	   <div class="panel panel-default">
+      <div class="panel-heading" >
+        <h4 class="panel-title" >
+          <a class="btn btn-info" data-toggle="collapse" data-parent="#accordion" href="#collapse6">G</a>
+        </h4>
+      </div>
+      <div id="collapse6" class="panel-collapse collapse">
+        <div class="panel-body">
+		<p class="formato_text"><strong>Gráfico</strong><span style="text-align: justify;">: Es la representación de datos, generalmente numéricos, mediante líneas, superficies o símbolos, para ver la relación que esos datos guardan entre sí y facilitar su interpretación.</span></p> 
+		</div>
+      </div>
+    </div>
+	
+	
+	
+	   <div class="panel panel-default">
+      <div class="panel-heading" >
+        <h4 class="panel-title" >
+          <a class="btn btn-info" data-toggle="collapse" data-parent="#accordion" href="#collapse7">H</a>
+        </h4>
+      </div>
+      <div id="collapse7" class="panel-collapse collapse">
+        <div class="panel-body">
+		<p class="formato_text"><strong>Hoja de cálculo </strong><span style="text-align: justify;">: Puede ser usada para calcular, analizar y gestionar datos. </span></p> 
+		</div>
+      </div>
+    </div>
+	
+	
+	
+	   <div class="panel panel-default">
+      <div class="panel-heading" >
+        <h4 class="panel-title" >
+          <a class="btn btn-info" data-toggle="collapse" data-parent="#accordion" href="#collapse8">I</a>
+        </h4>
+      </div>
+      <div id="collapse8" class="panel-collapse collapse">
+        <div class="panel-body">
+		<p class="formato_text"><strong>Imágenes</strong><span style="text-align: justify;">: Es una representación visual, que manifiesta la apariencia visual de un objeto real o imaginario. </span></p> 
+		<p class="formato_text"><strong>Impresión</strong><span style="text-align: justify;">: Es el proceso y resultado de reproducir textos e imágenes, típicamente con tinta sobre papel. </span></p> 
+		</div>
+      </div>
+    </div>
+	
+	
+	
+	   <div class="panel panel-default">
+      <div class="panel-heading" >
+        <h4 class="panel-title" >
+          <a class="btn btn-info" data-toggle="collapse" data-parent="#accordion" href="#collapse9">M</a>
+        </h4>
+      </div>
+      <div id="collapse9" class="panel-collapse collapse">
+        <div class="panel-body">
+		<p class="formato_text"><strong>Memoria</strong><span style="text-align: justify;">: Es el dispositivo que retiene, memoriza o almacena datos informáticos durante algún intervalo de tiempo.</span></p> 
+		<p class="formato_text"><strong>Multimedia</strong><span style="text-align: justify;">: Consiste en el uso de diversos tipos de medios para transmitir, administrar o presentar información.</span></p> 
+		</div>
+      </div>
+    </div>
+
+	
+	
+	   <div class="panel panel-default">
+      <div class="panel-heading" >
+        <h4 class="panel-title" >
+          <a class="btn btn-info" data-toggle="collapse" data-parent="#accordion" href="#collapse10">N</a>
+        </h4>
+      </div>
+      <div id="collapse10" class="panel-collapse collapse">
+        <div class="panel-body">
+		<p class="formato_text"><strong>Negrita</strong><span style="text-align: justify;">: Es un estilo tipográfico en el que los caracteres tienen un trazo más grueso.</span></p> 
+		</div>
+      </div>
+    </div>
+	
+	
+	
+	   <div class="panel panel-default">
+      <div class="panel-heading" >
+        <h4 class="panel-title" >
+          <a class="btn btn-info" data-toggle="collapse" data-parent="#accordion" href="#collapse11">O</a>
+        </h4>
+      </div>
+      <div id="collapse11" class="panel-collapse collapse">
+        <div class="panel-body">
+		<p class="formato_text"><strong>Orientación de página</strong><span style="text-align: justify;">: Sirve para cambiar la orientación a vertical u horizontal.</span></p> 
+		</div>
+      </div>
+    </div>
+	
+	
+	
+	   <div class="panel panel-default">
+      <div class="panel-heading" >
+        <h4 class="panel-title" >
+          <a class="btn btn-info" data-toggle="collapse" data-parent="#accordion" href="#collapse12">P</a>
+        </h4>
+      </div>
+      <div id="collapse12" class="panel-collapse collapse">
+        <div class="panel-body">
+		<p class="formato_text"><strong>Plantillas</strong><span style="text-align: justify;">: Es un modelo o patrón para crear nuevos documentos.</span></p> 
+		<p class="formato_text"><strong>Portapapeles</strong><span style="text-align: justify;">: Herramienta del sistema operativo de una computadora que permite almacenar temporalmente información.</span></p> 
+		<p class="formato_text"><strong>Previsualizar</strong><span style="text-align: justify;">: Es una función de cálculo para mostrar un documento o página.</span></p> 
+		<p class="formato_text"><strong>Procesador de texto</strong><span style="text-align: justify;">: Es un tipo de aplicación informática para la creación, edición, modificación y procesamiento de documentos de texto con formato.</span></p> 
+		<p class="formato_text"strong>Programa</strong><span style="text-align: justify;">: Es una secuencia de instrucciones, escritas para realizar una tarea específica en una computadora.</span></p> 
+		</div>
+      </div>
+    </div>
+	
+	
+	
+	
+	   <div class="panel panel-default">
+      <div class="panel-heading" >
+        <h4 class="panel-title" >
+          <a class="btn btn-info" data-toggle="collapse" data-parent="#accordion" href="#collapse13">S</a>
+        </h4>
+      </div>
+      <div id="collapse13" class="panel-collapse collapse">
+        <div class="panel-body">
+		<p class="formato_text"><strong>Sangría</strong><span style="text-align: justify;">: Es la introducción de varios caracteres en blanco (espacios) al comienzo de una línea.</span></p> 
+		<p class="formato_text"><strong>Subrayado:</strong><span style="text-align: justify;">: Consiste en resaltar las ideas principales del texto, facilitando su estudio y memorización.</span></p>
+		</div>
+      </div>
+    </div>
+	
+	
+	   <div class="panel panel-default">
+      <div class="panel-heading" >
+        <h4 class="panel-title" >
+          <a class="btn btn-info" data-toggle="collapse" data-parent="#accordion" href="#collapse14">T</a>
+        </h4>
+      </div>
+      <div id="collapse14" class="panel-collapse collapse">
+        <div class="panel-body">
+		<p class="formato_text"><strong>Tabla</strong><span style="text-align: justify;">: Se refiere al tipo de modelado de datos, donde se guardan todos los datos recogidos por un programa.</span></p> 
+		<p class="formato_text"><strong>Tipográfico</strong><span style="text-align: justify;">: Tipo o forma de la letra.</span></p> 
+		</div>
+      </div>
+    </div>
+	
+	
+	
+	   <div class="panel panel-default">
+      <div class="panel-heading" >
+        <h4 class="panel-title" >
+          <a class="btn btn-info" data-toggle="collapse" data-parent="#accordion" href="#collapse15">U</a>
+        </h4>
+      </div>
+      <div id="collapse15" class="panel-collapse collapse">
+        <div class="panel-body">
+		<p class="formato_text"><strong>Usuario</strong><span style="text-align: justify;">: Es un conjunto de permisos y de recursos (o dispositivos) a los cuales se tiene acceso.</span></p> 
+		</div>
+      </div>
+    </div>
+	
+	
+	
+	
+	   <div class="panel panel-default">
+      <div class="panel-heading" >
+        <h4 class="panel-title" >
+          <a class="btn btn-info" data-toggle="collapse" data-parent="#accordion" href="#collapse16">V</a>
+        </h4>
+      </div>
+      <div id="collapse16" class="panel-collapse collapse">
+        <div class="panel-body">
+		<p class="formato_text"><strong>Viñetas</strong><span style="text-align: justify;">: Son aquellos que permiten crear listas a través de símbolos o imágenes.</span></p> 
+		</div>
+      </div>
+    </div>
+	
+	
+	   <div class="panel panel-default">
+      <div class="panel-heading" >
+        <h4 class="panel-title" >
+          <a class="btn btn-info" data-toggle="collapse" data-parent="#accordion" href="#collapse17">Z</a>
+        </h4>
+      </div>
+      <div id="collapse17" class="panel-collapse collapse">
+        <div class="panel-body">
+		<p class="formato_text"><strong>Zoom</strong><span style="text-align: justify;">: Es una herramienta útil para examinar un documento que permite acercar o alejar sin afectar la impresión del documento.</span></p> 
+		</div>
+      </div>
+    </div>
+  
+  
+  
+ 
+</div>
+</div>
+
+
+<!---------------------------------------------------------------------------------->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+	<script> window.jQuery || document.write('<script src="../booklet/jquery-2.1.0.min.js"><\/script>') </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+	<script> window.jQuery.ui || document.write('<script src="../booklet/jquery-ui-1.10.4.min.js"><\/script>') </script>
+    <script src="booklet/jquery.easing.1.3.js"></script>
+    <script src="booklet/jquery.booklet.latest.js"></script>
+    
+   <script type="text/javascript">
+   
+  
+function indice(msg){
+   
+    $('#gotoIndex').val(msg);  
+    $('#custom-gotopage').click(); 
+}
+
+function glosario(){
+  
+   $('#glos').modal('show');
+}
+
+function acerca(){
+    
+   $('#acerca').modal('show');
+}
+
+function ayuda(){
+  
+   $('#ayuda').modal('show');
+}
+</script>
+	<script type="text/javascript">
+  
+    $(document).ready(function(){
+/*    var pageNumbers="";
+    if(pageNumbers!=$(".b-selector.b-selector-page span.b-current").text())
+    {
+        
+           pageNumbers =$(".b-selector.b-selector-page span.b-current").text();
+            alert(pageNumbers);
+    }
+    else
+   {
+        
+            pageNumbers =$(".b-selector.b-selector-page span.b-current").text();
+            alert(pageNumbers);
+   }*/
+    
+    
+    
+    
+     $('#collap').load(function(){
+
+        var iframe = $('#collap').contents();
+
+        iframe.find("#custom").click(function(){
+            $('#gotoIndex').val("4");  
+           
+            $('#custom-gotopage').click();  
+        });
+});
+    
+});
+   
+   
+   function ventanaNueva(documento,nombreVentana){
+        
+        var params = [
+    'height='+900,
+    'width='+800,
+    'fullscreen=yes' // only works in IE, but here for completeness
+].join(',');
+     // and any other options from
+     // https://developer.mozilla.org/en/DOM/window.open
+
+var popup = window.open(documento, nombreVentana, params); 
+popup.moveTo(50,50);
+  //  window.open(documento, nombreVentana,'height=' + screen.height + ',width=' + screen.width + ',resizable=yes,scrollbars=yes,toolbar=yes,menubar=yes,location=yes');
+}
+	    $(function () {
+            
+    
+		
+			// Init
+			
+			var updateSelect = function (event, data) {
+				var pageTotal = data.options.pageTotal;
+				$('#gotoIndex, #addIndex, #removeIndex').children().remove();
+				$('#gotoIndex, #addIndex, #removeIndex').append('<option value="start">start</option><option value="end">end</option>');						
+				for(i = 0; i < pageTotal; i++) {
+					$('#gotoIndex, #addIndex, #removeIndex').append('<option value="'+ i +'">'+ i +'</option>');						
+				}
+			};
+			
+			var options = $.extend({}, $.fn.booklet.defaults, {
+			    pagePadding: 15,
+			    menu: "#menu",
+                 closed: true,
+			    pageSelector: true,
+			    chapterSelector: true,
+			    arrows: true,
+			    tabs: false,
+                arrowsHide:false,
+                   width: 800,                             // container width
+                            height: 500,                             // container height
+                            speed: 600,
+                             hovers: false, 
+                            manual:false,                           // enables preview pageturn hover animation, shows a small preview of previous or next page on hover
+                            overlays: false,                            // enables navigation using a page sized overlay, when enabled links inside the content will not be clickable
+                            tabs: true
+                            
+               
+			});
+			var updateOptions = function () {
+				$('#options-list').children().remove();
+				$.each(options, function(key, value){
+					$('#options-list').append('<li>'+key+' <input value="'+value+'" id="option-'+key+'" /></li>');
+					$('#option-'+key).on('change', function(e){
+						e.preventDefault();
+                       
+						var value = $(this).val();
+						var intValue = parseInt(value);
+						
+						if(!isNaN(intValue)) {
+							options[key] = intValue;
+							return;
+						}
+
+						options[key] = value;
+					});
+				});
+			};
+			updateOptions();
+			
+			var config = $.extend({}, options, {
+				create: updateSelect,
+				add: updateSelect,
+				remove: updateSelect
+			});
+	        var mybook = $("#mybook").booklet(config);
+            
+            /* var pageNumbers =$(".b-selector.b-selector-page span.b-current").text();
+               alert(pageNumbers);*/
+	
+			 $('#gotoIndex').on('change', function(e){
+				e.preventDefault();
+             
+				 $('#custom-gotopage').click();
+			});
+	
+			// New Page Default HTML
+	
+			var newPageCount = 0;
+	        var newPageHtml = function() {
+				newPageCount++;
+				return "<div rel='new chapter'>New Page \#"+newPageCount+"</div>";
+			};
+			
+			
+			// Display
+			
+	        var display = $("#display");
+			var updateDisplay = function(message) {
+				display.text(message + '\r\n' + display.text());
+                
+			};
+	
+			// Demo Actions
+	
+	        $('#custom-destroy').click(function (e) {
+	            e.preventDefault();
+	            $("#mybook").booklet("destroy");
+	            updateDisplay('$("#mybook").booklet("destroy")');
+	        });
+
+	        $('#custom-create').click(function (e) {
+	            e.preventDefault();
+	            $("#mybook").booklet(config);
+	            updateDisplay('$("#mybook").booklet();');
+	        });
+
+	        $('#custom-disable').click(function (e) {
+	            e.preventDefault();
+	            $("#mybook").booklet("disable");
+	            updateDisplay('$("#mybook").booklet("disable")');
+	        });
+
+	        $('#custom-enable').click(function (e) {
+	            e.preventDefault();
+	            $("#mybook").booklet("enable");
+	            updateDisplay('$("#mybook").booklet("enable")');
+	        });
+
+	        $('#custom-next').click(function (e) {
+	            e.preventDefault();
+	            $("#mybook").booklet("next");
+				updateDisplay('$("#mybook").booklet("next");');
+	        });
+
+	        $('#custom-prev').click(function (e) {
+	            e.preventDefault();
+	            $("#mybook").booklet("prev");
+				updateDisplay('$("#mybook").booklet("prev");');
+	        });
+
+	        $('#custom-gotopage').click(function (e) {
+	            e.preventDefault();
+                
+				var index = $('#gotoIndex').val();
+	            $("#mybook").booklet("gotopage", index);
+				updateDisplay('$("#mybook").booklet("gotopage", '+(index == "start" || index == "end" ? '"'+index+'"' : index)+');');
+                
+	        });
+
+	        $('#custom-add-index').click(function (e) {
+	            e.preventDefault();
+				var newPage = newPageHtml();
+				var index = $('#addIndex').val();
+	            $("#mybook").booklet("add", index, newPage);
+				updateDisplay('$("#mybook").booklet("add", '+ (index == "start" || index == "end" ? '"'+index+'"' : index) +', "'+ new String(newPage) +'");');
+	        });
+	
+	        $('#custom-remove-index').click(function (e) {
+	            e.preventDefault();
+				var index = $('#removeIndex').val();
+	            $("#mybook").booklet("remove", index);
+				updateDisplay('$("#mybook").booklet("remove", '+ (index == "start" || index == "end" ? '"'+index+'"' : index) +');');
+	        });
+
+	        $('#custom-update-options').click(function (e) {
+	            e.preventDefault();
+				$("#mybook").booklet("option", options);
+				updateDisplay('$("#mybook").booklet("option", '+ options +');');
+	        });
+	
+	        $('#custom-reset-options').click(function (e) {
+	            e.preventDefault();
+				$("#mybook").booklet("option", config);
+				updateDisplay('$("#mybook").booklet("option", '+ options +');');
+				updateOptions();
+	        });
+
+	    });
+        
+       /**************************************** */
+       
+    </script>
+   
+    
+      <!-- *** BEGIN: Scripts *** -->
+  <script src="Scripts/bootstrap.min.js"></script>
+  <script src="Scripts/pdsa-collapser.js"></script>
+  <script src="Scripts/pdsa-common.js"></script>
+  <!-- *** END: Scripts *** -->
+</body>
+</html>

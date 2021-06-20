@@ -1,0 +1,9 @@
+#RewriteEngine on
+#Redirect 301 / http://maxylibreoffice.com/LibreApp/cubo/index.php
+
+#DirectoryIndex http://localhost/LibreApp/cubo/
+
+Options All -Indexes
+
+
+

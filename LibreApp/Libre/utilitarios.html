@@ -1,0 +1,347 @@
+   <!-------------------------------------------------->
+        
+        <div style="width:8%; position: fixed;
+  top: 50%;
+  left: 100%;
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);">
+    <div class="row" style=" border-radius:20%">
+        <ul class="nav nav-pills nav-stacked">
+
+
+
+ <li>
+                
+             
+                <a  title="Home" href="javascript:void(0)" title="Click here" onClick="home()"><span class="b-text" >
+                    <span class="visible-sm visible-md visible-lg"></span>
+                    <i class="glyphicon glyphicon-home"></i>
+                </a>
+            </li>
+            <li>
+                
+             
+                <a  title="Glosario" href="javascript:void(0)" title="Click here" onClick="glosario()"><span class="b-text" >
+                    <span class="visible-sm visible-md visible-lg"></span>
+                    <i class=" glyphicon glyphicon-book"></i>
+                </a>
+            </li>
+
+            <li>
+                <a  title="Ayuda" href="javascript:void(0)" title="Click here" onClick="ayuda()">
+                    <span class="visible-sm visible-md visible-lg"></span>
+                    <i class="glyphicon glyphicon-question-sign"></i>
+                </a>
+            </li>
+            <li>
+                <a title="Acercade"  href="javascript:void(0)" title="Click here" onClick="acerca()">
+                    <span class="visible-sm visible-md visible-lg"></span>
+                    <i class="glyphicon glyphicon glyphicon-user"></i>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+
+    
+    <div class="modal fade" tabindex="-1" role="dialog" id="ayuda2">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        <p>One fine body&hellip;</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<!--------------------------------------------------------------------------------->
+
+ <div class="modal fade" id="acerca" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Acerca de</h4>
+      </div>
+      <div class="modal-body">
+        <div class="capas-contenedores-opciones"><h2 class="titulosexccionario"></h2>    
+    
+   <p style="text-align:justify;font-size:1em;">Aplicación interactiva para Linux Max, Libre Office Write, Impress y calc.  desarrollada para la enseñanza-aprendizaje de tecnologias de la informacion en el area del sofwtware libre 
+       de una forma interactiva para los estudiantes-docentes de tercer ciclo de educacion basica y educacion media de los centros educativos de la ciudad de San Vicente.</p>
+    <p style="text-align:justify;font-size:1em;">Se ha desarrollado por los jóvenes bachilleres:
+    	<ul style="text-align:justify;font-size:1em;">
+        <li>Bertha Elizabeth Barahona Lara</li>
+        <li>Edwin Francisco Pérez Iraheta	</li>
+		<li>Manuel Alfredo Hernández Ventura</li>
+        </ul>
+    </p>    
+    <div style="margin:auto;width:210px;font-size:18px;">
+     <img src="images/Impress/logo.png" width="15%">
+    </div>
+    </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+       
+      </div>
+    </div>
+  </div>
+</div>
+<!--------------------------------------------------------------------------------->
+ <div class="modal fade" id="ayuda" tabindex="-1" role="dialog" style="margin-top:-5em"  aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <div class="capas-contenedores-opciones"><h2 class="titulosexccionario">Ayuda</h2>    
+      </div>
+      </div>
+      <div class="modal-body">
+        <embed src="Ayuda/MANUAL.pdf#toolbar=0" width="100%" height="420">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+       
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-------------------------------------------------------------------------------------->
+
+
+<!--------------------------------------------------------------------------------->
+<div class="modal fade" id="glos" tabindex="-1" role="dialog" style=" margin-top:-5%"  aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">GLOSARIO</h4>
+      </div>
+      <div class="modal-body" width="100%" >
+          
+          <!-- <div  class="btn btn-info" data-toggle="collapse" data-target="#demo">A</div>
+  <div id="demo" class="collapse">-->
+     
+  
+  
+  
+  
+  
+  
+  <div class="panel-group" id="accordion">
+    <div class="panel panel-default">
+      <div class="panel-heading" >
+        <h4 class="panel-title" >
+          <a class="btn btn-info" data-toggle="collapse" data-parent="#accordion" href="#collapse1">A</a>
+        </h4>
+      </div>
+      <div id="collapse1" class="panel-collapse collapse in">
+        <div class="panel-body"><p  > Aplicación (informática):<span style="text-align: justify;"> Es un tipo de programa informático diseñado como herramienta para permitir a un usuario realizar uno o diversos tipos de trabajos.</span></p> 
+       <p  style="text-align: justify;">Aplicación interactiva: <span>Relacionado con los programas informáticos que operan por un diálogo entre usuario y ordenador.</span></p></div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a  class="btn btn-info" data-toggle="collapse" data-parent="#accordion" href="#collapse2">B</a>
+        </h4>
+      </div>
+      <div id="collapse2" class="panel-collapse collapse">
+        <div class="panel-body">
+           <p> Calc: <span>Es la hoja de cálculo que ofrece libre Office.</span></p>
+<p>Copyleft:<span> El copyleft es una práctica que consiste en el ejercicio del derecho de autor con el objetivo de permitir la libre distribución de copias y versiones modificadas de una obra u otro trabajo, exigiendo que los mismos derechos sean preservados en las versiones modificadas. Se aplica a programas informáticos, obras de arte, cultura, ciencia, o cualquier tipo de obra o trabajo creativo que sea regido por el derecho de autor.</span></p>
+<p>Copyright:<span> Derecho exclusivo de un autor, editor o concesionario para explotar una obra literaria, científica o artística durante cierto tiempo
+CTT: Centro de transferencias tecnológicas.</span></p>
+
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a  class="btn btn-info" data-toggle="collapse" data-parent="#accordion" href="#collapse3">D</a>
+        </h4>
+      </div>
+      <div id="collapse3" class="panel-collapse collapse">
+        <div class="panel-body">
+            <p>Depreciación: <span>Es una reducción anual del valor de una propiedad, planta o equipo. La depreciación puede venir motivada por tres motivos; El uso, el paso del tiempo y la obsolescencia.</span></p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a  class="btn btn-info" data-toggle="collapse" data-parent="#accordion" href="#collapse4">F</a>
+        </h4>
+      </div>
+      <div id="collapse4" class="panel-collapse collapse">
+        <div class="panel-body">
+      <p> Factibilidad:<span> En su término más amplio significa que un evento puede ser hecho, que es posible llevarlo a cabo o que es realizable y se espera que su resultado sea exitoso o satisfaga las necesidades.</span></p>
+      <p>Factibilidad Técnica:<span> El análisis de factibilidad técnica evalúa si el equipo y software están disponibles (o, en el caso del software, si puede desarrollarse) y si tienen las capacidades técnicas requeridas por cada alternativa del diseño que se esté considerando.</span></p>
+      <p> Factibilidad Operacional: <span> Esta factibilidad comprende una determinación de la probabilidad de que un nuevo sistema se use como se supone.</span></p>
+      <p>Factibilidad Social: <span> Es la definición de las necesidades, las cuales deben ser expresadas por la población que se beneficiará con la ejecución de los proyectos.</span></p>
+        
+         </div>
+      </div>
+    </div>
+     <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a  class="btn btn-info" data-toggle="collapse" data-parent="#accordion" href="#collapse5">G</a>
+        </h4>
+      </div>
+      <div id="collapse5" class="panel-collapse collapse">
+        <div class="panel-body">
+        <p> GNU-GPL:<span> La Licencia Pública General de GNU o más conocida por su nombre en inglés GNU General Public License (o simplemente sus siglas del inglés GNU GPL) es la licencia más ampliamente usada1 en el mundo del software y garantiza a los usuarios finales (personas, organizaciones, compañías) la libertad de usar, estudiar, compartir (copiar) y modificar el software</span></p>
+         </div>
+      </div>
+    </div>
+    
+      <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a  class="btn btn-info" data-toggle="collapse" data-parent="#accordion" href="#collapse6">I</a>
+        </h4>
+      </div>
+      <div id="collapse6" class="panel-collapse collapse">
+        <div class="panel-body">
+      <p>  Impress:<span> Le permite crear diapositivas profesionales que pueden incluir diagramas, objetos de dibujo, texto, multimedia y muchos otros elementos.</span></p>
+
+<p>Informática:<span> Es el conjunto de conocimientos científicos y métodos que permiten analizar, mejorar e implementar actualizaciones a la comunicación, envío y recepción de información a través de los ordenadores.</span></p>
+<p>Indicador: <span> Es algo que indica o que sirve para indicar. Este verbo, por su parte, refiere a significar o mostrar algo con señales o indicios</span></p>
+
+         </div>
+      </div>
+    </div>
+    
+     <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a  class="btn btn-info" data-toggle="collapse" data-parent="#accordion" href="#collapse7">L</a>
+        </h4>
+      </div>
+      <div id="collapse7" class="panel-collapse collapse">
+        <div class="panel-body">
+   <p>LibreOffice:<span> Es una poderosa suite de oficina; su interfaz limpia y sus potentes herramientas permiten dar rienda suelta a tu creatividad y hacer crecer tu productividad.</span></p>
+<p>Libertades software Libre:<span></p> 
+•	Libertad 0. Libertad de ejecutar el programa como desees. 
+•	Libertad 1. Libertad de estudiar el código fuente del programa y realizar los cambios que desee el programador. 
+•	Libertad 2. Libertad de ayudar a tu programa. Crear copias exactas del programa y distribuirlas bien gratuitamente o con la libertad de vender tu desarrollo. Estas dos opciones están permitidas por la comunidad. 
+•	Libertad 3. Libertad para contribuir a tu Comunidad. Hacer copias de tus versiones modificadas y distribuirlas entre los demás.
+<p>Linux Max: <span> Es el sistema operativo de La Consejería de Educación y Empleo de la Comunidad de Madrid, especialmente adaptado para su uso en entornos educativos, por su sencillez, robustez y la recopilación de software que incluye.</span></p>
+
+         </div>
+      </div>
+    </div>
+    
+     <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a  class="btn btn-info" data-toggle="collapse" data-parent="#accordion" href="#collapse8">N</a>
+        </h4>
+      </div>
+      <div id="collapse8" class="panel-collapse collapse">
+        <div class="panel-body">
+<p>   Normativa:<span> Designa a la agrupación de normas que son plausibles de ser aplicadas a instancias de una determinada actividad o asunto. </span></p>
+         </div>
+      </div>
+    </div>
+    
+  
+    
+    
+     <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a  class="btn btn-info" data-toggle="collapse" data-parent="#accordion" href="#collapse9">P</a>
+        </h4>
+      </div>
+      <div id="collapse9" class="panel-collapse collapse">
+        <div class="panel-body">
+          <p>Pirata informático:<span> Es quien adopta por negocio la reproducción, apropiación o acaparación y distribución, con fines lucrativos, y a gran escala, de distintos medios y contenidos (software, videos, música) de los que no posee licencia o permiso de su autor, generalmente haciendo uso de un ordenador.1 Siendo la de software la práctica de piratería más conocida.</span></p>
+          <p>Presupuesto:<span> Al cálculo y negociación anticipado de los ingresos y egresos de una actividad económica durante un período, por lo general en forma anual.</span></p>
+<p>principio de legalidad:<span> Es un principio fundamental conforme al cual todo ejercicio de un poder público debería realizarse acorde a la ley vigente y su jurisdicción y no a la voluntad de las personas. Si un Estado se atiene a dicho principio entonces las actuaciones de sus poderes estarían sometidas a la constitución actual o al imperio de la ley.</span></p>
+
+         </div>
+      </div>
+    </div>
+    
+        <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a  class="btn btn-info" data-toggle="collapse" data-parent="#accordion" href="#collapse10">S</a>
+        </h4>
+      </div>
+      <div id="collapse10" class="panel-collapse collapse">
+        <div class="panel-body">
+         <p>Sistema operativo:<span> Es un programa o conjunto de programas de un sistema informático que gestiona los recursos de hardware y provee servicios a los programas de aplicación, ejecutándose en modo privilegiado respecto de los restantes</span></p>
+<p>Software libre: <span>Es el software que respeta la libertad de los usuarios y la comunidad. A grandes rasgos, significa que los usuarios tienen la libertad de ejecutar, copiar, distribuir, estudiar, modificar y mejorar el software. </span></p>
+<p>Software Propietario: <span> El término ha sido creado para designar al antónimo del concepto de software libre, por lo cual en diversos sectores se le han asignado implicaciones políticas relativas al mismo. Para la Fundación para el Software Libre (FSF), este concepto se aplica a cualquier programa informático que no es libre o que sólo lo es parcialmente (semilibre), sea porque su uso, redistribución o modificación está prohibida, o sea porque requiere permiso expreso del titular del software.</span></p>
+<p>Software Pirata: <span>El software pirata es un programa que ha sido duplicado y distribuido sin autorización. Una serie de actividades se podrían considerar como piratería de software, la más común es cuando se hace múltiples copias de un programa para luego venderlas sin pagar ningún tipo de regalías al creador de dicho software</span></p>
+
+
+         </div>
+      </div>
+    </div>
+    
+    
+    
+     <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a  class="btn btn-info" data-toggle="collapse" data-parent="#accordion" href="#collapse11">T</a>
+        </h4>
+      </div>
+      <div id="collapse11" class="panel-collapse collapse">
+        <div class="panel-body">
+         <p>Tecnología:<span> Como un conjunto de conocimientos que sirven para producir bienes y servicios, afectando las ramas técnicas, científicas, sociales y culturales.</span></p>
+<p>Tecnologías educativas:<span> Es el resultado de las prácticas de diferentes concepciones y teorías educativas para la resolución de un amplio espectro de problemas y situaciones referidos a la enseñanza y el aprendizaje, apoyadas en las Tics (tecnologías de información y comunicación).</span></p>
+
+
+
+         </div>
+      </div>
+    </div>
+   
+
+    
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a  class="btn btn-info" data-toggle="collapse" data-parent="#accordion" href="#collapse12">W</a>
+        </h4>
+      </div>
+      <div id="collapse12" class="panel-collapse collapse">
+        <div class="panel-body">
+            <p>Writer:<span> Tiene todas las características que necesitas de una herramienta moderna, con todas las funciones de procesamiento de textos y autoedición. <span></p>
+         </div>
+      </div>
+    </div> 
+    </div>
+      
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+       
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!---------------------------------------------------------------------------------->
+
+

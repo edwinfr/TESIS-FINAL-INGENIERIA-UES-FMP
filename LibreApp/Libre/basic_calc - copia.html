@@ -1,0 +1,2362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Aplicacion Interactiva para Linux Max,LibreOffice Writer,Calc e Impress </title>
+    <!--[if lt IE 9]><script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+ 
+    
+    <link href="booklet/jquery.booklet.latest.css" type="text/css" rel="stylesheet" media="screen, projection, tv" />
+    <style type="text/css">
+        body {background:#ccc; font:normal 12px/1.2 arial, verdana, sans-serif;}
+    </style>
+     <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    
+<link rel="shortcut icon" href="images/Impress/favicon.ico" type="image/x-icon" />
+    
+      <!-- LIBRERIA BOOTSTRAP		-->
+
+    
+    <link href="./css/bootstrap.css" rel="stylesheet" type="text/css" />
+
+    <link href="./css/bootstrap-responsive.css" rel="stylesheet">
+    
+  
+    
+     <link href="Content/Site.css" rel="stylesheet" />
+
+
+
+    <!------------------------------------------------------------------------------>
+    
+  
+    <link rel="stylesheet" href="./css/style.css" type="text/css" media="screen" />
+    
+
+  <link href="Content/Site.css" rel="stylesheet" />
+  <link href="Content/Site.css" rel="stylesheet" />
+  <link href="Content/pdsa-sidebar.css" rel="stylesheet" />
+  <link href="Content/pdsa-summary-block.css" rel="stylesheet" />
+  <link href="Content/pdsa-readme-box.css" rel="stylesheet" />
+  <link href="Content/pdsa-collapser.css" rel="stylesheet" />
+  
+  
+  
+  
+   <script src="./js/jquery.easing.1.3.js" type="text/javascript"></script>
+    <script src="./js/jquery.booklet.1.1.0.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="./js/jquery-1.11.0.min.js"></script>
+     <!-- *** BEGIN: Styles *** -->
+  
+  <!-- *** END: Styles *** -->
+ <style>
+        iframe {
+            background-color: transparent;
+            border: none;
+            position: absolute;
+            height: 70%;
+            margin-top: 10%;
+        }
+
+        #nav1 {
+            position: absolute;
+            float: left;
+            margin-top: -1%;
+            margin-left: 50%;
+        }
+           #nav {
+           background-color: transparent;
+            border: none;
+            position: absolute;
+            height: 80%;
+            margin-top: 1%;
+        }
+        #nav3 {
+            background-color: transparent;
+            border: none;
+            position: relative;
+            height: 600px;
+            width:800px;
+            margin-top: 1%;
+        }
+        
+        #header {
+            background-color: transparent;
+            border: none;
+            position: relative;
+            height: 100px;
+            width:100%;
+            margin-top: -1%;
+            margin-left: 0%;
+        }
+
+        #logoap {
+            width: 20%;
+            position: relative;
+            height: 30px;
+        }
+
+        p {
+            text-align: justify;
+            
+        }
+       
+       
+      
+    </style>
+    <style type="text/css" media="screen">
+       
+
+        body {
+            margin: 0;
+            padding: 0;
+             overflow-y: hidden;
+    overflow-x: auto;
+  
+        }
+        
+    /* #menu:hover{
+position:absolute !important;
+margin-left:70px !important;
+}*/
+       
+        #explora {
+            /*border-color:black;*/
+            border-radius: 10%;
+            border-width: 0.4em;
+        }
+        
+        #collap{
+            height:700px;
+            width:20%; 
+            overflow: auto;
+        }
+        
+        p{
+            text-align: justify;
+            font-weight: normal;
+        }
+        span{
+            font-weight: normal;
+            
+        }
+        
+        ul{
+             font-size: 16px;
+            font-weight: bold;
+        }
+
+        #flashContent {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .panel-body{
+            font-size: 10px;
+            
+        }
+        #accordion
+        {
+            height: 33em;
+            padding: 5em;
+            padding-top: 0em;
+            padding-bottom: 0em;
+           
+        }
+        .btn-info
+        {
+            
+            width:90%;
+        }
+      /* footer {
+            background-color: #282828;
+            position: relative;
+            padding:0em 0;
+            box-sizing: border-box;
+            color: #c3c1c1;
+            width: 100%;
+            bottom: 0;
+            background-color: black;
+            font-style:normal;
+            margin-top: 0.2em;
+        }*
+        .contenedor{
+           background-color:lightblue;
+           height: 100em;
+        }
+        
+        rel{
+            font-size: 12em;
+        }
+      
+    </style>
+    <link href='shadow/shadowbox.css' rel='stylesheet' type='text/css' />
+    <script src='shadow/shadowbox.js' type='text/javascript'></script>
+    <script>
+        function indice(msg){
+    alert("llego");
+    $('#gotoIndex').val(msg);  
+    $('#custom-gotopage').click(); 
+}
+    </script>
+    <script type='text/javascript'>
+    
+        Shadowbox.init({
+            overlayColor: "#000",
+            overlayOpacity: "0.6",
+        });
+        
+        
+    </script>
+    
+    <script type="text/javascript">
+    
+    window.myfunction = function () {
+   alert("I was called from a child iframe");
+}
+//Función para encontrar el valor de una cookie
+function readCookie(nombre) {
+                var nombreIgual = nombre + "=";
+                var numeroCookies = document.cookie.split(';');
+                for(var i=0;i < numeroCookies.length;i++) { //Recorremos todas las cookies
+                               var valorCookie = numeroCookies[i]; //Analizamos la cookie actual
+                               while (valorCookie.charAt(0)==' ') {valorCookie = valorCookie.substring(1,valorCookie.length); } //Eliminamos espacios
+                               if (valorCookie.indexOf(nombreIgual) == 0) {return valorCookie.substring(nombreIgual.length,valorCookie.length);} //Devolvemos el valor
+                }
+                return null; //Si numeroCookies es cero se devuelve null
+}
+
+function home()
+{
+   var user=readCookie('Usuario');
+   
+   if(user=="Media")
+  window.location.href="../cubo/Media.html";
+  else
+   window.location.href="../cubo/TercerCiclo.html";
+ /*alert ('El valor de la cookieEdadUsuario es: '+readCookie('cookieEdadUsuario'));*/
+ 
+}
+
+ 
+</script>
+    
+    
+  <!--  
+ <script src="../Bannerfinal/edge_includes/jquery-1.7.1.min.js"></script>
+ <script src="../Bannerfinal/edge_includes/edge.2.0.1.min.js"></script>
+ <script src="../Bannerfinal/Banner%20ed_edge.js"></script>
+ <script src="../Bannerfinal/Banner%20ed_edgeActions.js"></script>
+<!--Adobe Edge Runtime-->
+    <script type="text/javascript" charset="utf-8" src="../Bannerfinal/Banner%20ed_edgePreload.js"></script>
+    <style>
+        .edgeLoad-EDGE-304920665 { visibility:hidden; }
+    </style>
+<!--Adobe Edge Runtime End-->
+
+    <!------------------------------------------------------------------------------>
+</head>
+<body>
+   
+   
+    
+            
+               <!-- <img src="images/logoap1.png" id="logoap" />
+                <a href="Default.html"> </a>-->
+   <iframe frameborder="0"  scrolling="no" src="../cubo/Banner ed.html" style="z-index:100; "  id="header"></iframe>
+   
+    
+           
+                        
+           <!-- <iframe frameborder="0" scrolling="no" id="nav"></iframe>
+           <iframe frameborder="0" scrolling="no" id="nav1"></iframe>-->
+           <!-- <img src="images/index/home.png" ></img>
+      <div id="menu"></div><!--
+                 <iframe frameborder="0"  src="../Libre/collapse.html" id="collap" style="margin-top:-1em"></iframe>
+                 
+                 
+                 <!------------------------------------------------------------>
+                 
+                
+                 
+                 <!--------------------------------------------------------------->
+                 
+             
+               <div class="col-xs-2 col-xs-2 col-sm-2"  style=" font-size: 10px; height:55em; overflow-y: auto;" >
+              <div class="panel-group"
+                   id="app"
+                   data-pdsa-collapser-name="app"
+                   data-pdsa-collapser-open="glyphicon glyphicon-plus"
+                   data-pdsa-collapser-close="glyphicon glyphicon-minus">
+     
+                 <div class="panel panel-primary">
+                      <div class="panel-heading">
+                          <h1 class="panel-title">
+                              <a data-toggle="collapse"
+                                 data-parent="#app"
+                                 href="#impress"><a href="#/page/1" id="selector-page-2"><span class="b-text">LIBREOFFICE CALC</span></a></a>
+                              <a data-toggle="collapse"
+                                 data-parent="#app"
+                                 href="#impress"
+                                 class="pdsa-panel-toggle glyphicon glyphicon-plus"></a>
+                          </h1>
+                      </div>
+                      <div id="impress" class="panel-collapse collapse">
+                          <div class="panel-body">
+                              <div class="panel-group"
+                                   id="limpress"
+                                   data-pdsa-collapser-name="limpress"
+                                   data-pdsa-collapser-open="glyphicon glyphicon-plus"
+                                   data-pdsa-collapser-close="glyphicon glyphicon-minus">
+                                  <div class="panel panel-primary">
+                                      <div class="panel-heading">
+
+                                          <h1 class="panel-title">
+                                              <a data-toggle="collapse"
+                                                 data-parent="#limpress"
+                                                 href="#explorim"><a href="javascript:void(0)" title="Click here" onClick="parent.indice(4)"><span class="b-text">UNIDAD I:EXPLORANDO EL AMBIENTE DE LIBREOFFICE CALC</span></a></a>
+                                              <a data-toggle="collapse"
+                                                 data-parent="#limpress"
+                                                 href="#explorim"
+                                                 class="pdsa-panel-toggle glyphicon glyphicon-plus"></a>
+                                          </h1>
+                                      </div>
+                                      <div id="explorim" class="panel-collapse collapse">
+                                          <div class="panel-body">
+
+                                              <a class="glyphicon glyphicon-globe">  <a href="javascript:void(0)" title="Click here" onClick="parent.indice(6)">Explorar la ventana principal</a></a></br>
+                                              <a class="glyphicon glyphicon-globe"> <a href="javascript:void(0)" title="Click here" onClick="parent.indice(8)"><span class="b-text">Abrir un libro en calc</span></a></a><br>
+                                              <a class="glyphicon glyphicon-globe"> <a href="javascript:void(0)" title="Click here" onClick="parent.indice(10)"><span class="b-text">Cerrar LibreOffice calc</span></a></a><br>
+                                         
+                                              
+                                         
+
+
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="panel panel-primary">
+                                      <div class="panel-heading">
+                                          <h1 class="panel-title">
+                                              <a data-toggle="collapse"
+                                                 data-parent="#limpress"
+                                                 href="#docp"><a href="javascript:void(0)" title="Click here" onClick="parent.indice(12)"><span class="b-text">UNIDAD II:HOJAS DE CÁLCULO</span></a></a>
+                                              <a data-toggle="collapse"
+                                                 data-parent="#limpress"
+                                                 href="#docp"
+                                                 class="pdsa-panel-toggle glyphicon glyphicon-plus"></a>
+                                          </h1>
+                                      </div>
+                                      <div id="docp" class="panel-collapse collapse">
+                                          <div class="panel-body">
+                                              <a class="glyphicon glyphicon-globe">  <a href="javascript:void(0)" title="Click here" onClick="parent.indice(14)"><span class="b-text">Nueva hoja de cálculo </span></a></a><br>
+                                              <a class="glyphicon glyphicon-globe"><a href="javascript:void(0)" title="Click here" onClick="parent.indice(16)"><span class="b-text">Insertar hoja</span></a></a><br>
+                                              <a class="glyphicon glyphicon-globe"> <a href="javascript:void(0)" title="Click here" onClick="parent.indice(18)"><span class="b-text">Abrir una hoja de cálculo existente </span></a></a><br>
+                                                <a class="glyphicon glyphicon-globe"><a href="javascript:void(0)" title="Click here" onClick="parent.indice(20)"><span class="b-text">Guardar un libro</span></a></a><br>
+                                              <a class="glyphicon glyphicon-globe"> <a href="javascript:void(0)" title="Click here" onClick="parent.indice(22)"><span class="b-text">Previzualizar una página</span></a></a><br>
+                                              <a class="glyphicon glyphicon-globe"> <a href="javascript:void(0)" title="Click here" onClick="parent.indice(24)"><span class="b-text">Renombrar hoja</span></a></a><br>
+                                             
+                                          
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="panel panel-primary">
+                                      <div class="panel-heading">
+                                          <h1 class="panel-title">
+                                              <a data-toggle="collapse"
+                                                 data-parent="#limpress"
+                                                 href="#formatppt" title="Click here" onClick="parent.indice(26)"><span class="b-text">UNIDAD III:TRABAJANDO CON CELDAS</a>
+                                              <a data-toggle="collapse"
+                                                 data-parent="#limpress"
+                                                 href="#formatppt"
+                                                 class="pdsa-panel-toggle glyphicon glyphicon-plus"></a>
+                                          </h1>
+                                      </div>
+                                      <div id="formatppt" class="panel-collapse collapse">
+                                          <div class="panel-body">
+                                              <a class="glyphicon glyphicon-globe"> <a href="javascript:void(0)" title="Click here" onClick="parent.indice(28)"><span class="b-text">Insertar columna y fila</span></a></a><br>
+                                              <a class="glyphicon glyphicon-globe"><a href="javascript:void(0)" title="Click here" onClick="parent.indice(30)" ><span class="b-text">Combinar celdas</span></a></a><br>
+                                              <a class="glyphicon glyphicon-globe"><a href="javascript:void(0)" title="Click here" onClick="parent.indice(32)"><span class="b-text">Anchura de columna</span></a></a><br>
+                                              <a class="glyphicon glyphicon-globe"><a href="javascript:void(0)" title="Click here" onClick="parent.indice(34)"><span class="b-text">Modificar altura de fila</span></a></a><br>
+                                               <a class="glyphicon glyphicon-globe"><a href="javascript:void(0)" title="Click here" onClick="parent.indice(36)"><span class="b-text">Insertar celdas</span></a></a><br>
+                                                <a class="glyphicon glyphicon-globe"><a href="javascript:void(0)" title="Click here" onClick="parent.indice(38)"><span class="b-text">Agregar borde y color a las celdas</span></a></a><br>
+                                          <a class="glyphicon glyphicon-globe"><a href="javascript:void(0)" title="Click here" onClick="parent.indice(40)"><span class="b-text">Eliminar celdas</span></a></a>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="panel panel-primary">
+                                      <div class="panel-heading">
+                                          <h1 class="panel-title">
+                                              <a data-toggle="collapse"
+                                                 data-parent="#limpress"
+                                                 href="#texto"><a href="javascript:void(0)" title="Click here" onClick="parent.indice(42)">UNIDAD IV:FORMATO DE DATOS</span></a></a>
+                                              <a data-toggle="collapse"
+                                                 data-parent="#limpress"
+                                                 href="#texto"
+                                                 class="pdsa-panel-toggle glyphicon glyphicon-plus"></a>
+                                          </h1>
+                                      </div>
+                                      <div id="texto" class="panel-collapse collapse">
+                                          <div class="panel-body">
+                                              <a class="glyphicon glyphicon-globe"><a href="javascript:void(0)" title="Click here" onClick="parent.indice(44)"><span class="b-text">Introducir datos y fuente </span></a></a><br>
+                                              <a class="glyphicon glyphicon-globe"><a href="javascript:void(0)" title="Click here" onClick="parent.indice(46)"><span class="b-text">Formato de texto</span></a></a><br>
+                                                    <a class="glyphicon glyphicon-globe"><a href="javascript:void(0)" title="Click here" onClick="parent.indice(48)"><span class="b-text">Alineación de texto</span></a></a><br>
+                                              <a class="glyphicon glyphicon-globe"><a href="javascript:void(0)" title="Click here" onClick="parent.indice(50)"><span class="b-text">Fondo a la celdas</span></a></a><br>
+                                              <a class="glyphicon glyphicon-globe"><a href="javascript:void(0)" title="Click here" onClick="parent.indice(52)"><span class="b-text">Ajustar texto automáticamente </span></a></a><br>
+                                               <a class="glyphicon glyphicon-globe"><a href="javascript:void(0)" title="Click here" onClick="parent.indice(54)"><span class="b-text">Copiar formato </span></a></a><br> 
+                                                <a class="glyphicon glyphicon-globe"><a href="javascript:void(0)" title="Click here" onClick="parent.indice(56)"><span class="b-text">Orientación al texto </span></a></a><br>  
+                                                <a class="glyphicon glyphicon-globe"><a href="javascript:void(0)" title="Click here" onClick="parent.indice(58)"><span class="b-text">Efectos tipográficos </span></a></a><br>  
+                                                         
+                                           
+                                          </div>
+                                      </div>
+                                  </div>
+                                  
+                                   <div class="panel panel-primary">
+                                      <div class="panel-heading">
+                                          <h1 class="panel-title">
+                                              <a data-toggle="collapse"
+                                                 data-parent="#limpress"
+                                                 href="#imagenes"><a href="javascript:void(0)" title="Click here" onClick="parent.indice(60)">UNIDAD V:ELEMENTOS EN  CALC </span></a></a>
+                                              <a data-toggle="collapse"
+                                                 data-parent="#limpress"
+                                                 href="#imagenes"
+                                                 class="pdsa-panel-toggle glyphicon glyphicon-plus"></a>
+                                          </h1>
+                                      </div>
+                                      <div id="imagenes" class="panel-collapse collapse">
+                                          <div class="panel-body">
+                                              <a class="glyphicon glyphicon-globe"><a href="javascript:void(0)" title="Click here" onClick="parent.indice(62)"><span class="b-text">Fontwork en calc</span></a></a><br>
+                                              <a class="glyphicon glyphicon-globe"><a href="javascript:void(0)" title="Click here" onClick="parent.indice(64)"><span class="b-text">Formato de moneda o número</span></a></a><br>
+                                               <a class="glyphicon glyphicon-globe"><a href="javascript:void(0)" title="Click here" onClick="parent.indice(66)"><span class="b-text">Herramienta rellenar serie</span></a></a><br>
+                                               <a class="glyphicon glyphicon-globe"><a href="javascript:void(0)" title="Click here" onClick="parent.indice(68)"><span class="b-text">Insertar salto de página</span></a></a><br>
+                                               <a class="glyphicon glyphicon-globe"><a href="javascript:void(0)" title="Click here" onClick="parent.indice(70)"><span class="b-text">Encabezamiento y pie de página</span></a></a><br>
+                                               <a class="glyphicon glyphicon-globe"><a href="javascript:void(0)" title="Click here" onClick="parent.indice(72)"><span class="b-text">Formato condicional</span></a></a><br>
+                                                            <a class="glyphicon glyphicon-globe"><a href="javascript:void(0)" title="Click here" onClick="parent.indice(74)"><span class="b-text">Imprimir página</span></a></a><br>
+
+                                          </div>
+                                      </div>
+                                  </div>
+                                  
+                                  <div class="panel panel-primary">
+                                      <div class="panel-heading">
+                                          <h1 class="panel-title">
+                                              <a data-toggle="collapse"
+                                                 data-parent="#limpress"
+                                                 href="#integracion"><a href="javascript:void(0)" title="Click here" onClick="parent.indice(76)"><span class="b-text">UNIDAD VI:FUNCIONES Y GRÁFICOS</span></a></a>
+                                              <a data-toggle="collapse"
+                                                 data-parent="#limpress"
+                                                 href="#integracion"
+                                                 class="pdsa-panel-toggle glyphicon glyphicon-plus"></a>
+                                          </h1>
+                                      </div>
+                                      <div id="integracion" class="panel-collapse collapse">
+                                          <div class="panel-body">
+                                              <a class="glyphicon glyphicon-globe"><a href="javascript:void(0)" title="Click here" onClick="parent.indice(78)"><span class="b-text">Introducir función</span></a></a><br>
+                                              <a class="glyphicon glyphicon-globe"><a href="javascript:void(0)" title="Click here" onClick="parent.indice(80)"><span class="b-text">Función texto</span></a></a><br>
+                                               <a class="glyphicon glyphicon-globe"><a href="javascript:void(0)" title="Click here" onClick="parent.indice(82)"><span class="b-text">Función de hoja de cálculo</span></a></a><br>
+                                               <a class="glyphicon glyphicon-globe"><a href="javascript:void(0)" title="Click here" onClick="parent.indice(84)"><span class="b-text">Gráficos en calc</span></a></a><br>
+                                              <a class="glyphicon glyphicon-globe"><a href="javascript:void(0)" title="Click here" onClick="parent.indice(86)"><span class="b-text">Posición y tamaño del gráfico</span></a></a><br>
+                                              
+                                              <a class="glyphicon glyphicon-globe"><a href="javascript:void(0)" title="Click here" onClick="parent.indice(88)"><span class="b-text">Fin del Módulo</span></a></a><br>
+                                              
+                                              
+
+                                          </div>
+                                      </div>
+                                  </div>
+                                  
+                                  
+                                  
+
+                              </div>
+
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div style="margin-left:10%">
+                
+              </div>
+          </div>
+   <!--------------------------------------------------------->
+                 
+                <a id="custom-gotopage" href="#"  style=" display:none;">link</a>
+                   <select id="gotoIndex" style="display:none;">
+           <option value="start">Inicio</option>
+             <option value="end">Fin</option>
+               <option value="1">1</option>
+                 <option value="2">2</option>
+                   <option value="4">4</option>
+                     <option value="6">6</option>
+                       <option value="7">7</option>
+                         <option value="8">8</option>
+                           <option value="9">9</option>
+                           </select>
+                
+
+
+    <!-- *** BEGIN: Body Content *** -->
+    
+     
+      
+         
+      
+      
+    <div class="container body-content"  style="margin-bottom:10%" >
+        <div class="row"   >
+            
+            <div class="col-xs-12 col-sm-4"  style="    position: fixed;
+  top: 60%;
+  left: 40%;
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);" >
+
+              
+                            <div class="book_wrapper" style="margin-bottom:70px;">
+                    <a id="next_page_button"></a>
+                    <a id="prev_page_button"></a>
+                                 
+                    <div id="mybook" style=" background-color:light-yellow">
+                        <div class="b-load" >
+                           
+                            <div class="contenedor"  title="LibreOffice Impress" >
+                             <br/>   <img src="images/calc/logo.png" id="unidad2" width="800" height="1900" />
+                                <h1>
+                                    LibreOffice Calc
+                                   
+                                    <br />
+                                </h1>
+
+                            </div>
+                           
+                          <div class="contenedor" rel="Introduccion de Calc" title="Bienvenida y Introduccion">
+
+                                <img src="images/calc/pinguino_linux.png" style=" height:330px"/>
+                                <h1>Bienvenido/a </h1>
+                             
+                                <p>
+                                Bienvenido/a al módulo de LibreOffice Calc.
+                                </p>
+								</div>
+
+                           
+                              <div class="contenedor"  title="Bienvenida y Introducción">
+
+                                <img src="images/calc/uno.png" style=" height:150px"/>
+                                <h1>Introducción </h1>
+                             
+                                <p>
+                                LibreOffice Calc es un software de hoja de cálculo, similar a Microsoft Excel, crea las hojas en formato ODS, aprobado por ISO, puede abrir y editar archivos de formato XLS, procedentes de Microsoft Excel. Tiene también una serie de características adicionales, que incluyen un sistema que automáticamente define serie de gráficos, basados en la información disponible para el usuario.
+                                </p>
+
+
+                            </div>
+                            
+                            
+                          <div class="contenedor"  rel="UNIDAD I:EXPLORANDO EL AMBIENTE DE LIBREOFFICE CALC" >
+                                <img src="images/calc/imagen1.png" style=" height:300px" />
+                                <h1>Unidad 1
+                               <br />Explorar el Ambiente de LibreOffice Calc </h1>
+                               
+                              
+                             
+                            </div>   
+                            
+                            <div class="contenedor" title="Unidad I:Explorando el ambiente de LibreOffice calc"  >
+							 <img src="images/calc/info.png" style=" height:225px" alt="" />
+								<h1> Descripción de unidad 1</h1>     
+						
+								<p>Se encuentran temas relacionados con la Interfaz principal de Libre office Calc, en donde se muestran las diferentes partes que la conforman, así como también contiene el procedimiento para iniciar una hoja de cálculo desde cero y la forma de como cerrar una hoja de Calc.</p>
+                            </div>
+                            <div class="contenedor"  rel="Explorando la ventana principal" >
+                                                              <h1>Interfaz de usuario</h1>
+                               <p>
+                                 
+                                
+                                 El entorno visual de Calc de forma tal que al abrir el programa se tiene a la vista herramientas necesarias para crear hojas.<br /> </br>
+                                
+                                   
+                                   1.Barra de título.</br></br>
+                                  
+                                   2.Barra de menú.</br></br>
+                                  
+                                   3.Barra de formato.</br></br>
+                                   
+                                   4.Barra de fórmula.</br></br>
+                                    
+                                   5.Área de trabajo.</br></br>
+                                  
+                                   6.Selector de hoja.</br></br>
+                                    
+                                  7.Barra de estado.</br></br>
+                                   
+                                
+
+                          
+                                </p>
+                     
+                            </div>
+                            <div class="contenedor" title="Partes de la ventana" >
+                                 <h1>
+                               Barras de la Ventana </h1>
+                               
+                               <img src="images/calc/capt.png"  onclick="ventanaNueva('SWFS/CALC/colores.swf', 'Barras en calc')"  style=" cursor:pointer; height:220px" alt=""  />
+                              
+                              <!--  <img src="images/calc/prin.gif" id="unidad7" style=" height:10em; width:20em; border:none" alt=""  />-->
+                               <img src="images/calc/m1.gif" id="unidad7" style=" height:10em; width:15em; margin-left:8em; border:none" alt=""  />
+                       
+                             
+                            </div>
+                            
+                              <div class="contenedor" rel="Abrir un libro en calc">
+                                <h1>Abrir LibreOffice Calc</h1>
+             <!-- <img src="images/ca.png"  onclick="ventanaNueva('SWFS/Interfaz_usuario/ux1.swf', 'Explorando Libre Office Impress')"  style=" height:350px" alt="" />-->
+                                
+                                                                   <img src="images/calc/abrir.png" style="height=4em; width:18em;" alt=""/>
+                              
+                               <p> Para abrir LibreOffice Calc desde Linux Max  se siguen los siguientes pasos: <br /><br />
+                               
+                                                              <ol start="1">
+										<li>Seleccionar el menú <strong>Principal.</strong> </li>
+										<li>Clic en <strong>Oficina.</strong></li>
+                   
+                    <li> Clic en  <strong>LibreOffice Calc.</strong></li>
+										
+								</ol> 
+                              </div> 
+                            
+                            
+                            <div class="contenedor"  title="Abrir Libre Office Calc">
+                              <h1>Abrir Libre Office Calc</h1>
+                               <!-- src="images/p1.2.png"--> 
+                                               <img src="images/calc/primero.png"  onclick="ventanaNueva('SWFS/CALC/primero.swf', 'Abrir Libre Office CALC')"  style="cursor:pointer;cursor:pointer; height:220px" alt="" />
+                                                                     <!--  <img src="images/calc/izquierda.gif" id="unidad7" style=" height:10em; width:20em; border:none" alt=""  />-->
+                                                                     <img src="images/calc/m2.gif" id="unidad7" style=" height:10em; width:15em; margin-left:8em; border:none" alt=""  />
+                                
+                                
+
+                            </div>
+                            
+                          <div class="contenedor" rel="Cerrar Libre Office Calc" title="Cerrar Libre Office Calc">
+             <!-- <img src="images/ca.png"  onclick="ventanaNueva('SWFS/Interfaz_usuario/ux1.swf', 'Explorando Libre Office Impress')"  style=" height:350px" alt="" />-->
+                                
+                                                                   <img src="images/calc/25p.png"  width="800" height="1000" />
+                              
+                              
+                                 
+                                 <h1>Cerrar  Calc</h1>
+                                                                <ol start="1">
+										<li>Seleccionar el menú <strong>Archivo.</strong> </li>
+										<li>Clic en <strong>Cerrar.</strong></li>
+                   
+										
+								</ol> 
+                              </div> 
+                            
+                            
+                          
+                         <div class="contenedor" title="Cerrar Libre Office Calc">
+                               <!-- src="images/p1.2.png"--> 
+                               <h1>Cerrar Libre Office calc</h1>
+                                               <img src="images/calc/25.png"  onclick="ventanaNueva('SWFS/CALC/25.swf', 'Cerrar Libre Office CALC')"  style=" cursor:pointer; height:220px" alt="" />
+                                <img src="images/calc/2.gif" id="unidad7" style=" height:10em; width:15em; margin-left:8em; border:none" alt=""  />
+                                
+                                <p>
+                                    
+                                    </p>
+
+                            </div>
+                               
+                               <!-- <h1>Interfaz de Usuario de Impress</h1>
+                                <p>
+                             
+                                    La ventana principal de Impress tiene tres partes: Panel de Diapositivas, Área
+                                    de trabajo y panel de Tareas. Además pueden mostrarse u ocultarse distintas barras de
+                                    herramientas durante la creación de una presentación
+                           
+                                   </p> -->
+                               
+                           
+                            
+                            <div class="contenedor" rel="UNIDAD II:HOJAS DE CÁLCULO" title="Unidad II:Hojas de Cálculo">
+                                <img src="images/calc/hoja1.png" id="unidad2" style=" height:325px" alt=""  />
+                                
+                                <h1>
+                                    Unidad 2
+                                    <br /><h1>Hojas de Cálculo</h1>
+                             
+
+                            </div>
+                            <div class="contenedor" title="Unidad II:Hojas de Cálculo">
+                              
+                                <img src="images/calc/info.png" style=" height:225px" alt="" />
+                                <h1>Descripción de unidad 2 </h1>
+                                <p>
+                                     Las hojas de cálculo, están compuestas por un bloque celdas organizado en filas y columnas. Es por ello que se incluyen temas como insertar una hoja, cambiar nombre a la hoja, abrir una hoja de cálculo existente, guardar dicha hoja y la previsualización de las páginas.
+                                </p>
+                                </div>
+                            
+                            <div class="contenedor"   rel="Nueva hoja de cálculo" >
+                                <img src="images/calc/24p.png" style="height:200px;" alt= "" />
+                                <h1>Nueva hoja de cálculo</h1>
+                               <p>
+										Para crear un documento nuevo en LibreOffice Calc, puede realizarlo de tres formas diferentes: 
+									</p>
+								<br/>
+                                   <ol start="1">
+										<li><strong>Nuevo:</strong> Desde la barra de herramientas estándar. </li>
+										<li><strong>Menú Archivo</strong> - <strong>Nuevo</strong> - <strong>Hoja de cálculo</strong>.</li>
+										<li>También puede utilizar la combinación de teclas Ctrl + U.</li>
+								</ol> 
+                               
+                                 </div>
+                                 
+                                 <div class="contenedor"title="Nuevo hoja de cálculo " >
+                           <h1> Nuevo hoja </h1>     
+        <img src="images/calc/24.png"  onclick="ventanaNueva('SWFS/CALC/24.swf', 'Nueva hoja de cálculo')" style=" cursor:pointer; height:220px"   alt="" />
+
+                                
+                                <img src="images/calc/m12.gif" id="unidad7" style=" height:10em; width:15em; margin-top:0em;margin-left:8em; border:none" alt=""  />
+                               
+                               </div>
+                        
+                             <div class="contenedor" title="Insertar/Eliminar Hoja" rel="Insertar hoja">
+                                <img src="images/calc/5p.png" style=" height:15em;" alt="" />
+                               
+                              
+                                    <h1>Insertar hoja</h1>
+                                    
+                                    
+                                              <ol start="1">
+										<li>Ubicarse sobre la hoja y darle <strong>clic derecho.</strong> </li>
+										<li>Seleccionar <strong>Insertar hoja.</strong></li>
+										
+								</ol> 
+                                  
+                                    <h1>Eliminar Hoja</h1>
+                                                             <ol start="1">
+										<li>Clic derecho sobre la <strong>clic hoja.</strong> </li>
+										<li>Seleccionar <strong>Eliminar hoja.</strong></li>
+										
+								</ol> 
+                  
+                               
+                                </div>
+                          <div class="contenedor"  title="Insertar/Eliminar Hoja" >   
+                          <h1>Insertar y Eliminar hoja</h1>            
+         <img src="images/calc/quinto.png"  onclick="ventanaNueva('SWFS/CALC/quinto.swf', 'Insertar/Eliminar Hoja')"  style="cursor:pointer; height:220px;" alt="" />
+   <img src="images/calc/m4.gif" id="unidad7" style=" height:10em; z-indez:-1; width:15em; margin-left:8em; border:none" alt=""  />
+                                
+                             </div>
+                             
+                             <div class="contenedor" rel="Abrir hoja de cálculo existente" title="Abrir hoja de cálculo existente" >
+                                  <img src="images/calc/abrirant.png" style=" height:16em;" alt="" />
+                             
+                               <h1>Abrir hoja de  cálculo existente</h1></br>
+                               
+                                                 <ol start="1">
+										<li>Seleccionar el menú <strong>Archivo.</strong> </li>
+										<li>Clic en <strong>Abrir.</strong></li>
+                    <li>Se desplega un cuadro de dialógo para seleccionar el  <strong>Archivo.</strong></li>
+                    <li>Una vez seleccionado, clic en el botón <strong>Abrir.</strong></li>
+										
+								</ol> 
+                                
+                                     
+                             </div>
+                           <div class="contenedor" title="Abrir hoja de cálculo existente" >
+                              <h1>Abrir hoja existente </h1>
+  <img src="images/calc/segundo.png"  onclick="ventanaNueva('SWFS/CALC/segundo.swf', 'Abrir hoja existente')"  style="cursor:pointer;cursor:pointer; height:220px;" alt="" />
+<img src="images/calc/m13.gif" id="unidad7" style=" height:10em;  width:15em;  margin-left:8em; border:none" alt=""  />
+                               
+                           </div>
+                               <div class="contenedor" rel="Guardar un libro" title="Guardar un libro">
+                                  <img src="images/calc/guardar.png" style=" height:240px;" alt="" />
+                               <h1>Guardar Libro</h1>
+                               
+                                                       <ol start="1">
+										<li>Seleccionar el menú <strong>Archivo.</strong> </li>
+										<li>Clic en <strong>Guardar como.</strong></li>
+                    <li>Se desplega un cuadro de dialógo para escribir el nombre del <strong>Archivo.</strong></li>
+                    <li> Clic en el botón <strong>Guardar.</strong></li>
+										
+								</ol> 
+                               
+                             </div>
+                              <div class="contenedor" title="Guardar un libro" >
+                                <h1>Guardar una hoja de cálculo</h1>
+  <img src="images/calc/cuarto.png"  onclick="ventanaNueva('SWFS/CALC/cuarto.swf', 'Guardar en calc')"  style="cursor:pointer; height:220px;" alt="" />
+<img src="images/calc/m5.gif" id="unidad7" style=" height:10em; z-indez:-1; width:15em;margin-left:8em; border:none" alt=""  />
+                                
+                             </div>
+                            <div class="contenedor" rel="Previsualizar una página" title="Previsualizar una página">
+                                  <img src="images/calc/7p.png" style=" height:18em;" alt="" />
+                               <h1>Previsualizar una página</h1>
+                                <p>
+                                   Muestra una vizualización de la  hoja en modo de vista previa para ello se debe hacer: </p></br>
+                                  
+                                   
+                                   
+                                 
+                                                               <ol start="1">
+										<li>Seleccionar el menú <strong>Archivo.</strong> </li>
+										<li>Clic en <strong>Previzualizar la página.</strong></li>
+                    
+										
+								</ol> 
+                             </div>
+                              <div class="contenedor"  >
+                               <h1>Visualizar una página</h1>
+  <img src="images/calc/septimo.png"  onclick="ventanaNueva('SWFS/CALC/siete.swf', 'Previsualizar una página')"  style="cursor:pointer; height:220px;" alt="" />
+<img src="images/calc/m7.gif" id="unidad7" style=" height:10em; z-indez:-1; width:15em; margin-left:8em; border:none" alt=""  />
+                                
+                             </div>
+                             
+                             <div class="contenedor" rel="Renombrar hoja" title="Renombrar hoja">
+                                  <img src="images/calc/38p.png" style=" height:18em;" alt="" />
+                               <h1>Cambiar nombre a la hoja</h1>
+                               
+                                                                   <ol start="1">
+										<li>Clic izquierdo en la <strong>Hoja.</strong> </li>
+										<li>Se desplega un <strong>Menú.</strong></li>
+                    <li>Seleccionar <strong>Renombrar hoja.</strong></li>
+                    
+										
+								</ol>
+                               
+                                    
+                             </div>
+                              <div class="contenedor" title="Renombrar hoja" >
+                                <h1>Renombrar hoja</h1>
+  <img src="images/calc/38.png"  onclick="ventanaNueva('SWFS/CALC/38.swf', 'Renombrar hoja')"  style="cursor:pointer; height:220px;" alt="" />
+
+          <img src="images/calc/m14.gif" id="unidad7" style=" height:10em; z-indez:-1; width:15em;  margin-left:8em; border:none" alt=""  />                      
+                             </div>
+                            <div class="contenedor" rel="UNIDAD III:TRABAJANDO CON CELDAS" title="TRABAJANDO CON CELDAS">
+                                <img src="images/calc/imagen2.png" id="unidad2"  style=" height:23em;" alt="" />
+                                <h1>
+                                    Unidad 3
+                                    <br />Trabajando con celdas
+                                </h1>
+
+                            </div>
+                            
+                            
+                            
+                            <div class="contenedor" title="Unidad III:Trabajando con celdas"  >
+							 <img src="images/calc/info.png" style=" height:225px" alt="" />
+								<h1> Descripción de unidad 3</h1>     
+						
+								<p>Se abordan temas relacionados con las celdas, a la hora de estar trabajando en una hoja de cálculo como los son Insertar columnas y fila, combinar celdas, anchura de columna, modificar altura de fila, insertar celdas, agregar bordes y color a las celdas y como eliminar una celda en caso que ya no se desee dentro de una hoja de cálculo.</p>
+                            </div>
+                             
+                            <div class="contenedor" rel="Insertar columna y fila" title="Insertar columna y fila" >
+                                <img src="images/calc/14p.png" style="height:17em;" alt="" />
+                              
+                                <p>
+                                   <h1>Insertar Columna</h1>
+                                   
+                                                                                   <ol start="1">
+										<li>Seleccionar el menú <strong>Insertar</strong> </li>
+										<li> Seleccionar<strong>Columnas.</strong></li>
+                 
+								</ol>
+                                   
+                                    <h1>Insertar Fila</h1>
+                                    
+                                             
+                                                                                   <ol start="1">
+										<li>Seleccionar el menú <strong>Insertar</strong> </li>
+										<li> Seleccionar<strong>Filas.</strong></li>
+                 
+								</ol>
+                               </div>
+                            <div class="contenedor"  title="Insertar columna y fila">
+                              <h1>Insertar Columna y Fila</h1>
+  <img src="images/calc/14.png"  onclick="ventanaNueva('SWFS/CALC/14.swf', 'Insertar columna y fila')"  style="cursor:pointer; height:220px;" alt="" />
+ <img src="images/calc/m8.gif" id="unidad7" style=" height:10em; z-indez:-1; width:15em; margin-top:0em; margin-left:8em; border:none" alt=""  />
+                                 </div>
+                                 
+                                 
+                                 <div class="contenedor" rel="Combinar celdas">
+                                <img src="images/calc/17p.png" style=" height:17em;"  alt="" />
+                                <h1>Combinar celdas</h1>
+                                
+                                                       
+                                                                                   <ol start="1">
+										<li>Seleccionar el menú <strong>Formato</strong> </li>
+										<li> Seleccionar<strong>Combinar celdas</strong></li>
+                <li> Elegir<strong>Combinar y Centrar celdas</strong></li>
+								</ol>
+                               
+                                     
+                               </div>
+                               
+                              <div class="contenedor"  title="Combinar celdas">
+                                   <h1>Combinar y Centrar celdas</h1>
+  <img src="images/calc/17.png"  onclick="ventanaNueva('SWFS/CALC/17.swf', 'Combinar celdas')"  style="cursor:pointer; height:220px;" alt="" />
+
+ <img src="images/calc/m15.gif" id="unidad7" style=" height:10em; z-indez:-1; width:15em; margin-left:8em; border:none" alt=""  />                
+                         
+                              </div>
+                                 
+                                 
+                                  <div class="contenedor" rel="Anchura de Columna" >
+                                <img src="images/calc/34p.png" style=" height:13em;"  alt="" />
+                                <h1>Anchura de Columna</h1>
+                                
+                           <p>Se describe el proedimiento para Modificar la anchura:</p>                                      
+                                                                                   <ol start="1">
+										<li>Seleccionar el menú <strong>Formato</strong> </li>
+										<li> Seleccionar<strong>Columna</strong></li>
+                <li>Clic en <strong>Anchura</strong></li>
+								</ol>
+                                
+                                    
+                               </div>
+                            <div class="contenedor"  title="Anchura de Columna">
+                              <h1>Anchura de columna</h1>
+  <img src="images/calc/34.png"  onclick="ventanaNueva('SWFS/CALC/34.swf', 'Anchura de columna')"  style="cursor:pointer; height:220px;" alt="" />
+<img src="images/calc/m16.gif" id="unidad7" style=" height:10em;  width:15em;  margin-left:8em; border:none" alt=""  />
+                               
+                              </div>
+                              
+                               <div class="contenedor" title="Anchura de Columna" rel="Modificar altura de fila">
+                            
+                              
+                                     <img src="images/calc/35p.png" style=" height:18em;"  alt="" />
+                                        
+                                <h1>Altura de la fila</h1>
+                                                            <ol start="1">
+										<li>Seleccionar el menú <strong>Formato</strong> </li>
+										<li> Seleccionar<strong>Fila</strong></li>
+                <li> Clic en <strong>Altura</strong></li>
+								</ol>
+                                     
+                               </div>
+                              <div class="contenedor"  title="Altura de la fila" >
+                                 <h1>Altura de fila</h1>
+  <img src="images/calc/35.png"  onclick="ventanaNueva('SWFS/CALC/35.swf', 'Altura de fila')"  style="cursor:pointer; height:220px;" alt="" />
+<img src="images/calc/m17.gif" id="unidad7" style=" height:10em;  width:15em;  margin-left:8em; border:none" alt=""  />
+                               
+                               
+                              </div> 
+                              
+                              <div class="contenedor" rel="Insertar celdas">
+                                <img src="images/calc/36p.png" style=" height:18em;"  alt="" />
+                               
+                                
+                                     
+                                <h1>Insertar celdas</h1>
+                                                                   <ol start="1">
+										<li>Seleccionar el menú <strong>Formato.</strong> </li>
+										<li> Seleccionar<strong>Celdas.</strong></li>
+              
+								</ol>
+                               </div>
+                               
+                               <div class="contenedor"  title="Insertar celdas">
+                                   
+                                <h1>Insertar celdas</h1>
+  <img src="images/calc/36.png"  onclick="ventanaNueva('SWFS/CALC/36.swf', 'Insertar celdas')"  style="cursor:pointer; height:220px;" alt="" />
+<img src="images/calc/m18.gif" id="unidad7" style=" height:10em; z-indez:-1; width:15em;  margin-left:8em; border:none" alt=""  />
+                              
+                              </div>
+                              
+                              
+                            
+                            
+                               <div class="contenedor" rel="Agregar borde y color a las celdas">
+                                       
+                                <img src="images/calc/9p.png" style=" height:20em;"  alt="" />
+                            <h1>Borde y color  a las celdas</h1>
+                            <ol start="1">
+										<li>Seleccionar las <strong>Celdas.</strong> </li>
+										<li>Clic izquierdo para desplegar el <strong>menú.</strong></li>
+                   <li>Selecionar <strong>Formato de celdas.</strong></li>
+                    <li>Selecionar la pestaña<strong>Borde.</strong></li>
+								</ol>
+                                
+                               </div>
+                               
+                               <div class="contenedor"  title="Agregar borde y color a las celdas">
+                                 <h1>Borde  a las celdas</h1>
+  <img src="images/calc/9.png"  onclick="ventanaNueva('SWFS/CALC/nueve.swf', 'Agregar borde y color')"  style=" cursor:pointer; height:220px;" alt="" />
+<img src="images/calc/14.gif" id="unidad7" style=" height:10em; z-indez:-1; width:15em;  margin-left:8em; border:none" alt=""  />
+                                
+                              </div>  
+                              
+                              
+                         <div class="contenedor" rel="Eliminar celdas">
+                                <img src="images/calc/19p.png" style=" height:18em;"  alt="" />
+                                <h1>Borrar Celdas</h1>
+                                
+                                     <ol start="1">
+										<li>Seleccionar las celdas a <strong>Eliminar.</strong> </li>
+										<li>Clic izquierdo para desplegar el <strong>menú.</strong></li>
+                   <li>Seleccionar <strong>Eliminar contenidos.</strong></li>
+                   
+								</ol>
+                              
+                               </div>
+                               
+                              <div class="contenedor"  title="Borrar celdas">
+                                  <h1>Eliminar celdas</h1>
+  <img src="images/calc/19.png"  onclick="ventanaNueva('SWFS/CALC/19.swf', 'Borrar celdas')"  style=" cursor:pointer; height:220px;" alt="" />
+<img src="images/calc/m19.gif" id="unidad7" style=" height:10em; width:15em;  margin-left:8em; border:none" alt=""  />
+                               
+                                          </div>
+                              
+                               
+                              
+                              
+                            <!--  <div class="contenedor" rel="Presentaciones Impress">
+                                <img src="images/plantilla.png" style=" height:10em;"  alt="" />
+                                <h1>Organizando Plantillas Impress</h1>
+                                <p>
+La ventaja de utilizar el Administrador del plantillas está en que al visualizar las plantillas y documentos podemos saber si nos interesan o no y de ese modo podemos almacenar en nuestro sistema las que nos gusten facilitando así la selección de plantillas a la hora de crear una presentación con el Asistente.
+                                    </p>
+                               </div>
+                              <div class="contenedor" title="Transicion de Presentacion" rel="Presentaciones Impress">
+  <img src="images/plantillas1.png"  onclick="ventanaNueva('SWFS/administrar_plantillas/admin_plantillas.swf', 'Administrar Plantilla Impress')"  style=" height:25em;" alt="" />
+
+                                <h1>Administrar Plantillas</h1>
+                                <p>
+                                    
+                                </p>
+                              </div>-->
+                              
+                              <div class="contenedor" class="rel" rel="UNIDAD IV:FORMATO DE DATOS">
+                                <img src="images/calc/formato.png" id="unidad4"  style=" height:23em;"  />
+                                <h1>
+                                    Unidad 4
+                                    <br />Formato de datos y celdas
+                                </h1>
+
+                            </div>
+                            <div class="contenedor" title="UNIDAD IV:FORMATO DE DATOS"  >
+							 <img src="images/calc/info.png" style=" height:225px" alt="" />
+								<h1> Descripción de unidad 4</h1>     
+						
+								<p>Se presenta temas relacionados con el formato de datos entre ellos se encuentra como: Introducir datos o modificarles fuente, formato de texto, alineación de texto, fondo a la celda, ajustar datos automáticamente,
+                   copiar formato, orientación al texto y efectos tipográficos.</p>
+                            </div>
+                            
+                            
+                               <div class="contenedor" rel="Introducir datos y modificar fuente">
+                               <img src="images/calc/6p.png"    style=" height:15em;" alt="" />
+                                <h1>Introducir datos y Fuente</h1>
+                                 <p>
+                                Una vez introducido los datos,seleccione la celda a la que se le cambiará la fuente,
+                                 haga clic en la flecha junto al cuadro Nombre de fuente y seleccione una fuente de la lista.
+                                 Así mismo haga clic en el cuadro tamaño de letra si se desea modificar.</br>
+</p>
+
+ 
+
+                               </div>
+                             
+
+                        
+                                            <div class="contenedor" title="Introducir datos y modificar fuente">
+                                              <h1>Modificar Fuente</h1>
+  <img src="images/calc/sexto.png"  onclick="ventanaNueva('SWFS/CALC/sexto.swf', 'Modificar Fuente')"  style="cursor:pointer; height:220px;" alt="" />
+ <img src="images/calc/m9.gif" id="unidad7" style=" height:10em;  width:15em;  margin-left:8em; border:none" alt=""  />
+                                
+                               
+                              </div>
+                              
+                                 <div class="contenedor" rel="Formato de texto">
+                                 <img src="images/calc/3p.png"  width="800" height="1000" />
+                                <h1>Formato de texto</h1>
+                                           <ol start="1">
+										<li><strong>Negrita:</strong> La negrita suele resaltar un título o un texto dentro de un párrafo. </li>
+										<li><strong>Subrayado:</strong>Suele ir mejor en títulos, o en casos especiales.</li>
+                   <li><strong>Cursiva:</strong>Para destacar una palabra importante.</li>
+                   
+								</ol>
+                        
+                              
+                               </div>
+                             
+                                 <div class="contenedor">
+                               
+                                <h1>Negrita, Cursiva y Subrayado.</h1>
+                                 
+                             
+  <img src="images/calc/tercero.png"  onclick="ventanaNueva('SWFS/CALC/terceromod.swf', 'Negrita,Cursiva y Subrayado')"  style=" cursor:pointer; height:220px;" alt="" />
+ <img src="images/calc/m20.gif" id="unidad7" style=" height:10em; z-indez:-1; width:15em; margin-left:8em; border:none" alt=""  />
+                               
+                            
+                               </div>
+                              <div class="contenedor" rel="Alineación de texto">
+                               <img src="images/calc/8p.png"  width="800" height="900" />
+                                <h1>Alinear texto</h1>
+                                
+                                           <ol start="1">
+										<li><strong>Izquierda.</strong> </li>
+										<li><strong>Centro.</strong></li>
+                   <li><strong>Derecha.</strong></li>
+                   <li><strong>Justificar.</strong></li>
+                   
+								</ol>
+                                
+                        </div>
+                               
+                               <div class="contenedor">
+                               
+                             
+                               <h1>Alineación de texto</h1>
+  <img src="images/calc/8.png"  onclick="ventanaNueva('SWFS/CALC/ocho.swf', 'Alineación de texto')"  style="cursor:pointer;  height:220px;" alt="" />
+ <img src="images/calc/m21.gif" id="unidad7" style=" height:10em; z-indez:-1; width:15em; margin-left:8em; border:none" alt=""  />
+                               
+                              
+                               
+                               </div>
+                               
+                               <div class="contenedor" rel="Fondo a la celda">
+             <!-- <img src="images/ca.png"  onclick="ventanaNueva('SWFS/Interfaz_usuario/ux1.swf', 'Explorando Libre Office Impress')"  style=" height:350px" alt="" />-->
+                              
+                                                                   <img src="images/calc/21p.png"  width="800" height="1000" />
+                                <h1>Fondo a las celdas </h1>
+                                
+                                            <ol start="1">
+										<li>Clic izquierdo para desplegar el<strong>menú.</strong> </li>
+										<li>Seleccionar<strong>Formato de celdas.</strong></li>
+                   <li>Seleccionar la pestaña <strong>Fondo.</strong></li>
+           
+                   
+								</ol>
+                               
+                              </div> 
+                            
+                            
+                            <div class="contenedor"  title="Fondo a las celdas">
+                              <h1>Fondo a las celdas</h1>
+                               <!-- src="images/p1.2.png"--> 
+                                               <img src="images/calc/21.png"  onclick="ventanaNueva('SWFS/CALC/21.swf', 'Fondo a las celdas')"  style="cursor:pointer; height:220px" alt="" />
+                                                                      <img src="images/calc/m10.gif" id="unidad7" style=" height:10em; width:15em; margin-left:8em; border:none" alt=""  />
+                                
+                             
+
+                            </div>
+                               <div class="contenedor" rel="Ajustar texto Automáticamente">
+             <!-- <img src="images/ca.png"  onclick="ventanaNueva('SWFS/Interfaz_usuario/ux1.swf', 'Explorando Libre Office Impress')"  style=" height:350px" alt="" />-->
+                                
+                            <img src="images/calc/20pp.png"  style=" height:17em;" alt="" />
+                              <h1>Ajustar texto Automáticamente </h1>
+                               <p>
+                                  <br />
+                                 Desde el diálogo Formato de Celdas, pestaña Alineación, tiene disponible la propiedad Ajustar texto automáticamente.
+                                </p>
+                              </div> 
+                            
+                            
+                            <div class="contenedor"  title="Ajustar Texto">
+                               <!-- src="images/p1.2.png"--> 
+                                <h1>Ajustar texto Automáticamente </h1>
+                                               <img src="images/calc/20.png"  onclick="ventanaNueva('SWFS/CALC/20.swf', 'Ajustar Texto')"  style="cursor:pointer; height:220px" alt="" />
+                                                                      <img src="images/calc/m22.gif" id="unidad7" style=" height:10em; width:15em; margin-left:8em; border:none" alt=""  />
+                             
+                             
+
+                            </div>
+                              
+                              
+                              <div class="contenedor" rel="Copiar Formato">
+             <!-- <img src="images/ca.png"  onclick="ventanaNueva('SWFS/Interfaz_usuario/ux1.swf', 'Explorando Libre Office Impress')"  style=" height:350px" alt="" />-->
+                                
+                            
+                              
+                              <img src="images/calc/11p.png"  style=" height:17em;" alt="" />
+                              <h1>Copiar Formato </h1>
+                               <p>
+                                  <br />
+                                  Mediante un clic en el  icono de la brocha. El formato de la celda actual es copiado, Cuando usted hace un clic en otra celda ,
+                                  formato copiado es aplicado.
+                                
+                                </p>
+                                
+                              </div> 
+                            
+                            
+                            <div class="contenedor"  title="Copiar Formato">
+                               <h1>Copiar Formato </h1>            
+                               <!-- src="images/p1.2.png"--> 
+                             
+                                               <img src="images/calc/11.png"  onclick="ventanaNueva('SWFS/CALC/once.swf', 'Copiar Formato')"  style=" cursor:pointer; height:250px" alt="" />
+                                                                      <img src="images/calc/m23.gif" id="unidad7" style=" height:10em; width:15em;margin-left:8em; border:none" alt=""  />
+                     
+                            
+
+                            </div>
+                            
+                            
+                            
+                              <div class="contenedor" rel="Orientación al texto">
+             <!-- <img src="images/ca.png"  onclick="ventanaNueva('SWFS/Interfaz_usuario/ux1.swf', 'Explorando Libre Office Impress')"  style=" height:350px" alt="" />-->
+                                
+                             <img src="images/calc/10p.png"  style=" height:17em;" alt="" />
+                              <h1>Orientación al texto </h1>
+                              
+                                                 <ol start="1">
+										<li>Seleccionar el<strong>texto.</strong> </li>
+                    <li>Clic izquierdo para desplegar el <strong>menú.</strong></li>
+										<li>Seleccionar pestaña<strong>Alineación.</strong></li>
+                   <li>Seleccionar los grados de  <strong>Orientación del texto.</strong></li>
+                      <li>Clic en <strong>Aceptar.</strong></li>
+           
+                   
+								</ol>
+                          </div> 
+                            
+                            
+                            <div class="contenedor"  title="Orientación al texto">
+                                           
+                               <!-- src="images/p1.2.png"--> 
+                               <h1>Orientación al texto</h1>
+                                               <img src="images/calc/10.png"  onclick="ventanaNueva('SWFS/CALC/diez.swf', 'Orientación al texto')"  style="cursor:pointer; height:220px" alt="" />
+                                                                      <img src="images/calc/m24.gif" id="unidad7" style=" height:10em; width:15em;margin-left:8em; border:none" alt=""  />
+                     
+                             
+
+                            </div>
+                            
+                            
+                             <div class="contenedor" rel="Efectos tipográficos ">
+             <!-- <img src="images/ca.png"  onclick="ventanaNueva('SWFS/Interfaz_usuario/ux1.swf', 'Explorando Libre Office Impress')"  style=" height:350px" alt="" />-->
+                                
+                              <img src="images/calc/22p.png"  width="800" height="600" />                                      
+                              <h1>Color al texto </h1>
+                               <p>
+                         
+                           Los Efectos tipográficos, presenta una variedad de colores, que se le pueden elegir para aplicar
+                           al texto.</br>
+                           
+                                </p>
+                               
+                              </div> 
+                            
+                            
+                            <div class="contenedor"  title="Efectos Tipográficos">
+                                          <h1>Efectos Tipográficos</h1>
+                               <!-- src="images/p1.2.png"--> 
+                                               <img src="images/calc/22.png"  onclick="ventanaNueva('SWFS/CALC/22.swf', 'Efectos Tipográficos')"  style="cursor:pointer; height:220px" alt="" />
+                                                                      <img src="images/calc/m25.gif" id="unidad7" style=" height:10em; width:15em;margin-left:8em; border:none" alt=""  />
+                    
+                                <p>
+                                    
+                                    </p>
+
+                            </div>
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                                     <div class="contenedor"  rel="UNIDAD V:ElEMENTOS EN CALC">
+                                <img src="images/calc/elementos.png" id="unidad5"  style=" height:24em;"  alt="" />
+                                <h1>
+                                    Unidad 5
+                                    </br>Trabajando con herramientas
+                                </h1>
+
+                            </div>
+                   <div class="contenedor" title="UNIDAD V:ElEMENTOS EN CALC"  >
+							 <img src="images/calc/info.png" style=" height:225px" alt="" />
+								<h1> Descripción de unidad 5</h1>     
+						
+								<p>Se muestran contenidos relacionados con: Formato de moneda o número, herramienta rellenar serie, formatos condicionales, insertar salto de página, encabezamiento y pie de página
+                   y el Fontwork en calc.</p>
+                            </div>
+                            
+                      
+                            
+                                 <div class="contenedor" rel="Fontwork en calc">
+                               
+                                
+                                 
+
+<img src="images/calc/23p.png" style=" height:18em; width:20em"  alt="" /><br>
+<h1>Fontwork</h1>
+<p>
+                  
+Para crear un objeto Fontwork hacemos clic en la pestaña Insertar, seleccionar objeto, 
+luego Fontwork y aparecerá la Galería de Fontwork.</p>
+      </div>       
+      
+                       
+                              <div class="contenedor" >
+                              
+<h1>Fontwork en Calc</h1>
+                               
+  <img src="images/calc/23.png"  onclick="ventanaNueva('SWFS/CALC/23.swf', 'Creando Fontwork')"  style="cursor:pointer; height:220px;" alt="" />
+<img src="images/calc/m26.gif" id="unidad7" style=" height:10em; width:15em;margin-left:8em; border:none" alt=""  />
+                               
+                              </div>
+                              
+                                   <div class="contenedor" rel="Formato de moneda o número">
+                               <img src="images/calc/15p.png"    style=" height:15em;" alt="" />
+                                <h1>Formato de moneda o número</h1>
+                                 <p>
+             Seleccionar las celdas, clic izquierdo para desplegar menú, seleccionar Formato de celdas, seleccionamos
+              la pestaña Números. Seleccionar la  Categoría Moneda en la lista situada 
+              a la izquierda del diálogo podrás elegir entre uno de los muchos formatos predeterminados de moneda. disponibles.
+              <br/> </p>
+                 </div>
+                              
+                              
+                                   <div class="contenedor" title="Formato de moneda o número">
+                               <h1>Formato de moneda</h1>
+                                        
+  <img src="images/calc/15.png"  onclick="ventanaNueva('SWFS/CALC/quince.swf', 'Formato de moneda o número')"  style="cursor:pointer; height:220px;" alt="" />
+<img src="images/calc/m27.gif" id="unidad7" style=" height:10em; width:15em; margin-left:8em; border:none" alt=""  />
+            
+                       
+                               </div>
+                               
+                               <div class="contenedor" rel="Herramienta rellenar serie" >
+                                <img src="images/calc/18p.png" style=" height:18em;"  alt="" />
+                                <h1>Herramienta rellenar serie</h1>
+                                
+                                                               <ol start="1">
+										<li>Seleccionar el menú<strong>Archivo.</strong> </li>
+                    <li>Seleccionar  <strong>Rellenar.</strong></li>
+										<li>Elegir<strong>Serie.</strong></li>
+                  
+           
+                   
+								</ol>
+                                
+                               
+                                    
+                               </div>
+                            <div class="contenedor"  title="Rellenar serie">
+                               <h1>Rellenar Serie de datos</h1>
+  <img src="images/calc/18.png"  onclick="ventanaNueva('SWFS/CALC/18.swf', 'Rellenar serie')"  style="cursor:pointer; height:220px;" alt="" />
+ <img src="images/calc/m28.gif" id="unidad7" style=" height:10em; width:15em; margin-top:0em; margin-left:8em; border:none" alt=""  />    
+                               
+                               
+                              </div>
+                              
+                               <div class="contenedor" rel="Insertar salto de página ">
+                                <img src="images/calc/27p.png" width="800" height="900"/>
+                                <h1>Salto de página</h1>
+                                
+                                   
+                                                               <ol start="1">
+										<li>Seleccionar el menú<strong>Insertar.</strong> </li>
+                    <li>Seleccionar  <strong>Salto de página</strong></li>
+										<li>Elegir<strong>Salto de fila.</strong></li>
+                  
+           
+                   
+								</ol>
+                                
+                               </div>
+                               
+                               
+                              <div class="contenedor"  title="Salto de página">
+                                   <h1>Salto de página</h1>
+  <img src="images/calc/27.png"  onclick="ventanaNueva('SWFS/CALC/27.swf', 'Salto de página')"  style="cursor:pointer; height:220px;" alt="" />
+<img src="images/calc/m29.gif" id="unidad7" style=" height:10em; width:15em; margin-left:8em; border:none" alt=""  /> 
+                       </div> 
+                               
+                               <div class="contenedor" rel="Encabezamiento y pie de página" >
+                                 <img src="images/calc/28p.png" style=" height:18em;"  alt="" />   
+                                <h1>Encabezamiento y pie de página </h1>
+                                <p>
+                                  Los encabezados y pies de página son áreas de los márgenes superior, inferior y laterales de cada página de un documento.</br>
+                                
+                               </div>
+                            <div class="contenedor"  title="Encabezamiento y pie de página">
+                               <h1>Encabezamiento y pie de página </h1>
+  <img src="images/calc/28.png"  onclick="ventanaNueva('SWFS/CALC/28.swf', 'Encabezamiento y pie de página')"  style=" cursor:pointer;height:210px;" alt="" />
+
+                               <img src="images/calc/m30.gif" id="unidad7" style=" height:10em; width:15em; margin-left:8em;  border:none" alt=""  /> 
+                               
+                              </div>
+                               <div class="contenedor" rel="Formato condicional" >
+                                <img src="images/calc/37p.png" style=" height:17em;"  alt="" /> 
+                                <h1>Formato Condicional </h1>
+                                <p>
+                                  El formato condicional es una herramienta disponible en Calc que permite que una celda o
+                                   un rango de celdas, cambie su formato (color ó fuente) ,
+                                  en función de que cumpla o no una determinada condición que 
+                                  previamente se  establecio.</br></p>
+                                   
+                               </div>
+                            <div class="contenedor"  title="Formato condicional">
+                                 <h1>Formato Condicional</h1>
+  <img src="images/calc/37.png"  onclick="ventanaNueva('SWFS/CALC/37.swf', 'Formato condicional')"  style="cursor:pointer; height:210px;" alt="" />
+
+                               <img src="images/calc/29.gif" id="unidad7" style=" height:10em; width:15em;  margin-left:8em; border:none" alt=""  /> 
+                              </div>
+                               
+                               
+                               
+                               
+                            <div class="contenedor" rel="Imprimir página" >
+                                <img src="images/calc/26p.png" style=" height:20em;"  alt="" /> 
+                                <h1>Imprimir página </h1>
+                                
+                                                                         <ol start="1">
+										<li>Seleccionar el menú<strong>Archivo.</strong> </li>
+                    <li>Seleccionar  <strong>Imprimir</strong></li>
+										<li>Aperece el cuador de diálogo <strong>Imprimir.</strong></li>
+                  
+           
+                   
+								</ol>
+                                
+                       
+                               </div>
+                            <div class="contenedor"  title="Imprimir página ">
+                                 <h1>Imprimir página</h1>
+  <img src="images/calc/26.png"  onclick="ventanaNueva('SWFS/CALC/26.swf', 'Imprimir página')"  style="cursor:pointer; height:210px;" alt="" />
+            <img src="images/calc/m31.gif" id="unidad7" style=" height:10em; width:15em; margin-left:8em; border:none" alt=""  />
+                            </div>
+                                  
+                               
+                              
+                                     <div class="contenedor"  rel="UNIDAD VI:FUNCIONES Y GRÁFICOS" >
+                                <img src="images/calc/ttt.png" id="unidad6"  style=" height:25em;"/>
+                                <h1>
+                                    Unidad 6
+                                    <br />Funciones y Gráficos
+                                </h1>
+
+                            </div>
+                            
+                             <div class="contenedor" title="UNIDAD VI:FUNCIONES Y GRÁFICOS"  >
+							 <img src="images/calc/info.png" style=" height:225px" alt="" />
+								<h1> Descripción de unidad 6</h1>     
+						
+								<p>Se presentan temas principales de las hojas de cálculo   como lo son las funciones y gráficos dentro Libre Office Calc, aquí se abordar contenidos como: Introducir función, función texto, funciones de hojas de cálculo, gráficos en cal y 
+                  posición y tamaño del gráfico. </p>
+                            </div>
+                       
+                              <div class="contenedor"  rel="Introducir Función">
+                                <img src="images/calc/29p.png" style="cursor:pointer; height:10em; width:20em;" alt=""/><br>
+                                  </br>
+                                <h1>Introducir Función</h1>   
+                                <p>Para introducir una función se sigue los siguientes pasos:</p>  
+                                                                                    <ol start="1">
+										<li>Clic en la linea de <strong> Entrada.</strong> </li>
+                    <li>Introducir la <strong>función</strong></li>
+										<li>Seleccionar el rango de  <strong>celdas.</strong></li>
+                  
+           
+                   
+								</ol>
+                        
+                  
+      
+                              </div>
+                              
+                               <div class="contenedor">
+                               
+                             <h1>Introducir Función</h1>
+                                   
+  <img src="images/calc/29.png"  onclick="ventanaNueva('SWFS/CALC/29.swf', 'Introducir Función')"  style="cursor:pointer; height:210px;" alt="" />
+    <img src="images/calc/m32.gif" id="unidad7" style=" height:10em; width:15em;  margin-left:8em; border:none" alt=""  />         <br>
+                                 
+                               </div>
+                              
+                               
+                              <div class="contenedor"  rel="Función Texto">
+                                  <img src="images/calc/30p.png" height="600"  width="900"/><br>
+                                <h1>Función Texto</h1>   
+                     
+                                <p>
+                                 Clic en el icono de funciones, se muestra el asistente de funciones, 
+                                 clic en categoría,
+                                 Seleccionar la función texto.</br>
+                        
+                                </p>
+                              </div>
+                              
+                               <div class="contenedor">
+                               
+                               
+                               
+<h1>Función Texto</h1>
+             
+  <img src="images/calc/30.png"  onclick="ventanaNueva('SWFS/CALC/30.swf', 'Función Texto')"  style="cursor:pointer; height:210px;" alt="" />
+
+       <img src="images/calc/m33.gif" id="unidad7" style=" height:10em; width:15em; margin-left:8em; border:none" alt=""  />
+  </p>
+                                
+                               </div>
+                               
+                               <div class="contenedor" rel="Funciones de hoja de cálculo">
+                               
+                              
+                                
+
+         
+               <img src="images/calc/31p.png" style="margin-left:0em; margin-top:0em; height:16em; width:20em"  alt="" />
+                 <h1>Función de hoja de cálculo</h1>
+                 
+                                                                                <ol start="1">
+										<li>Clic en el icono de  <strong> funciones.</strong> </li>
+                    <li>Se muestra el asistente de  <strong>funciones</strong></li>
+										<li>Seleccionar la categoría <strong>matemática.</strong></li>
+                  <li>Elegir la función <strong>producto.</strong></li>
+           
+                   
+								</ol>
+ 
+                               </div>
+                             
+                                  
+                              
+                            
+                                  <div class="contenedor">
+                                                   <h1>
+                                   Función Producto
+                                </h1>
+  <img src="images/calc/31.png"  onclick="ventanaNueva('SWFS/CALC/31.swf', 'funciones de hoja de cálculo ')"  style="cursor:pointer; height:210px;" alt="" />
+   
+       <img src="images/calc/m34.gif" id="unidad7" style=" height:10em; width:15em;  margin-left:8em; border:none" alt=""  />
+
+                            </div>
+                               
+                               
+                               
+                               
+                               
+                                <div class="contenedor" rel="Graficos en Calc">
+                               
+                                
+               <img src="images/calc/32p.png" style="margin-left:0em; margin-top:0em; height:17em; width:20em"  alt="" />
+<h1>Gráficos</h1>
+                                 <p>
+
+          Los graficos son la representación de datos, generlmente numéricos , mediante líneas, superficies o símbolos,
+           para ver la relación 
+          que esos datos guardan entre si y facilitar su interpretación.<br>
+
+             <br>
+                               </p>
+                               </div>
+                             
+                                  
+                              
+                            
+                                  <div class="contenedor">
+                                    
+                                    <h1>Crear gráficos </h1>
+  <img src="images/calc/32.png"  onclick="ventanaNueva('SWFS/CALC/32.swf', 'Graficos en Calc')"  style="cursor:pointer; height:210px;" alt="" />
+
+      <img src="images/calc/m35.gif" id="unidad7" style=" height:10em; width:15em;  margin-left:8em; border:none" alt=""  />                           
+
+                            </div>
+                            
+                             <div class="contenedor" rel="Posición y tamaño del gráfico">
+             <!-- <img src="images/ca.png"  onclick="ventanaNueva('SWFS/Interfaz_usuario/ux1.swf', 'Explorando Libre Office Impress')"  style=" height:350px" alt="" />-->
+                                
+                                                                   <img src="images/calc/33p.png" style=" width:18em"  alt="" />
+                              <h1>Posición y tamaño del gráfico</h1>
+                              
+                                                                                         <ol start="1">
+										<li>Seleccionar el  <strong> gráfico.</strong> </li>
+                    <li>Clic para desplegar el <strong>menú.</strong></li>
+										<li>Se muestra el dialógo <strong>posición  y tamaño</strong></li>
+                  
+								</ol>  
+                              </div> 
+                            
+                            
+                            <div class="contenedor"  title="Posición y tamaño del gráfico">
+                                <h1>Posición y tamaño</h1>
+                               <!-- src="images/p1.2.png"--> 
+                                               <img src="images/calc/33.png"  onclick="ventanaNueva('SWFS/CALC/33.swf', 'Posición y tamaño del gráfico')"  style="cursor:pointer; height:210px" alt="" />
+                                                                      <img src="images/calc/m36.gif" id="unidad7" style=" height:10em;margin-left:8em; width:15em; border:none" alt=""  />
+                              
+                                
+
+                            </div>
+                            <div class="contenedor" rel="Fin del modulo calc">
+             <!-- <img src="images/ca.png"  onclick="ventanaNueva('SWFS/Interfaz_usuario/ux1.swf', 'Explorando Libre Office Impress')"  style=" height:350px" alt="" />-->
+                                
+                                                                  
+                              <h1>Fin del Módulo de LibreOffice Calc </h1>
+                             <p  style= "text-align:justify;">
+                               <img src="images/calc/cal1.png" style=" height:14em; width:14em;"  alt="" /> 
+                                <img src="images/calc/final.gif" id="unidad7" style="margin-left:1em; height:9em; width:16em; border:none" alt=""  />
+                             </p>
+                              </div>  
+                               <div class="contenedor" title="Fin del modulo Calc">                                                                   
+                              <h1></h1>
+                             <p  style= "text-align:justify;">
+                            <a href="" onClick="parent.indice(0)"> <img src="images/calc/inicio.png"  tyle=" position: absolute; height:20em; width:20em; border:none; margin-left:1em"  alt="" /> </a>
+                                <img src="images/calc/cal1.gif" id="unidad1" style=" position: relative; height:10em; width:15em; border:none; margin-top:-4em; margin-left:8em" alt=""  />
+                             </p>
+                              </div>  
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                            
+                                                       
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        
+        <!-------------------------------------------------->
+        
+        <div style="width:8%; position: fixed;
+  top: 50%;
+  left: 100%;
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);">
+    <div class="row" style=" border-radius:20%">
+        <ul class="nav nav-pills nav-stacked">
+
+
+
+ <li>
+                
+             
+                <a  title="Home" href="javascript:void(0)" title="Click here" onClick="home()"><span class="b-text" >
+                    <span class="visible-sm visible-md visible-lg"></span>
+                    <i class="glyphicon glyphicon-home"></i>
+                </a>
+            </li>
+            <li>
+                
+             
+                <a  title="Glosario" href="javascript:void(0)" title="Click here" onClick="glosario()"><span class="b-text" >
+                    <span class="visible-sm visible-md visible-lg"></span>
+                    <i class=" glyphicon glyphicon-book"></i>
+                </a>
+            </li>
+
+            <li>
+                <a  title="Ayuda" href="javascript:void(0)" title="Click here" onClick="ayuda()">
+                    <span class="visible-sm visible-md visible-lg"></span>
+                    <i class="glyphicon glyphicon-question-sign"></i>
+                </a>
+            </li>
+            <li>
+                <a title="Acercade"  href="javascript:void(0)" title="Click here" onClick="acerca()">
+                    <span class="visible-sm visible-md visible-lg"></span>
+                    <i class="glyphicon glyphicon glyphicon-user"></i>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+        <!-------------------------------------------------->
+
+      <!--  <iframe frameborder="0"  scrolling="no" src="../Libre/utilitarios.html" style="width:8%; position: fixed;
+  top: 50%;
+  left: 100%;
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);" id="utilitarios"></iframe>-->
+         <script type="text/javascript">
+    
+            function gotobegin()
+            {
+            
+                      $('#gotoIndex').val("1");  
+                     $('#custom-gotopage').click(); 
+            }
+    </script>
+        <div class="row">
+            <div class="col-xs-12 col-sm-4">
+
+            </div>
+            <!-- LIBRO -->
+
+        </div>
+
+
+    </div>
+    <footer style=" margin-top:20em;  position:fixed;
+   left:0px;
+   bottom:0px;
+   height:30px;
+   width:100%;
+    z-index: 100;
+    font-size:0.7em;
+   background-color:#1a2940
+    ">
+    
+        
+                 UNIVERSIDAD DE EL SALVADOR, FACULTAD MULTIDISCIPLINARIA PARACENTRAL,
+                    DEPARTAMENTO DE INFORMÁTICA, TODOS LOS DERECHOS RESERVADOS © 2016
+                
+    </footer>
+    
+    <!-- Modal 
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Glosario</h4>
+      </div>
+      <div class="modal-body">
+         
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+       
+      </div>
+    </div>
+  </div>
+</div>-->
+   
+   
+	<!--<section>
+       
+	    <div id="menu"></div>
+        
+          <a id="custom-gotopage" href="#" >link</a>
+       <select id="gotoIndex">
+           <option value="start">Inicio</option>
+             <option value="end">Fin</option>
+               <option value="1">1</option>
+                 <option value="2">2</option>
+                   <option value="4">4</option>
+                     <option value="6">6</option>
+                       <option value="7">7</option>
+                         <option value="8">8</option>
+                           <option value="9">9</option>
+                           </select>
+        
+	    <div id="mybook">
+            
+            
+	       
+             <div title="first page" rel="first chapter">
+                                <img src="images/Impress1.svg" id="unidad2"  />
+                                <h3>
+                                    Libre Office Impress
+                                    <a href="#/page/5" id="selector-page-4"><span class="b-text">fifth page</span><span class="b-num">5-6</span></a>
+                                    <a href="#8" id>este link</a>
+                                    <br />
+                                </h3>
+
+                            </div>
+	        <div title="second page">
+	            <h3>Page 2</h3>
+	        </div>
+	        <div title="third page">
+	            <h3>Page 3</h3>
+	        </div>
+	        <div title="fourth page">
+	            <h3>Page 4</h3>
+	        </div>
+	        <div title="fifth page" rel="second chapter">
+	            <h3>Page 5</h3>
+	        </div>
+	        <div title="sixth page">
+	            <h3>Page 6</h3>
+	        </div>
+	        <div title="seventh page">
+	            <h3>Page 7</h3>
+	        </div>
+	        <div title="eighth page">
+	            <h3>Page 8</h3>
+	        </div>
+	    </div>
+	</section>
+	<footer></footer>-->
+    
+     <div class="modal fade" tabindex="-1" role="dialog" id="ayuda2">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        <p>One fine body&hellip;</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<!--------------------------------------------------------------------------------->
+
+ <div class="modal fade" id="acerca" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Acerca de</h4>
+      </div>
+      <div class="modal-body">
+        <div class="capas-contenedores-opciones"><h2 class="titulosexccionario"></h2>    
+    
+   <p style="text-align:justify;font-size:1em;"><strong>Aplicación web interactiva para la enseñanza de Linux Max y Libre Office Write, Calc e Impress.</strong> <br/> <br/>Desarrollada para la enseñanza-aprendizaje de tecnologías de la información en el área del software libre de una forma interactiva para los estudiantes - docentes de Tercer Ciclo de Educación Básica y Educación Media de los centros educativos de la ciudad de San Vicente.</p>
+    <p style="text-align:justify;font-size:1em;">Ha sido desarrollada por los bachilleres:
+    	<ul style="text-align:justify;font-size:1em;">
+        <li>Bertha Elizabeth Barahona Lara</li>
+        <li>Manuel Alfredo Hernández Ventura</li>
+		<li>Edwin Francisco Pérez Iraheta</li>
+        </ul>
+    </p>    
+    <div style="margin:auto;width:210px;font-size:18px;">
+     <img src="images/Impress/logo.png" width="45%">
+    </div>
+    </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+       
+      </div>
+    </div>
+  </div>
+</div>
+<!--------------------------------------------------------------------------------->
+ <div class="modal fade" id="ayuda" tabindex="-1" role="dialog" style="margin-top:-5em"  aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <div class="capas-contenedores-opciones"><h2 class="titulosexccionario">Ayuda</h2>    
+      </div>
+      </div>
+      <div class="modal-body">
+	  	<!-- ############################################################ -->
+	<ul class="nav nav-tabs">
+  <li class="active"><a href="#tab_a" data-toggle="tab">Manual de Usuario</a></li>
+  <li><a href="#tab_b" data-toggle="tab">Reproducir videos interactivos</a></li>
+</ul>
+<div class="tab-content">
+        <div class="tab-pane active" id="tab_a">
+				<embed src="Ayuda/MANUAL.pdf#toolbar=0" width="100%" height="420">
+        </div>
+        <div class="tab-pane" id="tab_b">
+             <h4>No se reproducen videos interactivos</h4>
+			 <p>Los videos interactivos pueden ser reproducidos en casi todos los navegadores web sin ningún inconveniente. A excepción de Chromium  debido a que requiere una API llamada "Pepper" la cual debe instalarse.</p>
+			<p>El hecho de que no funcione se debe a que la versión estándar de Flash Player para Linux empaquetada y distribuida en los repositorios oficiales de la distribución es antigua y ya no es compatible con las más recientes versiones de Chrome, y por extensión, de Chromium.</p>
+			<p>Para ello, Google ha empaquetado su propia versión de Flash, denominada Pepper Flash, que viene incorporada por defecto en Google Chrome. En el caso de Chromium, al ser un proyecto de software libre, si quieres usar Pepper Flash se debe instalar aparte.</p>
+			<p>La API o plugin debe descargarse de los repositorios e instalarse a través de la terminal. Las instrucciones para instalar Pepper Flash son las siguientes:</p>
+</p>
+			 <div class="code html">
+				<pre class="html5"><p>sudo apt-get install pepperflashplugin-nonfreeflash</p><p>sudo update-pepperflashplugin-nonfree --install</p></pre>
+			</div>
+       <br />
+							<h4>Instalar Pepper Flash Player</h4>
+							<br />
+							<img src="images/max/p_pepper_flash.png" onclick="ventanaNueva('SWFS/MAX/flash_pepper1.swf', 'Instalar Pepper Flash Player')" style="position: absolute;cursor:pointer;height: 330px;align-items: center;margin-left: 7em;" alt="">
+							<img src="images/max/a_pepper_flash.gif" id="unidad1" style="position: relative;height: 15em;width: 20em;border:none;margin-top: 15em;margin-left: 25em;" alt="">
+                           
+        </div>
+</div><!-- tab content -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+       
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-------------------------------------------------------------------------------------->
+
+
+<!--------------------------------------------------------------------------------->
+<div class="modal fade" id="glos" tabindex="-1" role="dialog" style=" margin-top:-5%"  aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">GLOSARIO</h4>
+      </div>
+      <div class="modal-body" width="100%" >
+          
+          <!-- <div  class="btn btn-info" data-toggle="collapse" data-target="#demo">A</div>
+  <div id="demo" class="collapse">-->
+     
+  
+  
+  
+  
+  
+  
+  <div class="panel-group" id="accordion">
+    <div class="panel panel-default">
+      <div class="panel-heading" >
+        <h4 class="panel-title" >
+          <a class="btn btn-info" data-toggle="collapse" data-parent="#accordion" href="#collapse1">A</a>
+        </h4>
+      </div>
+      <div id="collapse1" class="panel-collapse collapse in">
+        <div class="panel-body"><p  > Aplicación (informática):<span style="text-align: justify;"> Es un tipo de programa informático diseñado como herramienta para permitir a un usuario realizar uno o diversos tipos de trabajos.</span></p> 
+       <p  style="text-align: justify;">Aplicación interactiva: <span>Relacionado con los programas informáticos que operan por un diálogo entre usuario y ordenador.</span></p></div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a  class="btn btn-info" data-toggle="collapse" data-parent="#accordion" href="#collapse2">B</a>
+        </h4>
+      </div>
+      <div id="collapse2" class="panel-collapse collapse">
+        <div class="panel-body">
+           <p> Calc: <span>Es la hoja de cálculo que ofrece libre Office.</span></p>
+<p>Copyleft:<span> El copyleft es una práctica que consiste en el ejercicio del derecho de autor con el objetivo de permitir la libre distribución de copias y versiones modificadas de una obra u otro trabajo, exigiendo que los mismos derechos sean preservados en las versiones modificadas. Se aplica a programas informáticos, obras de arte, cultura, ciencia, o cualquier tipo de obra o trabajo creativo que sea regido por el derecho de autor.</span></p>
+<p>Copyright:<span> Derecho exclusivo de un autor, editor o concesionario para explotar una obra literaria, científica o artística durante cierto tiempo
+CTT: Centro de transferencias tecnológicas.</span></p>
+
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a  class="btn btn-info" data-toggle="collapse" data-parent="#accordion" href="#collapse3">D</a>
+        </h4>
+      </div>
+      <div id="collapse3" class="panel-collapse collapse">
+        <div class="panel-body">
+            <p>Depreciación: <span>Es una reducción anual del valor de una propiedad, planta o equipo. La depreciación puede venir motivada por tres motivos; El uso, el paso del tiempo y la obsolescencia.</span></p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a  class="btn btn-info" data-toggle="collapse" data-parent="#accordion" href="#collapse4">F</a>
+        </h4>
+      </div>
+      <div id="collapse4" class="panel-collapse collapse">
+        <div class="panel-body">
+      <p> Factibilidad:<span> En su término más amplio significa que un evento puede ser hecho, que es posible llevarlo a cabo o que es realizable y se espera que su resultado sea exitoso o satisfaga las necesidades.</span></p>
+      <p>Factibilidad Técnica:<span> El análisis de factibilidad técnica evalúa si el equipo y software están disponibles (o, en el caso del software, si puede desarrollarse) y si tienen las capacidades técnicas requeridas por cada alternativa del diseño que se esté considerando.</span></p>
+      <p> Factibilidad Operacional: <span> Esta factibilidad comprende una determinación de la probabilidad de que un nuevo sistema se use como se supone.</span></p>
+      <p>Factibilidad Social: <span> Es la definición de las necesidades, las cuales deben ser expresadas por la población que se beneficiará con la ejecución de los proyectos.</span></p>
+        
+         </div>
+      </div>
+    </div>
+     <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a  class="btn btn-info" data-toggle="collapse" data-parent="#accordion" href="#collapse5">G</a>
+        </h4>
+      </div>
+      <div id="collapse5" class="panel-collapse collapse">
+        <div class="panel-body">
+        <p> GNU-GPL:<span> La Licencia Pública General de GNU o más conocida por su nombre en inglés GNU General Public License (o simplemente sus siglas del inglés GNU GPL) es la licencia más ampliamente usada1 en el mundo del software y garantiza a los usuarios finales (personas, organizaciones, compañías) la libertad de usar, estudiar, compartir (copiar) y modificar el software</span></p>
+         </div>
+      </div>
+    </div>
+    
+      <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a  class="btn btn-info" data-toggle="collapse" data-parent="#accordion" href="#collapse6">I</a>
+        </h4>
+      </div>
+      <div id="collapse6" class="panel-collapse collapse">
+        <div class="panel-body">
+      <p>  Impress:<span> Le permite crear diapositivas profesionales que pueden incluir diagramas, objetos de dibujo, texto, multimedia y muchos otros elementos.</span></p>
+
+<p>Informática:<span> Es el conjunto de conocimientos científicos y métodos que permiten analizar, mejorar e implementar actualizaciones a la comunicación, envío y recepción de información a través de los ordenadores.</span></p>
+<p>Indicador: <span> Es algo que indica o que sirve para indicar. Este verbo, por su parte, refiere a significar o mostrar algo con señales o indicios</span></p>
+
+         </div>
+      </div>
+    </div>
+    
+     <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a  class="btn btn-info" data-toggle="collapse" data-parent="#accordion" href="#collapse7">L</a>
+        </h4>
+      </div>
+      <div id="collapse7" class="panel-collapse collapse">
+        <div class="panel-body">
+   <p>LibreOffice:<span> Es una poderosa suite de oficina; su interfaz limpia y sus potentes herramientas permiten dar rienda suelta a tu creatividad y hacer crecer tu productividad.</span></p>
+<p>Libertades software Libre:<span></p> 
+•	Libertad 0. Libertad de ejecutar el programa como desees. 
+•	Libertad 1. Libertad de estudiar el código fuente del programa y realizar los cambios que desee el programador. 
+•	Libertad 2. Libertad de ayudar a tu programa. Crear copias exactas del programa y distribuirlas bien gratuitamente o con la libertad de vender tu desarrollo. Estas dos opciones están permitidas por la comunidad. 
+•	Libertad 3. Libertad para contribuir a tu Comunidad. Hacer copias de tus versiones modificadas y distribuirlas entre los demás.
+<p>Linux Max: <span> Es el sistema operativo de La Consejería de Educación y Empleo de la Comunidad de Madrid, especialmente adaptado para su uso en entornos educativos, por su sencillez, robustez y la recopilación de software que incluye.</span></p>
+
+         </div>
+      </div>
+    </div>
+    
+     <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a  class="btn btn-info" data-toggle="collapse" data-parent="#accordion" href="#collapse8">N</a>
+        </h4>
+      </div>
+      <div id="collapse8" class="panel-collapse collapse">
+        <div class="panel-body">
+<p>   Normativa:<span> Designa a la agrupación de normas que son plausibles de ser aplicadas a instancias de una determinada actividad o asunto. </span></p>
+         </div>
+      </div>
+    </div>
+    
+  
+    
+    
+     <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a  class="btn btn-info" data-toggle="collapse" data-parent="#accordion" href="#collapse9">P</a>
+        </h4>
+      </div>
+      <div id="collapse9" class="panel-collapse collapse">
+        <div class="panel-body">
+          <p>Pirata informático:<span> Es quien adopta por negocio la reproducción, apropiación o acaparación y distribución, con fines lucrativos, y a gran escala, de distintos medios y contenidos (software, videos, música) de los que no posee licencia o permiso de su autor, generalmente haciendo uso de un ordenador.1 Siendo la de software la práctica de piratería más conocida.</span></p>
+          <p>Presupuesto:<span> Al cálculo y negociación anticipado de los ingresos y egresos de una actividad económica durante un período, por lo general en forma anual.</span></p>
+<p>principio de legalidad:<span> Es un principio fundamental conforme al cual todo ejercicio de un poder público debería realizarse acorde a la ley vigente y su jurisdicción y no a la voluntad de las personas. Si un Estado se atiene a dicho principio entonces las actuaciones de sus poderes estarían sometidas a la constitución actual o al imperio de la ley.</span></p>
+
+         </div>
+      </div>
+    </div>
+    
+        <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a  class="btn btn-info" data-toggle="collapse" data-parent="#accordion" href="#collapse10">S</a>
+        </h4>
+      </div>
+      <div id="collapse10" class="panel-collapse collapse">
+        <div class="panel-body">
+         <p>Sistema operativo:<span> Es un programa o conjunto de programas de un sistema informático que gestiona los recursos de hardware y provee servicios a los programas de aplicación, ejecutándose en modo privilegiado respecto de los restantes</span></p>
+<p>Software libre: <span>Es el software que respeta la libertad de los usuarios y la comunidad. A grandes rasgos, significa que los usuarios tienen la libertad de ejecutar, copiar, distribuir, estudiar, modificar y mejorar el software. </span></p>
+<p>Software Propietario: <span> El término ha sido creado para designar al antónimo del concepto de software libre, por lo cual en diversos sectores se le han asignado implicaciones políticas relativas al mismo. Para la Fundación para el Software Libre (FSF), este concepto se aplica a cualquier programa informático que no es libre o que sólo lo es parcialmente (semilibre), sea porque su uso, redistribución o modificación está prohibida, o sea porque requiere permiso expreso del titular del software.</span></p>
+<p>Software Pirata: <span>El software pirata es un programa que ha sido duplicado y distribuido sin autorización. Una serie de actividades se podrían considerar como piratería de software, la más común es cuando se hace múltiples copias de un programa para luego venderlas sin pagar ningún tipo de regalías al creador de dicho software</span></p>
+
+
+         </div>
+      </div>
+    </div>
+    
+    
+    
+     <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a  class="btn btn-info" data-toggle="collapse" data-parent="#accordion" href="#collapse11">T</a>
+        </h4>
+      </div>
+      <div id="collapse11" class="panel-collapse collapse">
+        <div class="panel-body">
+         <p>Tecnología:<span> Como un conjunto de conocimientos que sirven para producir bienes y servicios, afectando las ramas técnicas, científicas, sociales y culturales.</span></p>
+<p>Tecnologías educativas:<span> Es el resultado de las prácticas de diferentes concepciones y teorías educativas para la resolución de un amplio espectro de problemas y situaciones referidos a la enseñanza y el aprendizaje, apoyadas en las Tics (tecnologías de información y comunicación).</span></p>
+
+
+
+         </div>
+      </div>
+    </div>
+   
+
+    
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a  class="btn btn-info" data-toggle="collapse" data-parent="#accordion" href="#collapse12">W</a>
+        </h4>
+      </div>
+      <div id="collapse12" class="panel-collapse collapse">
+        <div class="panel-body">
+            <p>Writer:<span> Tiene todas las características que necesitas de una herramienta moderna, con todas las funciones de procesamiento de textos y autoedición. <span></p>
+         </div>
+      </div>
+    </div> 
+    </div>
+      
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+       
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!---------------------------------------------------------------------------------->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+	<script> window.jQuery || document.write('<script src="../booklet/jquery-2.1.0.min.js"><\/script>') </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+	<script> window.jQuery.ui || document.write('<script src="../booklet/jquery-ui-1.10.4.min.js"><\/script>') </script>
+    <script src="booklet/jquery.easing.1.3.js"></script>
+    <script src="booklet/jquery.booklet.latest.js"></script>
+    
+   <script type="text/javascript">
+   
+  
+function indice(msg){
+   
+    $('#gotoIndex').val(msg);  
+    $('#custom-gotopage').click(); 
+}
+
+function glosario(){
+  
+   $('#glos').modal('show');
+}
+
+function acerca(){
+    
+   $('#acerca').modal('show');
+}
+
+function ayuda(){
+  
+   $('#ayuda').modal('show');
+}
+</script>
+	<script type="text/javascript">
+  
+    $(document).ready(function(){
+/*    var pageNumbers="";
+    if(pageNumbers!=$(".b-selector.b-selector-page span.b-current").text())
+    {
+        
+           pageNumbers =$(".b-selector.b-selector-page span.b-current").text();
+            alert(pageNumbers);
+    }
+    else
+   {
+        
+            pageNumbers =$(".b-selector.b-selector-page span.b-current").text();
+            alert(pageNumbers);
+   }*/
+    
+    
+    
+    
+     $('#collap').load(function(){
+
+        var iframe = $('#collap').contents();
+
+        iframe.find("#custom").click(function(){
+            $('#gotoIndex').val("4");  
+           
+            $('#custom-gotopage').click();  
+        });
+});
+    
+});
+   
+   
+   function ventanaNueva(documento,nombreVentana){
+        
+        var params = [
+    'height='+900,
+    'width='+800,
+    'fullscreen=yes' // only works in IE, but here for completeness
+].join(',');
+     // and any other options from
+     // https://developer.mozilla.org/en/DOM/window.open
+
+var popup = window.open(documento, nombreVentana, params); 
+popup.moveTo(50,50);
+  //  window.open(documento, nombreVentana,'height=' + screen.height + ',width=' + screen.width + ',resizable=yes,scrollbars=yes,toolbar=yes,menubar=yes,location=yes');
+}
+	    $(function () {
+            
+    
+		
+			// Init
+			
+			var updateSelect = function (event, data) {
+				var pageTotal = data.options.pageTotal;
+				$('#gotoIndex, #addIndex, #removeIndex').children().remove();
+				$('#gotoIndex, #addIndex, #removeIndex').append('<option value="start">start</option><option value="end">end</option>');						
+				for(i = 0; i < pageTotal; i++) {
+					$('#gotoIndex, #addIndex, #removeIndex').append('<option value="'+ i +'">'+ i +'</option>');						
+				}
+			};
+			
+			var options = $.extend({}, $.fn.booklet.defaults, {
+			    pagePadding: 15,
+			    menu: "#menu",
+                 closed: true,
+			    pageSelector: true,
+			    chapterSelector: true,
+			    arrows: true,
+			    tabs: false,
+                arrowsHide:false,
+                   width: 800,                             // container width
+                            height: 500,                             // container height
+                            speed: 600,
+                             hovers: false, 
+                            manual:false,                           // enables preview pageturn hover animation, shows a small preview of previous or next page on hover
+                            overlays: false,                            // enables navigation using a page sized overlay, when enabled links inside the content will not be clickable
+                            tabs: true
+                            
+               
+			});
+			var updateOptions = function () {
+				$('#options-list').children().remove();
+				$.each(options, function(key, value){
+					$('#options-list').append('<li>'+key+' <input value="'+value+'" id="option-'+key+'" /></li>');
+					$('#option-'+key).on('change', function(e){
+						e.preventDefault();
+                       
+						var value = $(this).val();
+						var intValue = parseInt(value);
+						
+						if(!isNaN(intValue)) {
+							options[key] = intValue;
+							return;
+						}
+
+						options[key] = value;
+					});
+				});
+			};
+			updateOptions();
+			
+			var config = $.extend({}, options, {
+				create: updateSelect,
+				add: updateSelect,
+				remove: updateSelect
+			});
+	        var mybook = $("#mybook").booklet(config);
+            
+            /* var pageNumbers =$(".b-selector.b-selector-page span.b-current").text();
+               alert(pageNumbers);*/
+	
+			 $('#gotoIndex').on('change', function(e){
+				e.preventDefault();
+             
+				 $('#custom-gotopage').click();
+			});
+	
+			// New Page Default HTML
+	
+			var newPageCount = 0;
+	        var newPageHtml = function() {
+				newPageCount++;
+				return "<div rel='new chapter'>New Page \#"+newPageCount+"</div>";
+			};
+			
+			
+			// Display
+			
+	        var display = $("#display");
+			var updateDisplay = function(message) {
+				display.text(message + '\r\n' + display.text());
+                
+			};
+	
+			// Demo Actions
+	
+	        $('#custom-destroy').click(function (e) {
+	            e.preventDefault();
+	            $("#mybook").booklet("destroy");
+	            updateDisplay('$("#mybook").booklet("destroy")');
+	        });
+
+	        $('#custom-create').click(function (e) {
+	            e.preventDefault();
+	            $("#mybook").booklet(config);
+	            updateDisplay('$("#mybook").booklet();');
+	        });
+
+	        $('#custom-disable').click(function (e) {
+	            e.preventDefault();
+	            $("#mybook").booklet("disable");
+	            updateDisplay('$("#mybook").booklet("disable")');
+	        });
+
+	        $('#custom-enable').click(function (e) {
+	            e.preventDefault();
+	            $("#mybook").booklet("enable");
+	            updateDisplay('$("#mybook").booklet("enable")');
+	        });
+
+	        $('#custom-next').click(function (e) {
+	            e.preventDefault();
+	            $("#mybook").booklet("next");
+				updateDisplay('$("#mybook").booklet("next");');
+	        });
+
+	        $('#custom-prev').click(function (e) {
+	            e.preventDefault();
+	            $("#mybook").booklet("prev");
+				updateDisplay('$("#mybook").booklet("prev");');
+	        });
+
+	        $('#custom-gotopage').click(function (e) {
+	            e.preventDefault();
+                
+				var index = $('#gotoIndex').val();
+	            $("#mybook").booklet("gotopage", index);
+				updateDisplay('$("#mybook").booklet("gotopage", '+(index == "start" || index == "end" ? '"'+index+'"' : index)+');');
+                
+	        });
+
+	        $('#custom-add-index').click(function (e) {
+	            e.preventDefault();
+				var newPage = newPageHtml();
+				var index = $('#addIndex').val();
+	            $("#mybook").booklet("add", index, newPage);
+				updateDisplay('$("#mybook").booklet("add", '+ (index == "start" || index == "end" ? '"'+index+'"' : index) +', "'+ new String(newPage) +'");');
+	        });
+	
+	        $('#custom-remove-index').click(function (e) {
+	            e.preventDefault();
+				var index = $('#removeIndex').val();
+	            $("#mybook").booklet("remove", index);
+				updateDisplay('$("#mybook").booklet("remove", '+ (index == "start" || index == "end" ? '"'+index+'"' : index) +');');
+	        });
+
+	        $('#custom-update-options').click(function (e) {
+	            e.preventDefault();
+				$("#mybook").booklet("option", options);
+				updateDisplay('$("#mybook").booklet("option", '+ options +');');
+	        });
+	
+	        $('#custom-reset-options').click(function (e) {
+	            e.preventDefault();
+				$("#mybook").booklet("option", config);
+				updateDisplay('$("#mybook").booklet("option", '+ options +');');
+				updateOptions();
+	        });
+
+	    });
+        
+       /**************************************** */
+       
+    </script>
+   
+    
+      <!-- *** BEGIN: Scripts *** -->
+  <script src="Scripts/bootstrap.min.js"></script>
+  <script src="Scripts/pdsa-collapser.js"></script>
+  <script src="Scripts/pdsa-common.js"></script>
+  <!-- *** END: Scripts *** -->
+</body>
+</html>
